@@ -16,7 +16,33 @@ Webev Template for **Markdown Documentation!**
  - [cookiecutter][2]
 
 ## Usage
-    $ cookiecutter https://github.com/webevllc/webev-template-docs.git
+    $ cookiecutter gh:webevllc/webev-template-docs
+
+## Example
+    $ cookiecutter gh:webevllc/webev-template-docs
+    Cloning into 'webev-template-docs'...
+    remote: Counting objects: 18, done.
+    remote: Compressing objects: 100% (13/13), done.
+    remote: Total 18 (delta 2), reused 18 (delta 2), pack-reused 0
+    Unpacking objects: 100% (18/18), done.
+    Checking connectivity... done.
+    author_name [My Name]: Nathan Urwin
+    author_user [mygithubusernameis]: tuxredux
+    author_email [myemail@example.com]: tuxredux2@gmail.com
+    repo_name [my-repo-name]: cookie-cutter-test       
+    pkg_name [mypkgname]: cookiecuttertest
+
+    $ tree cookie-cutter-test
+    cookie-cutter-test
+    ├── AUTHORS.md
+    ├── CHANGELOG.md
+    ├── CONTRIBUTING.md
+    ├── cookiecuttertest
+    ├── LICENSE
+    ├── NOTICE
+    └── README.md
+
+    1 directory, 6 files
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)
