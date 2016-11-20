@@ -1,5 +1,5 @@
-# webev-template-docs
-Webev Template for **Markdown Documentation!**
+# cookiecutter-docs-md
+Cookiecutter for **Markdown Documentation!**
 
 ## Features
  - Markdown documentation
