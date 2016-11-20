@@ -1,7 +1,8 @@
 {
   "author_name": "My Name",
-  "author_user": "mygithubusernameis",
   "author_email": "myemail@example.com",
+  "github_user": "myusernameismyusernameis",
+  "repo_space": "myusernameorgroup",
   "repo_name": "my-repo-name",
   "pkg_name": "mypkgname"
 }
