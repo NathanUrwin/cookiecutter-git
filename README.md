@@ -1,5 +1,5 @@
 # cookiecutter-docs-md
-Cookiecutter for **Markdown Documentation!**
+Cookiecutter for **Markdown Documentation**!
 
 ## Features
  - Markdown documentation
