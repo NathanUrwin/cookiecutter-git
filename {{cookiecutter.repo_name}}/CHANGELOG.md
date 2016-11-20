@@ -1,4 +1,1 @@
-# Changelog
-
-## v0
- - Initial commit
+# Change Log
