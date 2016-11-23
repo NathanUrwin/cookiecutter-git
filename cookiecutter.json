@@ -4,5 +4,9 @@
   "github_user": "myusernameismyusernameis",
   "repo_space": "myusernameorgroup",
   "repo_name": "my-repo-name",
-  "pkg_name": "mypkgname"
+  "pkg_name": "mypkgname",
+  "gitignore": "windows,osx,linux,git",
+  "license": ["Apache-2.0", "MIT", "BSD-3", "GPLv3", "Proprietary"],
+  "copyright_holder": "My Company, Inc.",
+  "copyright_holder_short": "MY COMPANY"
 }
