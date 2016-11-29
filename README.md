@@ -1,15 +1,16 @@
 # cookiecutter-bare
-Cookiecutter for a **Bare Project**!
+**Cookiecutter** for a **Bare** Project! https://webev.net/
 
 ## Features
  - Bare project structure
  - License customization
  - Gitignore customization
 
-## Upcoming
+### Upcoming
  - Gitlab support
- - Remote repo init
+ - Remote repository automatic initialization
  - [github-changelog-generator][1]
+ - First major tag release
 
 ## Requirements
  - [bash][2]

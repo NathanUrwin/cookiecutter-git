@@ -4,10 +4,13 @@
 ## Features
 *Coming Soon*
 
-## Upcoming
+### Upcoming
 *Coming Soon*
 
 ## Requirements
+*Coming Soon*
+
+### Packages
 *Coming Soon*
 
 ## Installation
@@ -22,7 +25,7 @@
 ## Deployment
 *Coming Soon*
 
-## Live
+## Testing
 *Coming Soon*
 
 ## Resources
@@ -38,4 +41,4 @@ See [CHANGELOG](CHANGELOG.md)
 See [AUTHORS](AUTHORS.md)
 
 ## License
-See [LICENSE](LICENSE), [NOTICE](NOTICE)
+See [LICENSE](LICENSE){% if cookiecutter.license == 'Apache-2.0' %}, [NOTICE](NOTICE){% endif %}
