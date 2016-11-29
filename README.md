@@ -1,5 +1,5 @@
 # cookiecutter-bare
-**Cookiecutter** for a **Bare** Project! https://webev.net/
+**Cookiecutter** for a **Bare** Project!
 
 ## Features
  - Bare project structure
