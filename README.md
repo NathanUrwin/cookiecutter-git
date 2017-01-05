@@ -6,7 +6,7 @@
  - License customization
  - Gitignore customization
 
-### Upcoming
+## Upcoming
  - Gitlab support
  - Remote repository automatic initialization
  - [github-changelog-generator][1]
