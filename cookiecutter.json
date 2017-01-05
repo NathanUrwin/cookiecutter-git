@@ -4,6 +4,8 @@
   "github_user": "myusernameismyusernameis",
   "repo_space": "myusernameorgroup",
   "repo_name": "my-repo-name",
+  "create_remote": "y",
+  "repo_space_is_org": "n",
   "pkg_name": "mypkgname",
   "gitignore": "windows,osx,linux,git",
   "license": ["Apache-2.0", "MIT", "BSD-3", "GPLv3", "Proprietary"],

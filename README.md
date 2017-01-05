@@ -5,10 +5,10 @@
  - Bare project structure
  - License customization
  - Gitignore customization
+ - Remote repository creation
 
 ## Upcoming
  - Gitlab support
- - Remote repository automatic initialization
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - First major tag release
 
