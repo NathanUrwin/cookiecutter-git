@@ -9,13 +9,13 @@
 ## Upcoming
  - Gitlab support
  - Remote repository automatic initialization
- - [github-changelog-generator][1]
+ - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - First major tag release
 
 ## Requirements
- - [bash][2]
- - [python][3]
- - [cookiecutter][4]
+ - [bash](https://www.gnu.org/software/bash/bash.html)
+ - [python](https://www.python.org/downloads/)
+ - [cookiecutter](https://github.com/audreyr/cookiecutter)
 
 ## Usage
     $ cookiecutter gh:webevllc/cookiecutter-bare
@@ -75,8 +75,3 @@ See [AUTHORS](AUTHORS.md)
 
 ## License
 See [LICENSE](LICENSE), [NOTICE](NOTICE)
-
-[1]: https://github.com/skywinder/github-changelog-generator
-[2]: https://www.gnu.org/software/bash/bash.html
-[3]: https://www.python.org/downloads/
-[4]: https://github.com/audreyr/cookiecutter
