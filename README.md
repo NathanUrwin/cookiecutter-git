@@ -8,13 +8,13 @@
  - Remote repository creation
 
 ### Upcoming
- - Gitlab support
+ - Gitlab.com support
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - First major tag release
- - Bitbucket support ?
- - AWS CodeCommit support ?
  - More license choices ?
- - *Windows* support ?
+ - Bitbucket.org support ?
+ - AWS CodeCommit support ?
+ - *Windows&reg;* support ?
 
 ## Requirements
  - [bash](https://www.gnu.org/software/bash/bash.html)
