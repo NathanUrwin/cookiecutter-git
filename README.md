@@ -7,10 +7,14 @@
  - Gitignore customization
  - Remote repository creation
 
-## Upcoming
+### Upcoming
  - Gitlab support
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - First major tag release
+ - Bitbucket support ?
+ - AWS CodeCommit support ?
+ - More license choices ?
+ - *Windows* support ?
 
 ## Requirements
  - [bash](https://www.gnu.org/software/bash/bash.html)
@@ -20,7 +24,7 @@
 ## Usage
     $ cookiecutter gh:webevllc/cookiecutter-bare
 
-## Example
+### Example
     $ cookiecutter gh:webevllc/cookiecutter-bare
     Cloning into 'cookiecutter-bare'...
     remote: Counting objects: 52, done.
