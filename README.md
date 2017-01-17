@@ -11,8 +11,8 @@
  - Gitlab.com support
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - First major tag release
- - More license choices ?
- - Bitbucket.org support ?
+ - More license choices
+ - Bitbucket.org support
  - AWS CodeCommit support ?
  - *Windows&reg;* support ?
 
