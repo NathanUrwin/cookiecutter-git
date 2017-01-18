@@ -6,16 +6,16 @@
  - License customization
  - Gitignore customization
  - Remote repository creation
-  - GitHub.com
-  - GitLab.com
+  - GitHub.com as provider
+  - GitLab.com as provider
 
 ### Upcoming
  - More license choices
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - Bitbucket.org support
  - First major tag release
- - *AWS CodeCommit&reg;* support ?
- - *Windows&reg;* support ?
+ - *AWS&reg; CodeCommit&reg;* support ?
+ - *Microsoft&reg; Windows&reg;* support ?
 
 ## Requirements
  - [bash](https://www.gnu.org/software/bash/bash.html)
