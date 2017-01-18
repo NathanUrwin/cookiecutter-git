@@ -10,9 +10,9 @@
 ### Upcoming
  - Gitlab.com support
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
- - First major tag release
  - More license choices
  - Bitbucket.org support
+ - First major tag release
  - *AWS CodeCommit&reg;* support ?
  - *Windows&reg;* support ?
 
