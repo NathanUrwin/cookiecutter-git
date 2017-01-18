@@ -1,16 +1,17 @@
 # cookiecutter-bare
-**Cookiecutter** for a **Bare** Project!
+**Bare Cookiecutter**. Git Project Template!
 
 ## Features
  - Bare project structure
  - License customization
  - Gitignore customization
  - Remote repository creation
+  - GitHub.com
+  - GitLab.com
 
 ### Upcoming
- - Gitlab.com support
- - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - More license choices
+ - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - Bitbucket.org support
  - First major tag release
  - *AWS CodeCommit&reg;* support ?
