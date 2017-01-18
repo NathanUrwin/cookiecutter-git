@@ -1,14 +1,14 @@
 {
-  "author_name": "My Name",
-  "author_email": "myemail@example.com",
-  "github_user": "myusernameismyusernameis",
-  "repo_space": "myusernameorgroup",
-  "repo_name": "my-repo-name",
+  "author_name": "Nathan Urwin",
+  "author_email": "tuxredux2@gmail.com",
+  "github_user": "tuxredux",
+  "repo_space": "tuxredux",
+  "repo_name": "bare-repository",
   "create_remote": "y",
   "repo_space_is_org": "n",
-  "pkg_name": "mypkgname",
+  "pkg_name": "bare_package",
   "gitignore": "windows,osx,linux,git",
   "license": ["Apache-2.0", "MIT", "BSD-3", "GPLv3", "Proprietary"],
-  "copyright_holder": "My Company, Inc.",
-  "copyright_holder_short": "MY COMPANY"
+  "copyright_holder": "Webev LLC",
+  "copyright_holder_short": "WEBEV"
 }

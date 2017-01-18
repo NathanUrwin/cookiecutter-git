@@ -13,7 +13,7 @@
  - First major tag release
  - More license choices
  - Bitbucket.org support
- - AWS CodeCommit support ?
+ - *AWS CodeCommit&reg;* support ?
  - *Windows&reg;* support ?
 
 ## Requirements
