@@ -4,15 +4,15 @@
 ## Features
  - Bare project structure
  - License customization
- - Gitignore customization
+ - [Gitignore customization](https://www.gitignore.io/)
  - Remote repository creation
-  - GitHub.com as provider
-  - GitLab.com as provider
+  - [GitHub.com as provider](https://github.com/)
+  - [GitLab.com as provider](https://gitlab.com/)
 
 ### Upcoming
  - More license choices
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
- - Bitbucket.org support
+ - [Bitbucket.org support](https://bitbucket.org/)
  - First major tag release
  - *AWS&reg; CodeCommit&reg;* support ?
  - *Microsoft&reg; Windows&reg;* support ?
