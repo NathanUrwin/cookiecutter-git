@@ -1,5 +1,5 @@
-# cookiecutter-bare
-**Bare Cookiecutter**. Git Project Template!
+# cookiecutter-git
+**Git Cookiecutter**. Git Repository Template!
 
 ## Features
  - Bare project structure
@@ -23,11 +23,11 @@
  - [cookiecutter](https://github.com/audreyr/cookiecutter)
 
 ## Usage
-    $ cookiecutter gh:webevllc/cookiecutter-bare
+    $ cookiecutter gh:webevllc/cookiecutter-git
 
 ### Example
-    $ cookiecutter gh:webevllc/cookiecutter-bare
-    You've cloned /home/user/.cookiecutters/cookiecutter-bare before. Is it okay to delete and re-clone it? [yes]:
+    $ cookiecutter gh:webevllc/cookiecutter-git
+    You've cloned /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-clone it? [yes]:
     author_name [Nathan Urwin]:
     author_email [tuxredux2@gmail.com]:
     git_user [tuxredux]:
