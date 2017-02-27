@@ -27,7 +27,6 @@
 
 ### Example
     $ cookiecutter gh:webevllc/cookiecutter-git
-    You've cloned /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-clone it? [yes]:
     author_name [Nathan Urwin]:
     author_email [tuxredux2@gmail.com]:
     git_user [tuxredux]:
@@ -91,7 +90,7 @@
     	new file:   README.md
     	new file:   bare_package/.gitkeep
 
-    [master (root-commit) a6487d7] Initial commit
+    [master (root-commit) d55acfb] Initial commit
      8 files changed, 350 insertions(+)
      create mode 100644 .gitignore
      create mode 100644 AUTHORS.md
@@ -103,7 +102,7 @@
      create mode 100644 bare_package/.gitkeep
     Enter host password for user 'tuxredux':
     {
-      "id": 79304720,
+      "id": 83353120,
       "name": "bare-repository",
       "full_name": "tuxredux/bare-repository",
       "owner": {
@@ -166,9 +165,9 @@
       "labels_url": "https://api.github.com/repos/tuxredux/bare-repository/labels{/name}",
       "releases_url": "https://api.github.com/repos/tuxredux/bare-repository/releases{/id}",
       "deployments_url": "https://api.github.com/repos/tuxredux/bare-repository/deployments",
-      "created_at": "2017-01-18T04:53:36Z",
-      "updated_at": "2017-01-18T04:53:36Z",
-      "pushed_at": "2017-01-18T04:53:36Z",
+      "created_at": "2017-02-27T20:24:09Z",
+      "updated_at": "2017-02-27T20:24:09Z",
+      "pushed_at": "2017-02-27T20:24:10Z",
       "git_url": "git://github.com/tuxredux/bare-repository.git",
       "ssh_url": "git@github.com:tuxredux/bare-repository.git",
       "clone_url": "https://github.com/tuxredux/bare-repository.git",
