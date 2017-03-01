@@ -80,10 +80,9 @@ def create_gitlab_repo():
     for namespace in gitlab_namespaces:
         if namespace.get(u'name', u'') == u'{{cookiecutter.repo_space}}':
             namespace_id = namespace.get(u'id', u'')
-    projects_params = {u'name': u'{{cookiecutter.repo_name}}'}
     if namespace_id:
-        projects_params.update({u'namespace_id': namespace_id})
-    data = unicode(urllib.urlencode(projects_params))
+        REPO_NAME_DATA.update({u'namespace_id': namespace_id})
+    data = unicode(urllib.urlencode(REPO_NAME_DATA))
     request(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
 
 {% if cookiecutter.license != 'Apache-2.0' %}
