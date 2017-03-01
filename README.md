@@ -8,6 +8,7 @@
  - Remote repository creation
   - [GitHub.com as provider](https://github.com/)
   - [GitLab.com as provider](https://gitlab.com/)
+ - Cross-platform support
 
 ### Upcoming
  - More license choices

@@ -109,6 +109,7 @@ create_github_repo()
 {% elif cookiecutter.remote_provider == 'GitLab' %}
 create_gitlab_repo()
 {% endif %}
+
 run([u'git', u'remote', u'add', u'origin', REPO_REMOTE_URL])
 run([u'git', u'push', u'-u', u'origin', u'master'])
 
