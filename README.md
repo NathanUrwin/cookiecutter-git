@@ -1,5 +1,5 @@
 # cookiecutter-git
-**Git Cookiecutter**. Git Repository Template!
+**Git Cookiecutter**. Git Repository Project Template!
 
 ## Features
  - Bare project structure
