@@ -1,35 +1,4 @@
 # {{cookiecutter.repo_name}}
-*Coming Soon*
-
-## Features
-*Coming Soon*
-
-### Upcoming
-*Coming Soon*
-
-## Requirements
-*Coming Soon*
-
-### Packages
-*Coming Soon*
-
-## Installation
-*Coming Soon*
-
-## Usage
-*Coming Soon*
-
-## Configuration
-*Coming Soon*
-
-## Deployment
-*Coming Soon*
-
-## Testing
-*Coming Soon*
-
-## Resources
-*Coming Soon*
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)
