@@ -18,7 +18,7 @@
  - *Microsoft&reg; Windows&reg;* support ?
 
 ## Requirements
- - [bash](https://www.gnu.org/software/bash/bash.html)
+ - [git](https://git-scm.com/downloads)
  - [python](https://www.python.org/downloads/)
  - [cookiecutter](https://github.com/audreyr/cookiecutter)
 
