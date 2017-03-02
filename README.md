@@ -16,7 +16,6 @@
  - [Bitbucket.org support](https://bitbucket.org/)
  - First major tag release
  - *AWS&reg; CodeCommit&reg;* support ?
- - *Microsoft&reg; Windows&reg;* support ?
 
 ## Requirements
  - [git](https://git-scm.com/downloads)
