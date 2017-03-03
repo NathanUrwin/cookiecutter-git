@@ -100,7 +100,7 @@ run([u'git', u'init'])
 run([u'git', u'status'])
 run([u'git', u'add', u'-A'])
 run([u'git', u'status'])
-run([u'git', u'commit', u'-m', u'"Initial commit"'])
+run([u'git', u'commit', u'-m', u'Initial commit'])
 
 {% if cookiecutter.create_remote == 'yes' %}
 
