@@ -15,7 +15,7 @@
  - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
  - [Bitbucket.org support](https://bitbucket.org/)
  - First major tag release
- - *AWS&reg; CodeCommit&reg;* support ?
+ - [AWS CodeCommit](https://aws.amazon.com/codecommit/) support ?
 
 ## Requirements
  - [git](https://git-scm.com/downloads)
