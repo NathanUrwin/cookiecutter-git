@@ -12,9 +12,9 @@
 
 ### Upcoming
  - More license choices
- - [github-changelog-generator](https://github.com/skywinder/github-changelog-generator)
- - [Bitbucket.org support](https://bitbucket.org/)
+ - Generated change log
  - First major tag release
+ - [Bitbucket.org support](https://bitbucket.org/)
  - [CodeCommit support](https://aws.amazon.com/codecommit/) ?
 
 ## Requirements
