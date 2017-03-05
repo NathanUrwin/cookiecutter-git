@@ -43,7 +43,7 @@ def run(command, log=True):
     return output
 
 
-def request(url, headers=None, data=None, log=True):
+def _request(url, headers, data, log):
     try:
         req = urllib2.Request(url, data=data, headers=headers)
         response = urllib2.urlopen(req)
@@ -62,6 +62,14 @@ def request(url, headers=None, data=None, log=True):
     return content
 
 
+def get(url, headers={}, log=True):
+    return _request(url, headers, None, log)
+
+
+def post(url, headers={}, data=None, log=True):
+    return _request(url, headers, data, log)
+
+
 def create_github_repo():
     data = json.dumps(REPO_NAME_DATA)
     prompt = (u"Password for 'https://{{cookiecutter.git_user}}@"
@@ -69,13 +77,13 @@ def create_github_repo():
     auth_info = (u'{{cookiecutter.git_user}}', getpass.getpass(prompt).strip())
     auth_base = base64.b64encode(u'%s:%s' % auth_info)
     headers = {u'Authorization': u'Basic %s' % auth_base}
-    request(GITHUB_REPOS_URL, data=data, headers=headers)
+    post(GITHUB_REPOS_URL, data=data, headers=headers)
 
 
 def create_gitlab_repo():
     search_param = {u'search': u'{{cookiecutter.repo_space}}'}
     search_url = GITLAB_NAMESPACES_URL + u'?' + urllib.urlencode(search_param)
-    search_results = request(search_url, headers=GITLAB_TOKEN_HEADER)
+    search_results = get(search_url, headers=GITLAB_TOKEN_HEADER)
     gitlab_namespaces = json.loads(search_results)
     for namespace in gitlab_namespaces:
         if namespace.get(u'name', u'') == u'{{cookiecutter.repo_space}}':
@@ -83,7 +91,7 @@ def create_gitlab_repo():
     if namespace_id:
         REPO_NAME_DATA.update({u'namespace_id': namespace_id})
     data = unicode(urllib.urlencode(REPO_NAME_DATA))
-    request(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
+    post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
 
 {% if cookiecutter.license != 'Apache-2.0' %}
 print u"Removing '%s'..." % NOTICE_PATH
@@ -92,7 +100,7 @@ os.remove(NOTICE_PATH)
 
 {% if cookiecutter.gitignore != 'windows,osx,linux,git' %}
 with open(GITIGNORE_PATH, u'wb') as f:
-    f.write(request(GITIGNORE_URL))
+    f.write(get(GITIGNORE_URL))
 print u"updated '%s'" % GITIGNORE_PATH
 {% endif %}
 
