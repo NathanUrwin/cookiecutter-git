@@ -129,7 +129,6 @@ run(['git', 'push', '-u', 'origin', 'master'])
 {% endif %}
 
 print
-print
 print '{{cookiecutter.repo_name}} setup successfully!'
 print
 print
