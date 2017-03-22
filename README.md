@@ -15,6 +15,8 @@
 - First tagged release
 - More license choices
 - [Bitbucket.org support](https://bitbucket.org/)
+- Full coverage testing
+- Continuous integration
 - [CodeCommit support](https://aws.amazon.com/codecommit/) ?
 
 ## Requirements
