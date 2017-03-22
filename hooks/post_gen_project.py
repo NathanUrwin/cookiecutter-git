@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import os
 import json
 import base64
@@ -10,36 +12,39 @@ import getpass
 import subprocess
 
 REPO_PATH = os.getcwd()
-NOTICE_PATH = os.path.join(REPO_PATH, u'NOTICE')
-GITIGNORE_PATH = os.path.join(REPO_PATH, u'.gitignore')
-GITIGNORE_URL = u'https://www.gitignore.io/api/{{cookiecutter.gitignore}}'
+NOTICE_PATH = os.path.join(REPO_PATH, 'NOTICE')
+GITIGNORE_PATH = os.path.join(REPO_PATH, '.gitignore')
+GITIGNORE_URL = 'https://www.gitignore.io/api/{{cookiecutter.gitignore}}'
 
-{% if cookiecutter.github_org_repo_space == 'no' %}
-GITHUB_REPOS_URL = u'https://api.github.com/user/repos'
+{% if cookiecutter.git_user == cookiecutter.repo_space %}
+GITHUB_REPOS_URL = 'https://api.github.com/user/repos'
 {% else %}
-GITHUB_REPOS_URL = u'https://api.github.com/orgs/{{cookiecutter.repo_space}}/repos'
+GITHUB_REPOS_URL = 'https://api.github.com/orgs/{{cookiecutter.repo_space}}/repos'
 {% endif %}
 
-GITLAB_TOKEN_HEADER = {u'PRIVATE-TOKEN': u'{{cookiecutter.gitlab_token}}'}
-GITLAB_NAMESPACES_URL = u'https://gitlab.com/api/v3/namespaces'
-GITLAB_PROJECTS_URL = u'https://gitlab.com/api/v3/projects'
-REPO_REMOTE_URL = (u'https://{{cookiecutter.git_user}}@'
-    u'{{cookiecutter.remote_provider|lower}}.com/'
-    u'{{cookiecutter.repo_space}}/{{cookiecutter.repo_name}}.git')
-REPO_NAME_DATA = {u'name': u'{{cookiecutter.repo_name}}'}
+{% if cookiecutter.remote_provider == 'GitLab' %}
+GITLAB_TOKEN = getpass.getpass('gitlab_token: ').strip()
+GITLAB_TOKEN_HEADER = {'PRIVATE-TOKEN': GITLAB_TOKEN}
+{% endif %}
+GITLAB_NAMESPACES_URL = 'https://gitlab.com/api/v3/namespaces'
+GITLAB_PROJECTS_URL = 'https://gitlab.com/api/v3/projects'
+REPO_REMOTE_URL = ('https://{{cookiecutter.git_user}}@'
+    '{{cookiecutter.remote_provider|lower}}.com/'
+    '{{cookiecutter.repo_space}}/{{cookiecutter.repo_name}}.git')
+REPO_NAME_DATA = {'name': '{{cookiecutter.repo_name}}'}
 
 
 def run(command, log=True):
     try:
         output = subprocess.check_output(command)
     except subprocess.CalledProcessError as error:
-        print u'%s: %s\n%s' % (error.returncode, error.cmd, error.output)
+        print '%s: %s\n%s' % (error.returncode, error.cmd, error.output)
         raise error
     else:
         if output and log:
-            print u'%s\n%s' % (u' '.join(command), output)
+            print '%s\n%s' % (' '.join(command), output)
         else:
-            print u' '.join(command)
+            print ' '.join(command)
     return output
 
 
@@ -52,11 +57,11 @@ def _request(url, headers, data, log):
     except urllib2.HTTPError as error:
         message = error.read()
         error.close()
-        print u'%s %s: %s\n%s' % (error.code, error.reason, url, message)
+        print '%s %s: %s\n%s' % (error.code, error.reason, url, message)
         raise error
     else:
         if content and log:
-            print u'%s\n%s' % (url, content)
+            print '%s\n%s' % (url, content)
         else:
             print url
     return content
@@ -74,22 +79,22 @@ def create_github_repo():
     data = json.dumps(REPO_NAME_DATA)
     prompt = (u"Password for 'https://{{cookiecutter.git_user}}@"
         u"{{cookiecutter.remote_provider|lower}}.com': ")
-    auth_info = (u'{{cookiecutter.git_user}}', getpass.getpass(prompt).strip())
-    auth_base = base64.b64encode(u'%s:%s' % auth_info)
-    headers = {u'Authorization': u'Basic %s' % auth_base}
+    auth_info = ('{{cookiecutter.git_user}}', getpass.getpass(prompt).strip())
+    auth_base = base64.b64encode('%s:%s' % auth_info)
+    headers = {'Authorization': 'Basic %s' % auth_base}
     post(GITHUB_REPOS_URL, data=data, headers=headers)
 
 
 def create_gitlab_repo():
-    search_param = {u'search': u'{{cookiecutter.repo_space}}'}
-    search_url = GITLAB_NAMESPACES_URL + u'?' + urllib.urlencode(search_param)
+    search_param = {'search': '{{cookiecutter.repo_space}}'}
+    search_url = GITLAB_NAMESPACES_URL + '?' + urllib.urlencode(search_param)
     search_results = get(search_url, headers=GITLAB_TOKEN_HEADER)
     gitlab_namespaces = json.loads(search_results)
     for namespace in gitlab_namespaces:
-        if namespace.get(u'name', u'') == u'{{cookiecutter.repo_space}}':
-            namespace_id = namespace.get(u'id', u'')
+        if namespace.get('name', '') == '{{cookiecutter.repo_space}}':
+            namespace_id = namespace.get('id', '')
     if namespace_id:
-        REPO_NAME_DATA.update({u'namespace_id': namespace_id})
+        REPO_NAME_DATA.update({'namespace_id': namespace_id})
     data = unicode(urllib.urlencode(REPO_NAME_DATA))
     post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
 
@@ -99,16 +104,16 @@ os.remove(NOTICE_PATH)
 {% endif %}
 
 {% if cookiecutter.gitignore != 'windows,osx,linux,git' %}
-with open(GITIGNORE_PATH, u'wb') as f:
+with open(GITIGNORE_PATH, 'wb') as f:
     f.write(get(GITIGNORE_URL))
 print u"updated '%s'" % GITIGNORE_PATH
 {% endif %}
 
-run([u'git', u'init'])
-run([u'git', u'status'])
-run([u'git', u'add', u'-A'])
-run([u'git', u'status'])
-run([u'git', u'commit', u'-m', u'Initial commit'])
+run(['git', 'init'])
+run(['git', 'status'])
+run(['git', 'add', '-A'])
+run(['git', 'status'])
+run(['git', 'commit', '-m', 'Initial commit'])
 
 {% if cookiecutter.create_remote == 'yes' %}
 
@@ -118,13 +123,13 @@ create_github_repo()
 create_gitlab_repo()
 {% endif %}
 
-run([u'git', u'remote', u'add', u'origin', REPO_REMOTE_URL])
-run([u'git', u'push', u'-u', u'origin', u'master'])
+run(['git', 'remote', 'add', 'origin', REPO_REMOTE_URL])
+run(['git', 'push', '-u', 'origin', 'master'])
 
 {% endif %}
 
 print
 print
-print u'{{cookiecutter.repo_name}} setup successfully!'
+print '{{cookiecutter.repo_name}} setup successfully!'
 print
 print

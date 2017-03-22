@@ -923,25 +923,25 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 {% elif cookiecutter.license == 'Proprietary' %}
-{{cookiecutter.copyright_holder}} ("{{cookiecutter.copyright_holder_short}}") CONFIDENTIAL
+{{cookiecutter.copyright_holder}} ("{{cookiecutter.copyright_holder|upper}}") CONFIDENTIAL
 Unpublished Copyright (c) 2016 WEBEV, All Rights Reserved.
 
 NOTICE: All information contained herein is, and remains the property of
-{{cookiecutter.copyright_holder_short}}. The intellectual and technical concepts contained herein are
-proprietary to {{cookiecutter.copyright_holder_short}} and may be covered by U.S. and Foreign Patents, patents
+{{cookiecutter.copyright_holder|upper}}. The intellectual and technical concepts contained herein are
+proprietary to {{cookiecutter.copyright_holder|upper}} and may be covered by U.S. and Foreign Patents, patents
 in process, and are protected by trade secret or copyright law. Dissemination
 of this information or reproduction of this material is strictly forbidden
-unless prior written permission is obtained from {{cookiecutter.copyright_holder_short}}. Access to the source
-code contained herein is hereby forbidden to anyone except current {{cookiecutter.copyright_holder_short}}
+unless prior written permission is obtained from {{cookiecutter.copyright_holder|upper}}. Access to the source
+code contained herein is hereby forbidden to anyone except current {{cookiecutter.copyright_holder|upper}}
 employees, managers or contractors who have executed Confidentiality and
 Non-disclosure agreements explicitly covering such access.
 
 The copyright notice above does not evidence any actual or intended publication
 or disclosure of this source code, which includes information that is
-confidential and/or proprietary, and is a trade secret, of {{cookiecutter.copyright_holder_short}}. ANY
+confidential and/or proprietary, and is a trade secret, of {{cookiecutter.copyright_holder|upper}}. ANY
 REPRODUCTION, MODIFICATION, DISTRIBUTION, PUBLIC PERFORMANCE, OR PUBLIC DISPLAY
 OF OR THROUGH USE OF THIS SOURCE CODE WITHOUT THE EXPRESS WRITTEN CONSENT OF
-{{cookiecutter.copyright_holder_short}} IS STRICTLY PROHIBITED, AND IN VIOLATION OF APPLICABLE LAWS AND
+{{cookiecutter.copyright_holder|upper}} IS STRICTLY PROHIBITED, AND IN VIOLATION OF APPLICABLE LAWS AND
 INTERNATIONAL TREATIES. THE RECEIPT OR POSSESSION OF THIS SOURCE CODE AND/OR
 RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY RIGHTS TO REPRODUCE, DISCLOSE
 OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE, USE, OR SELL ANYTHING THAT IT

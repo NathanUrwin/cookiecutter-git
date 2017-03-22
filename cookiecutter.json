@@ -4,13 +4,10 @@
   "git_user": "tuxredux",
   "repo_space": "webevllc",
   "repo_name": "test-repo",
-  "pkg_name": "repo_pkg",
+  "pkg_name": "test_pkg",
   "create_remote": ["yes", "no"],
   "remote_provider": ["GitHub", "GitLab"],
-  "github_org_repo_space": ["yes", "no"],
-  "gitlab_token": "",
   "gitignore": "windows,osx,linux,git",
   "license": ["Apache-2.0", "MIT", "BSD-3", "GPLv3", "Proprietary"],
-  "copyright_holder": "Webev LLC",
-  "copyright_holder_short": "WEBEV"
+  "copyright_holder": "Webev LLC"
 }
