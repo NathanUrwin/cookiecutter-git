@@ -26,7 +26,7 @@
     $ cookiecutter gh:webevllc/cookiecutter-git
 
 ### Example
-See https://github.com/webevllc/test-repo
+See [test-repo](https://github.com/webevllc/test-repo)
 
     $ tree -a test-repo
     test-repo
