@@ -2,8 +2,8 @@
 **Git Cookiecutter**. Git Repository Project Template!
 
 ## Features
-- Bare project structure
-- License customization
+- [Bare project structure](https://github.com/webevllc/example-repo)
+- [License customization](https://developer.github.com/v3/licenses/)
 - [Gitignore customization](https://www.gitignore.io/)
 - Remote repository creation
   - [GitHub.com as provider](https://github.com/)
@@ -11,13 +11,11 @@
 - Cross-platform support
 
 ### Upcoming
-- [Generated change log](https://github.com/skywinder/github-changelog-generator)
-- More license choices
 - [Bitbucket.org support](https://bitbucket.org/)
 - Full coverage testing
 - Continuous integration
 - First tagged release
-- Add logger to hooks ?
+- Add [logging](https://docs.python.org/2/library/logging.html) to hooks ?
 - [CodeCommit support](https://aws.amazon.com/codecommit/) ?
 
 ## Requirements
@@ -29,7 +27,7 @@
     $ cookiecutter gh:webevllc/cookiecutter-git
 
 ### Example
-See [test-repo](https://github.com/webevllc/test-repo)
+See [example-repo](https://github.com/webevllc/example-repo)
 
     $ tree -a test-repo
     test-repo
@@ -45,6 +43,11 @@ See [test-repo](https://github.com/webevllc/test-repo)
         └── .gitkeep
 
     2 directories, 8 files
+
+## Resources
+- [Gitignore Docs](https://www.gitignore.io/docs)
+- [GitHub Repos API](https://developer.github.com/v3/repos/)
+- [GitLab Projects API](https://docs.gitlab.com/ce/api/projects.html)
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)

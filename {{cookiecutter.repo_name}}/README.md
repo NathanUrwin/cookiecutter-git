@@ -1,4 +1,5 @@
 # {{cookiecutter.repo_name}}
+{{cookiecutter.repo_description}}
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)

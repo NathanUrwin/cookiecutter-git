@@ -3,11 +3,25 @@
   "author_email": "tuxredux2@gmail.com",
   "git_user": "tuxredux",
   "repo_space": "webevllc",
-  "repo_name": "test-repo",
-  "pkg_name": "test_pkg",
+  "repo_name": "example-repo",
+  "repo_description": "An example cookiecutter-git project",
+  "pkg_name": "example_pkg",
   "create_remote": ["yes", "no"],
   "remote_provider": ["GitHub", "GitLab"],
   "gitignore": "windows,osx,linux,git",
-  "license": ["Apache-2.0", "MIT", "BSD-3", "GPLv3", "Proprietary"],
+  "license": [
+    "Apache-2.0",
+    "GPL-3.0",
+    "MIT",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "EPL-1.0",
+    "AGPL-3.0",
+    "GPL-2.0",
+    "LGPL-2.1",
+    "LGPL-3.0",
+    "MPL-2.0",
+    "Unlicense"
+  ],
   "copyright_holder": "Webev LLC"
 }
