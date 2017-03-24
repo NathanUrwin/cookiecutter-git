@@ -6,8 +6,8 @@
 - [License customization](https://developer.github.com/v3/licenses/)
 - [Gitignore customization](https://www.gitignore.io/)
 - Remote repository creation
-  - [GitHub.com as provider](https://github.com/)
-  - [GitLab.com as provider](https://gitlab.com/)
+  - [GitHub.com as provider](https://developer.github.com/v3/repos/)
+  - [GitLab.com as provider](https://docs.gitlab.com/ce/api/projects.html)
 - Cross-platform support
 
 ### Upcoming
@@ -43,11 +43,6 @@ See [example-repo](https://github.com/webevllc/example-repo)
         └── .gitkeep
 
     2 directories, 8 files
-
-## Resources
-- [Gitignore Docs](https://www.gitignore.io/docs)
-- [GitHub Repos API](https://developer.github.com/v3/repos/)
-- [GitLab Projects API](https://docs.gitlab.com/ce/api/projects.html)
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)

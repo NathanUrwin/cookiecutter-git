@@ -4,6 +4,8 @@
 
 **Implemented enhancements:**
 
+- More license choices [\#4](https://github.com/webevllc/cookiecutter-git/issues/4)
+- Use github-changelog-generator [\#2](https://github.com/webevllc/cookiecutter-git/issues/2)
 - Gitlab.com support [\#1](https://github.com/webevllc/cookiecutter-git/issues/1)
 
 **Fixed bugs:**
