@@ -27,8 +27,8 @@
 ### Example
 See [cookiecutter-git-example](https://github.com/webevllc/cookiecutter-git-example)
 
-    $ tree -a test-repo
-    test-repo
+    $ tree -a cookiecutter-git-example
+    cookiecutter-git-example
     ├── AUTHORS.md
     ├── CHANGELOG.md
     ├── CONTRIBUTING.md
@@ -37,7 +37,7 @@ See [cookiecutter-git-example](https://github.com/webevllc/cookiecutter-git-exam
     ├── LICENSE
     ├── NOTICE
     ├── README.md
-    └── test_pkg
+    └── example_package
         └── .gitkeep
 
     2 directories, 8 files
