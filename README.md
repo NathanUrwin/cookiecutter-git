@@ -2,7 +2,7 @@
 **Git Cookiecutter**. Git Repository Project Template!
 
 ## Features
-- [Bare project structure](https://github.com/webevllc/example-repo)
+- [Bare project structure](https://github.com/webevllc/cookiecutter-git-example)
 - [License customization](https://developer.github.com/v3/licenses/)
 - [Gitignore customization](https://www.gitignore.io/)
 - Remote repository creation
@@ -14,8 +14,6 @@
 - [Bitbucket.org support](https://bitbucket.org/)
 - Full coverage testing
 - Continuous integration
-- First tagged release
-- Add [logging](https://docs.python.org/2/library/logging.html) to hooks ?
 - [CodeCommit support](https://aws.amazon.com/codecommit/) ?
 
 ## Requirements
@@ -27,7 +25,7 @@
     $ cookiecutter gh:webevllc/cookiecutter-git
 
 ### Example
-See [example-repo](https://github.com/webevllc/example-repo)
+See [cookiecutter-git-example](https://github.com/webevllc/cookiecutter-git-example)
 
     $ tree -a test-repo
     test-repo
