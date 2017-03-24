@@ -8,13 +8,15 @@
 - Remote repository creation
   - [GitHub.com as provider](https://developer.github.com/v3/repos/)
   - [GitLab.com as provider](https://docs.gitlab.com/ce/api/projects.html)
+  - [Bitbucket.org as provider](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories)
 - Cross-platform support
 
 ### Upcoming
-- [Bitbucket.org support](https://bitbucket.org/)
+- Add gitlab_token validation
+- Add more secure auth methods
+- Additional remote repo customization options
 - Full coverage testing
 - Continuous integration
-- [CodeCommit support](https://aws.amazon.com/codecommit/) ?
 
 ## Requirements
 - [git](https://git-scm.com/downloads)

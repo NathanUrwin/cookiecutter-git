@@ -19,6 +19,10 @@ LICENSE_PATH = os.path.join(REPO_PATH, 'LICENSE')
 NOTICE_PATH = os.path.join(REPO_PATH, 'NOTICE')
 GITIGNORE_PATH = os.path.join(REPO_PATH, '.gitignore')
 GITIGNORE_URL = 'https://www.gitignore.io/api/{{cookiecutter.gitignore}}'
+JSON_HEADER = {'Content-Type': 'application/json; charset=utf-8'}
+
+BITBUCKET_REPOS_URL = ('https://api.bitbucket.org/2.0/repositories/'
+    '{{cookiecutter.repo_space}}/{{cookiecutter.repo_name}}')
 
 {% if cookiecutter.git_user == cookiecutter.repo_space %}
 GITHUB_REPOS_URL = 'https://api.github.com/user/repos'
@@ -26,7 +30,7 @@ GITHUB_REPOS_URL = 'https://api.github.com/user/repos'
 GITHUB_REPOS_URL = 'https://api.github.com/orgs/{{cookiecutter.repo_space}}/repos'
 {% endif %}
 
-{% if cookiecutter.remote_provider == 'GitLab' %}
+{% if cookiecutter.remote_provider == 'gitlab.com' %}
 GITLAB_TOKEN = getpass.getpass('gitlab_token: ').strip()
 GITLAB_TOKEN_HEADER = {'PRIVATE-TOKEN': GITLAB_TOKEN}
 {% endif %}
@@ -34,8 +38,8 @@ GITLAB_NAMESPACES_URL = 'https://gitlab.com/api/v3/namespaces'
 GITLAB_PROJECTS_URL = 'https://gitlab.com/api/v3/projects'
 
 REMOTE_REPO_URL = ('https://{{cookiecutter.git_user}}@'
-    '{{cookiecutter.remote_provider|lower}}.com/'
-    '{{cookiecutter.repo_space}}/{{cookiecutter.repo_name}}.git')
+    '{{cookiecutter.remote_provider}}/{{cookiecutter.repo_space}}/'
+    '{{cookiecutter.repo_name}}.git')
 REMOTE_REPO_DATA = {
     'name': '{{cookiecutter.repo_name}}',
     'description': '{{cookiecutter.repo_description}}'
@@ -86,17 +90,17 @@ class requests(object):
         return _request(url, headers, data, log)
 
 
-def create_github_repo():
+def create_remote_repo():
+    {% if cookiecutter.remote_provider == 'github.com' %}
     data = json.dumps(REMOTE_REPO_DATA)
     prompt = ("Password for 'https://{{cookiecutter.git_user}}@"
-        "{{cookiecutter.remote_provider|lower}}.com': ")
+        "{{cookiecutter.remote_provider}}': ")
     auth_info = ('{{cookiecutter.git_user}}', getpass.getpass(prompt).strip())
     auth_base = base64.b64encode('{}:{}'.format(*auth_info))
     headers = {'Authorization': 'Basic {}'.format(auth_base)}
     requests.post(GITHUB_REPOS_URL, data=data, headers=headers)
 
-
-def create_gitlab_repo():
+    {% elif cookiecutter.remote_provider == 'gitlab.com' %}
     search_param = {'search': '{{cookiecutter.repo_space}}'}
     search_url = GITLAB_NAMESPACES_URL + '?' + urllib.urlencode(search_param)
     search_results = requests.get(search_url, headers=GITLAB_TOKEN_HEADER)
@@ -108,6 +112,17 @@ def create_gitlab_repo():
         REMOTE_REPO_DATA.update({'namespace_id': namespace_id})
     data = unicode(urllib.urlencode(REMOTE_REPO_DATA))
     requests.post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
+
+    {% elif cookiecutter.remote_provider == 'bitbucket.org' %}
+    REMOTE_REPO_DATA.update({'has_issues': True, 'is_private': True})
+    data = json.dumps(REMOTE_REPO_DATA)
+    prompt = ("Password for 'https://{{cookiecutter.git_user}}@"
+        "{{cookiecutter.remote_provider}}': ")
+    auth_info = ('{{cookiecutter.git_user}}', getpass.getpass(prompt).strip())
+    auth_base = base64.b64encode('{}:{}'.format(*auth_info))
+    JSON_HEADER['Authorization'] = 'Basic {}'.format(auth_base)
+    requests.post(BITBUCKET_REPOS_URL, data=data, headers=JSON_HEADER)
+    {% endif %}
 
 
 def setup_license_file():
@@ -133,13 +148,7 @@ def setup_git_repo():
     run(['git', 'commit', '-m', 'Initial commit'])
 
     {% if cookiecutter.create_remote == 'yes' %}
-
-    {% if cookiecutter.remote_provider == 'GitHub' %}
-    create_github_repo()
-    {% elif cookiecutter.remote_provider == 'GitLab' %}
-    create_gitlab_repo()
-    {% endif %}
-
+    create_remote_repo()
     run(['git', 'remote', 'add', 'origin', REMOTE_REPO_URL])
     run(['git', 'push', '-u', 'origin', 'master'])
     {% endif %}
