@@ -2,6 +2,13 @@
 
 ## [Unreleased](https://github.com/webevllc/cookiecutter-git/tree/HEAD)
 
+[Full Changelog](https://github.com/webevllc/cookiecutter-git/compare/v0.1.0...HEAD)
+
+**Implemented enhancements:**
+
+- First tagged release [\#3](https://github.com/webevllc/cookiecutter-git/issues/3)
+
+## [v0.1.0](https://github.com/webevllc/cookiecutter-git/tree/v0.1.0) (2017-03-24)
 **Implemented enhancements:**
 
 - More license choices [\#4](https://github.com/webevllc/cookiecutter-git/issues/4)
