@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/webevllc/cookiecutter-git/tree/HEAD)
-
-[Full Changelog](https://github.com/webevllc/cookiecutter-git/compare/v0.1.0...HEAD)
+## [v0.2.0](https://github.com/webevllc/cookiecutter-git/tree/v0.2.0) (2017-03-24)
+[Full Changelog](https://github.com/webevllc/cookiecutter-git/compare/v0.1.0...v0.2.0)
 
 **Implemented enhancements:**
 
