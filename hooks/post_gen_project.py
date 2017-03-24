@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
+from __future__ import unicode_literals, print_function
 
 import os
 import json
@@ -38,13 +38,13 @@ def run(command, log=True):
     try:
         output = subprocess.check_output(command)
     except subprocess.CalledProcessError as error:
-        print '%s: %s\n%s' % (error.returncode, error.cmd, error.output)
+        print('{}: {}\n{}'.format(error.returncode, error.cmd, error.output))
         raise error
     else:
         if output and log:
-            print '%s\n%s' % (' '.join(command), output)
+            print('{}\n{}'.format(' '.join(command), output))
         else:
-            print ' '.join(command)
+            print(' '.join(command))
     return output
 
 
@@ -57,38 +57,41 @@ def _request(url, headers, data, log):
     except urllib2.HTTPError as error:
         message = error.read()
         error.close()
-        print '%s %s: %s\n%s' % (error.code, error.reason, url, message)
-        raise error
+        print('{} {}: {}\n{}'.format(error.code, error.reason, url, message))
+        raise SystemExit
     else:
         if content and log:
-            print '%s\n%s' % (url, content)
+            print('{}\n{}'.format(url, content))
         else:
-            print url
+            print(url)
     return content
 
 
-def get(url, headers={}, log=True):
-    return _request(url, headers, None, log)
+class requests(object):
 
+    @staticmethod
+    def get(url, headers={}, log=True):
+        return _request(url, headers, None, log)
 
-def post(url, headers={}, data=None, log=True):
-    return _request(url, headers, data, log)
+    @staticmethod
+    def post(url, headers={}, data=None, log=True):
+        return _request(url, headers, data, log)
 
 
 def create_github_repo():
     data = json.dumps(REPO_NAME_DATA)
-    prompt = (u"Password for 'https://{{cookiecutter.git_user}}@"
-        u"{{cookiecutter.remote_provider|lower}}.com': ")
+    prompt = ("Password for 'https://{{cookiecutter.git_user}}@"
+        "{{cookiecutter.remote_provider|lower}}.com': ")
     auth_info = ('{{cookiecutter.git_user}}', getpass.getpass(prompt).strip())
-    auth_base = base64.b64encode('%s:%s' % auth_info)
-    headers = {'Authorization': 'Basic %s' % auth_base}
-    post(GITHUB_REPOS_URL, data=data, headers=headers)
+    auth_base = base64.b64encode('{}:{}'.format(*auth_info))
+    headers = {'Authorization': 'Basic {}'.format(auth_base)}
+    requests.post(GITHUB_REPOS_URL, data=data, headers=headers)
 
 
 def create_gitlab_repo():
     search_param = {'search': '{{cookiecutter.repo_space}}'}
     search_url = GITLAB_NAMESPACES_URL + '?' + urllib.urlencode(search_param)
-    search_results = get(search_url, headers=GITLAB_TOKEN_HEADER)
+    search_results = requests.get(search_url, headers=GITLAB_TOKEN_HEADER)
     gitlab_namespaces = json.loads(search_results)
     for namespace in gitlab_namespaces:
         if namespace.get('name', '') == '{{cookiecutter.repo_space}}':
@@ -96,17 +99,17 @@ def create_gitlab_repo():
     if namespace_id:
         REPO_NAME_DATA.update({'namespace_id': namespace_id})
     data = unicode(urllib.urlencode(REPO_NAME_DATA))
-    post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
+    requests.post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
 
 {% if cookiecutter.license != 'Apache-2.0' %}
-print u"Removing '%s'..." % NOTICE_PATH
+print("Removing '{}'...".format(NOTICE_PATH))
 os.remove(NOTICE_PATH)
 {% endif %}
 
 {% if cookiecutter.gitignore != 'windows,osx,linux,git' %}
 with open(GITIGNORE_PATH, 'wb') as f:
-    f.write(get(GITIGNORE_URL))
-print u"updated '%s'" % GITIGNORE_PATH
+    f.write(requests.get(GITIGNORE_URL))
+print("updated '{}'".format(GITIGNORE_PATH))
 {% endif %}
 
 run(['git', 'init'])
@@ -128,7 +131,7 @@ run(['git', 'push', '-u', 'origin', 'master'])
 
 {% endif %}
 
-print
-print '{{cookiecutter.repo_name}} setup successfully!'
-print
-print
+print()
+print('{{cookiecutter.repo_name}} setup successfully!')
+print()
+print()

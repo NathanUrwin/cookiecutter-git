@@ -12,11 +12,12 @@
 
 ### Upcoming
 - [Generated change log](https://github.com/skywinder/github-changelog-generator)
-- First tagged release
 - More license choices
 - [Bitbucket.org support](https://bitbucket.org/)
 - Full coverage testing
 - Continuous integration
+- First tagged release
+- Add logger to hooks ?
 - [CodeCommit support](https://aws.amazon.com/codecommit/) ?
 
 ## Requirements
