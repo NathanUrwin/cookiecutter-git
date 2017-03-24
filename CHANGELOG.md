@@ -6,6 +6,7 @@
 
 **Implemented enhancements:**
 
+- Bitbucket.org support [\#5](https://github.com/webevllc/cookiecutter-git/issues/5)
 - First tagged release [\#3](https://github.com/webevllc/cookiecutter-git/issues/3)
 
 ## [v0.1.0](https://github.com/webevllc/cookiecutter-git/tree/v0.1.0) (2017-03-24)
