@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.3.0](https://github.com/webevllc/cookiecutter-git/tree/v0.3.0) (2017-03-25)
+[Full Changelog](https://github.com/webevllc/cookiecutter-git/compare/v0.2.0...v0.3.0)
+
+**Implemented enhancements:**
+
+- Add cookiecutter.json documentation [\#14](https://github.com/webevllc/cookiecutter-git/issues/14)
+- Refactor cookiecutter.json keys [\#13](https://github.com/webevllc/cookiecutter-git/issues/13)
+
 ## [v0.2.0](https://github.com/webevllc/cookiecutter-git/tree/v0.2.0) (2017-03-24)
 [Full Changelog](https://github.com/webevllc/cookiecutter-git/compare/v0.1.0...v0.2.0)
 
