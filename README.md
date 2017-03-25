@@ -49,7 +49,7 @@ See [cookiecutter-git-example](https://github.com/webevllc/cookiecutter-git-exam
     2 directories, 8 files
 
 ## Documentation
-`cookiecutter.json` explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
+**cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
 
 Prompt | Explanation
 --- | ---
@@ -60,11 +60,11 @@ Prompt | Explanation
 `repository_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote endpoint, and the *H1* in the **README.md**.
 `repository_description` | A short description about the repository. This will be the remote description setting, and the content under the *H1* in the **README.md**.
 `package_name` | The child directory name. This will be dependent on your codebase. For example, the default value contains only alphanumeric characters and underscores suitable for [python development](https://www.python.org/dev/peps/pep-0008/).
-`create_remote` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for `cookiecutter-git`, so the default choice is `yes`.
+`create_remote` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
 `remote_provider` | A choice between the three main, git, remote repository providers. This will only be used if `create_remote` is `yes`, and defaults to `github.com`.
-`gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io docs](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the `.gitignore` file.
-`license` | The software license for the repository. This will be used to generate the `LICENSE` and `NOTICE` files, and determines how end users can ultimately use your source code.
-`copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the `LICENSE` file, rather than the `author_name`.
+`gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io docs](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
+`license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
+`copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)
