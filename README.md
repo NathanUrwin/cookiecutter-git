@@ -33,7 +33,7 @@
 ### Example
 See [cookiecutter-git-example](https://github.com/webevllc/cookiecutter-git-example)
 
-    $ tree -a cookiecutter-git-example
+    $ tree -a -I .git cookie-cookie-example
     cookiecutter-git-example
     ├── AUTHORS.md
     ├── CHANGELOG.md
