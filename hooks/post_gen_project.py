@@ -31,7 +31,7 @@ GITHUB_REPOS_URL = ('https://api.github.com/orgs/'
     '{{cookiecutter.repository_namespace}}/repos')
 {% endif %}
 
-{% if cookiecutter.remote_provider == 'gitlab.com' %}
+{% if cookiecutter.create_remote == 'yes' and cookiecutter.remote_provider == 'gitlab.com' %}
 GITLAB_TOKEN = getpass.getpass('gitlab_token: ').strip()
 GITLAB_TOKEN_HEADER = {'PRIVATE-TOKEN': GITLAB_TOKEN}
 {% endif %}
@@ -61,34 +61,35 @@ def run(command, log=True):
     return output
 
 
-def _request(url, headers, data, log):
-    try:
-        req = urllib2.Request(url, data=data, headers=headers)
-        response = urllib2.urlopen(req)
-        content = response.read()
-        response.close()
-    except urllib2.HTTPError as error:
-        message = error.read()
-        error.close()
-        print('{} {}: {}\n{}'.format(error.code, error.reason, url, message))
-        raise SystemExit
-    else:
-        if content and log:
-            print('{}\n{}'.format(url, content))
-        else:
-            print(url)
-    return content
-
-
 class requests(object):
 
     @staticmethod
-    def get(url, headers={}, log=True):
-        return _request(url, headers, None, log)
+    def _request(url, headers, data, log):
+        try:
+            req = urllib2.Request(url, data=data, headers=headers)
+            response = urllib2.urlopen(req)
+            content = response.read()
+            response.close()
+        except urllib2.HTTPError as error:
+            message = error.read()
+            error.close()
+            args = (error.code, error.reason, url, message)
+            print('{} {}: {}\n{}'.format(*args))
+            raise SystemExit
+        else:
+            if content and log:
+                print('{}\n{}'.format(url, content))
+            else:
+                print(url)
+        return content
 
-    @staticmethod
-    def post(url, headers={}, data=None, log=True):
-        return _request(url, headers, data, log)
+    @classmethod
+    def get(cls, url, headers={}, log=True):
+        return cls._request(url, headers, None, log)
+
+    @classmethod
+    def post(cls, url, headers={}, data=None, log=True):
+        return cls._request(url, headers, data, log)
 
 
 def create_remote_repo():
