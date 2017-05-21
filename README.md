@@ -2,7 +2,7 @@
 **Git Cookiecutter**. A git repository project template!
 
 ## Features
-- [Bare project structure](https://github.com/webevllc/cookiecutter-git-example)
+- [Bare project structure](https://github.com/tuxredux/cookiecutter-git-example)
   - For any programming language or codebase
   - Useful but not overruling organization
 - [License customization](https://developer.github.com/v3/licenses/)
@@ -26,12 +26,12 @@
 - [cookiecutter](https://github.com/audreyr/cookiecutter)
 
 ## Usage
-    $ cookiecutter gh:webevllc/cookiecutter-git
+    $ cookiecutter gh:tuxredux/cookiecutter-git
     # OR
-    $ cookiecutter https://github.com/webevllc/cookiecutter-git
+    $ cookiecutter https://github.com/tuxredux/cookiecutter-git
 
 ### Example
-See [cookiecutter-git-example](https://github.com/webevllc/cookiecutter-git-example)
+See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-example)
 
     $ tree -a -I .git cookie-cookie-example
     cookiecutter-git-example

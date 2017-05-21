@@ -2,7 +2,7 @@
   "author_name": "Nathan Urwin",
   "author_email": "tuxredux2@gmail.com",
   "git_username": "tuxredux",
-  "repository_namespace": "webevllc",
+  "repository_namespace": "tuxredux",
   "repository_slug": "cookiecutter-git-example",
   "repository_description": "An example cookiecutter-git project",
   "package_name": "example_package",
@@ -23,5 +23,5 @@
     "MPL-2.0",
     "Unlicense"
   ],
-  "copyright_holder": "Webev LLC"
+  "copyright_holder": "Nathan Urwin"
 }
