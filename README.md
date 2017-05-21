@@ -1,5 +1,5 @@
 # cookiecutter-git
-**Git Cookiecutter**. A git repository project template!
+A git repository project template!
 
 ## Features
 - [Bare project structure](https://github.com/tuxredux/cookiecutter-git-example)
