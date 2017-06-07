@@ -33,7 +33,7 @@ A git repository project template!
 ### Example
 See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-example)
 
-    $ tree -a -I .git cookie-cookie-example
+    $ tree -a -I .git cookiecutter-git-example
     cookiecutter-git-example
     ├── AUTHORS.md
     ├── CHANGELOG.md
