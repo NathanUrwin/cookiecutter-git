@@ -38,15 +38,14 @@ See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-exam
     ├── AUTHORS.md
     ├── CHANGELOG.md
     ├── CONTRIBUTING.md
-    ├── .git
+    └── example_package
+    │   └── .gitkeep
     ├── .gitignore
     ├── LICENSE
     ├── NOTICE
-    ├── README.md
-    └── example_package
-        └── .gitkeep
+    └── README.md
 
-    2 directories, 8 files
+    1 directories, 8 files
 
 ## Documentation
 **cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
