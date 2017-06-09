@@ -5,6 +5,7 @@ from __future__ import unicode_literals, print_function
 
 import os
 import json
+import codecs
 import shutil
 import base64
 import urllib
@@ -49,7 +50,7 @@ REMOTE_REPO_DATA = {
 
 def run(command, log=True):
     try:
-        output = subprocess.check_output(command)
+        output = codecs.decode(subprocess.check_output(command), 'utf-8')
     except subprocess.CalledProcessError as error:
         print('{}: {}\n{}'.format(error.returncode, error.cmd, error.output))
         raise error
