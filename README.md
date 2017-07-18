@@ -1,15 +1,16 @@
 # cookiecutter-git
 A git repository project template!
-- [Features](#Features)
-- [Upcoming](#Upcoming)
-- [Requirements](#Requirements)
-- [Usage](#Usage)
-- [Example](#Example)
-- [Documentation](#Documentation)
-- [Development](#Development)
-- [History](#History)
-- [Credits](#Credits)
-- [License](#License)
+
+- [Features](#features)
+- [Upcoming](#upcoming)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Example](#example)
+- [Documentation](#documentation)
+- [Development](#development)
+- [History](#history)
+- [Credits](#credits)
+- [License](#license)
 
 ## Features
 - [Bare project structure](https://github.com/tuxredux/cookiecutter-git-example)
