@@ -27,8 +27,12 @@ A git repository project template!
 
 ## Usage
     $ cookiecutter gh:tuxredux/cookiecutter-git
-    # OR
+
+Which is an alias for:
+
     $ cookiecutter https://github.com/tuxredux/cookiecutter-git
+
+See generated [README.md]({{cookiecutter.repository_slug}}/README.md)
 
 ### Example
 See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-example)
@@ -38,6 +42,7 @@ See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-exam
     ├── AUTHORS.md
     ├── CHANGELOG.md
     ├── CONTRIBUTING.md
+    ├── .editorconfig
     └── example_package
     │   └── .gitkeep
     ├── .gitignore
@@ -45,7 +50,7 @@ See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-exam
     ├── NOTICE
     └── README.md
 
-    1 directories, 8 files
+    1 directories, 9 files
 
 ## Documentation
 **cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
