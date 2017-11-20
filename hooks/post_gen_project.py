@@ -110,10 +110,10 @@ def create_remote_repo():
     search_results = requests.get(search_url, headers=GITLAB_TOKEN_HEADER)
     gitlab_namespaces = json.loads(search_results)
     for namespace in gitlab_namespaces:
-        if namespace.get('name', '') == '{{cookiecutter.repository_namespace}}':
+        if namespace.get('path', '') == '{{cookiecutter.repository_namespace}}':
             namespace_id = namespace.get('id', '')
-    if namespace_id:
-        REMOTE_REPO_DATA.update({'namespace_id': namespace_id})
+            if namespace_id:
+                REMOTE_REPO_DATA.update({'namespace_id': namespace_id})
     data = unicode(urllib.urlencode(REMOTE_REPO_DATA))
     requests.post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
 
