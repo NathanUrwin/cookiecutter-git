@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals, print_function
+from __future__ import print_function
 
 import os
 import json
@@ -114,7 +114,7 @@ def create_remote_repo():
             namespace_id = namespace.get('id', '')
             if namespace_id:
                 REMOTE_REPO_DATA.update({'namespace_id': namespace_id})
-    data = unicode(urllib.urlencode(REMOTE_REPO_DATA))
+    data = urllib.urlencode(REMOTE_REPO_DATA)
     requests.post(GITLAB_PROJECTS_URL, data=data, headers=GITLAB_TOKEN_HEADER)
 
     {% elif cookiecutter.remote_provider == 'bitbucket.org' %}
