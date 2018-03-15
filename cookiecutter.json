@@ -6,7 +6,7 @@
   "repo_slug": "cookiecutter-git-demo",
   "repo_description": "A cookiecutter-git demonstration",
   "make_dirs": "docs,src,tests",
-  "create_remote": ["no", "yes", "no"],
+  "create_remote": ["yes", "no"],
   "remote_provider": ["github.com", "gitlab.com", "bitbucket.org"],
   "gitignore": "windows,macos,linux,git",
   "license": [
