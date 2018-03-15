@@ -1,6 +1,7 @@
 # cookiecutter-git
 A git repository project template!
 
+### Table of Contents
 - [Features](#features)
 - [Upcoming](#upcoming)
 - [Requirements](#requirements)
@@ -13,7 +14,7 @@ A git repository project template!
 - [License](#license)
 
 ## Features
-- [Bare project structure](https://github.com/tuxredux/cookiecutter-git-example)
+- [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-example)
   - For any programming language or codebase
   - Useful but not overruling organization
 - [License customization](https://developer.github.com/v3/licenses/)
@@ -37,31 +38,31 @@ A git repository project template!
 - [cookiecutter](https://github.com/audreyr/cookiecutter)
 
 ## Usage
-    $ cookiecutter gh:tuxredux/cookiecutter-git
+    $ cookiecutter gh:nathanurwin/cookiecutter-git
 
 Which is an alias for:
 
-    $ cookiecutter https://github.com/tuxredux/cookiecutter-git
+    $ cookiecutter https://github.com/nathanurwin/cookiecutter-git
 
-See generated [README.md]({{cookiecutter.repository_slug}}/README.md)
+See generated [README.md]({{cookiecutter.repo_slug}}/README.md)
 
 ### Example
-See [cookiecutter-git-example](https://github.com/tuxredux/cookiecutter-git-example)
+See [cookiecutter-git-demo](https://github.com/nathanurwin/cookiecutter-git-demo)
 
-    $ tree -a -I .git cookiecutter-git-example
+    $ tree -a -I .git cookiecutter-git-demo
     cookiecutter-git-example
     ├── AUTHORS.md
     ├── CHANGELOG.md
     ├── CONTRIBUTING.md
-    ├── .editorconfig
     └── example_package
     │   └── .gitkeep
+    ├── .editorconfig
     ├── .gitignore
     ├── LICENSE
     ├── NOTICE
     └── README.md
 
-    1 directories, 9 files
+    3 directories, 9 files
 
 ## Documentation
 **cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
@@ -71,10 +72,10 @@ Prompt | Explanation
 `author_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Project Lead* in **AUTHORS.md**.
 `author_email` | The email address you want associated with the repository. This will go under *Project Lead* in **AUTHORS.md**.
 `git_username` | Your local git and `remote_provider` (see below) account username. This will be used for all git-based actions.
-`repository_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `create_remote` (see below) is `yes`.
-`repository_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote endpoint, and the *H1* in the **README.md**.
-`repository_description` | A short description about the repository. This will be the remote description setting, and the content under the *H1* in the **README.md**.
-`package_name` | The child directory name. This will be dependent on your codebase. For example, the default value contains only alphanumeric characters and underscores suitable for [python development](https://www.python.org/dev/peps/pep-0008/).
+`repo_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `create_remote` (see below) is `yes`.
+`repo_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote endpoint, and the *H1* in the **README.md**.
+`repo_description` | A short description about the repository. This will be the remote description setting, and the content under the *H1* in the **README.md**.
+`make_dirs` | A comma-separated values list of directory names. These will be made with a `.gitkeep` file, so the dirs will be added to the initial commit.
 `create_remote` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
 `remote_provider` | A choice between the three main, git, remote repository providers. This will only be used if `create_remote` is `yes`, and defaults to `github.com`.
 `gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io docs](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.

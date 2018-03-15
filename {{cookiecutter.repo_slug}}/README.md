@@ -1,5 +1,5 @@
-# {{cookiecutter.repository_slug}}
-{{cookiecutter.repository_description}}
+# {{cookiecutter.repo_slug}}
+{{cookiecutter.repo_description}}
 
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)
