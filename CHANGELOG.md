@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.4.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.4.0) (2018-03-15)
+[Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.3.0...v0.4.0)
+
+**Implemented enhancements:**
+
+- Python3 support [\#15](https://github.com/nathanurwin/cookiecutter-git/issues/15)
+
+**Fixed bugs:**
+
+- UnboundLocalError: local variable 'namespace\_id' referenced before assignment [\#17](https://github.com/nathanurwin/cookiecutter-git/issues/17)
+- Fix Windows TypeError [\#16](https://github.com/nathanurwin/cookiecutter-git/issues/16)
+
 ## [v0.3.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.3.0) (2017-03-25)
 [Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.2.0...v0.3.0)
 
