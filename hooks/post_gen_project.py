@@ -88,7 +88,6 @@ JSON_HEADER = {'Content-Type': 'application/json; charset=utf-8'}
 REPO_PATH = os.getcwd()
 APACHE_LICENSE = {% if cookiecutter.license == 'Apache-2.0' %}True{% else %}False{% endif %}
 BITBUCKET_REPOS_URL = 'https://api.bitbucket.org/2.0/repositories/{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}'
-CREATE_REMOTE = {% if cookiecutter.create_remote == 'yes' %}True{% else %}False{% endif %}
 GITIGNORE_PATH = os.path.join(REPO_PATH, '.gitignore')
 {% if cookiecutter.git_username != cookiecutter.repo_namespace %}
 GITHUB_REPOS_URL = 'https://api.github.com/orgs/{{cookiecutter.repo_namespace}}/repos'
@@ -103,9 +102,14 @@ NOTICE_PATH = os.path.join(REPO_PATH, 'NOTICE')
 PASSWORD_PROMPT = "Password for 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}': "
 PROJECT_DIRS = [os.path.join(REPO_PATH, dirname) for dirname in '{{cookiecutter.make_dirs}}'.split(',')]
 REMOTE_DATA = {'name': '{{cookiecutter.repo_slug}}', 'description': '{{cookiecutter.repo_description}}'}
-REPO_NAMESPACE = '{{cookiecutter.repo_namespace}}'
+{% if cookiecutter.remote_protocol == 'https' %}
 REMOTE_ORIGIN_URL = 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}/{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}.git'
+{% else %}
+REMOTE_ORIGIN_URL = 'git@{{cookiecutter.remote_provider}}:{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}.git'
+{% endif %}
 REMOTE_PROVIDER = '{{cookiecutter.remote_provider}}'
+REMOTE_REPO = {% if cookiecutter.remote_repo == 'yes' %}True{% else %}False{% endif %}
+REPO_NAMESPACE = '{{cookiecutter.repo_namespace}}'
 SUCCESS_MESSAGE = '\n{{cookiecutter.repo_slug}} setup successfully!\n\n'
 
 
@@ -124,7 +128,7 @@ def setup_git_repo():
     run(['git', 'status'])
     run(['git', 'commit', '-m', 'Initial commit'])
 
-    if CREATE_REMOTE:
+    if REMOTE_REPO:
         auth_info = (GIT_USERNAME, getpass.getpass(PASSWORD_PROMPT).strip())
         auth_base = base64.b64encode('{}:{}'.format(*auth_info))
 

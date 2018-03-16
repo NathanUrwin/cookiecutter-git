@@ -5,9 +5,20 @@
   "repo_namespace": "nathanurwin",
   "repo_slug": "cookiecutter-git-demo",
   "repo_description": "A cookiecutter-git demonstration",
+  "remote_repo": [
+    "yes",
+    "no"
+  ],
+  "remote_provider": [
+    "github.com",
+    "gitlab.com",
+    "bitbucket.org"
+  ],
+  "remote_protocol": [
+    "https",
+    "ssh"
+  ],
   "make_dirs": "docs,src,tests",
-  "create_remote": ["yes", "no"],
-  "remote_provider": ["github.com", "gitlab.com", "bitbucket.org"],
   "gitignore": "windows,macos,linux,git",
   "license": [
     "MIT",

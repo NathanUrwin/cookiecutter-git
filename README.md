@@ -3,13 +3,14 @@ A git repository project template!
 
 ### Table of Contents
 - [Features](#features)
-- [Upcoming](#upcoming)
+  - [Upcoming](#upcoming)
 - [Requirements](#requirements)
 - [Usage](#usage)
-- [Example](#example)
+  - [Example](#example)
 - [Documentation](#documentation)
 - [Development](#development)
-- [History](#history)
+  - [Future](#future)
+  - [History](#history)
 - [Credits](#credits)
 - [License](#license)
 
@@ -49,20 +50,7 @@ See generated [README.md]({{cookiecutter.repo_slug}}/README.md)
 ### Example
 See [cookiecutter-git-demo](https://github.com/nathanurwin/cookiecutter-git-demo)
 
-    $ tree -a -I .git cookiecutter-git-demo
-    cookiecutter-git-example
-    ├── AUTHORS.md
-    ├── CHANGELOG.md
-    ├── CONTRIBUTING.md
-    └── example_package
-    │   └── .gitkeep
-    ├── .editorconfig
-    ├── .gitignore
-    ├── LICENSE
-    ├── NOTICE
-    └── README.md
 
-    3 directories, 9 files
 
 ## Documentation
 **cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
@@ -72,12 +60,13 @@ Prompt | Explanation
 `author_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Project Lead* in **AUTHORS.md**.
 `author_email` | The email address you want associated with the repository. This will go under *Project Lead* in **AUTHORS.md**.
 `git_username` | Your local git and `remote_provider` (see below) account username. This will be used for all git-based actions.
-`repo_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `create_remote` (see below) is `yes`.
+`repo_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `remote_repo` (see below) is `yes`.
 `repo_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote endpoint, and the *H1* in the **README.md**.
 `repo_description` | A short description about the repository. This will be the remote description setting, and the content under the *H1* in the **README.md**.
-`make_dirs` | A comma-separated values list of directory names. These will be made with a `.gitkeep` file, so the dirs will be added to the initial commit.
-`create_remote` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
-`remote_provider` | A choice between the three main, git, remote repository providers. This will only be used if `create_remote` is `yes`, and defaults to `github.com`.
+`remote_repo` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
+`remote_provider` | A choice between the three main, git, remote repository providers. This will only be used if `remote_repo` is `yes`, and defaults to `github.com`.
+`remote_protocol` | A choice between the HTTPS and SSH protocols. HTTPS is the default, since those using SSH qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
+`make_dirs` | A comma-separated values list of directory names. Directories will be made with a `.gitkeep` file, so they will be added to the initial commit.
 `gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io docs](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
 `license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
@@ -85,7 +74,10 @@ Prompt | Explanation
 ## Development
 See [CONTRIBUTING](CONTRIBUTING.md)
 
-## History
+### Future
+See [ROADMAP](ROADMAP.md)
+
+### History
 See [CHANGELOG](CHANGELOG.md)
 
 ## Credits
