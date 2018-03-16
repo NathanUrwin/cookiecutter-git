@@ -15,15 +15,15 @@ A git repository project template!
 - [License](#license)
 
 ## Features
-- [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-example)
+- [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-demo)
   - For any programming language or codebase
   - Useful but not overruling organization
 - [License customization](https://developer.github.com/v3/licenses/)
 - [Gitignore customization](https://www.gitignore.io/)
 - Remote repository creation
-  - [GitHub.com as provider](https://developer.github.com/v3/repos/)
-  - [GitLab.com as provider](https://docs.gitlab.com/ce/api/projects.html)
-  - [Bitbucket.org as provider](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories)
+  - [Bitbucket.org](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories) using [Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
+  - [GitHub.com](https://developer.github.com/v3/repos/#create) using [Basic auth](https://developer.github.com/v3/#basic-authentication)
+  - [GitLab.com](https://docs.gitlab.com/ee/api/projects.html#create-project) using [Personal access tokens](https://docs.gitlab.com/ce/api/README.html#personal-access-tokens)
 - Cross-platform support
 
 ### Upcoming
