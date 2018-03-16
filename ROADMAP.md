@@ -1,3 +1,3 @@
 # Road Map
-Feature development has stopped in favor of working towards integrating
-Continuous Integration testing with [Travis CI](https://travis-ci.org/).
+Feature development has ceased in favor of working towards implementing
+Continuous Integration tests with [Travis CI](https://travis-ci.org/).
