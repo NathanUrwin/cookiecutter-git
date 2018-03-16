@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.4.1](https://github.com/nathanurwin/cookiecutter-git/tree/v0.4.1) (2018-03-16)
+[Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.4.0...v0.4.1)
+
+**Fixed bugs:**
+
+- Bitbucket remote repo failed [\#20](https://github.com/nathanurwin/cookiecutter-git/issues/20)
+
 ## [v0.4.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.4.0) (2018-03-15)
 [Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.3.0...v0.4.0)
 
