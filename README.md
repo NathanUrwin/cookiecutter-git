@@ -29,7 +29,7 @@ A git repository project template!
 ### Upcoming
 - Add gitlab_token validation
 - Add more secure auth methods
-- Additional remote repo customization options
+- Additional remote repo customization
 - Full coverage testing
 - Continuous integration
 
@@ -50,7 +50,25 @@ See generated [README.md]({{cookiecutter.repo_slug}}/README.md)
 ### Example
 See [cookiecutter-git-demo](https://github.com/nathanurwin/cookiecutter-git-demo)
 
+```
+$ tree -a -I .git cookiecutter-git-demo
+cookiecutter-git-demo
+├── AUTHORS.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── docs
+│   └── .gitkeep
+├── .editorconfig
+├── .gitignore
+├── LICENSE
+├── README.md
+├── src
+│   └── .gitkeep
+└── tests
+    └── .gitkeep
 
+3 directories, 10 files
+```
 
 ## Documentation
 **cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
