@@ -84,7 +84,7 @@ Prompt | Explanation
 `remote_repo` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
 `remote_provider` | A choice between the three main, git, remote repository providers. This will only be used if `remote_repo` is `yes`, and defaults to `github.com`.
 `remote_protocol` | A choice between the HTTPS and SSH protocols. HTTPS is the default, since those using SSH qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
-`make_dirs` | A comma-separated values list of directory names. Directories will be made with a `.gitkeep` file, so they will be added to the initial commit.
+`make_dirs` | A comma-separated values list of directory names. Directories will be made with a `.gitkeep` file, so they will be added to the initial commit. Nested dirs work if the system path separator is correct!
 `gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io docs](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
 `license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
