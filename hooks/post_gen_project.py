@@ -100,7 +100,7 @@ LICENSE_TXT = os.path.join(LICENSES_DIRPATH, '{{cookiecutter.license}}.txt')
 NEW_GITIGNORE = {% if cookiecutter.gitignore != 'windows,macos,linux,git' %}True{% else %}False{% endif %}
 NOTICE_PATH = os.path.join(REPO_PATH, 'NOTICE')
 PASSWORD_PROMPT = "Password for 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}': "
-PROJECT_DIRS = [os.path.join(REPO_PATH, dirname) for dirname in '{{cookiecutter.make_dirs}}'.split(',')]
+PROJECT_DIRS = [os.path.join(REPO_PATH, dirname.strip()) for dirname in '{{cookiecutter.make_dirs}}'.split(',') if dirname.strip()]
 REMOTE_DATA = {'name': '{{cookiecutter.repo_slug}}', 'description': '{{cookiecutter.repo_description}}'}
 {% if cookiecutter.remote_protocol == 'https' %}
 REMOTE_ORIGIN_URL = 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}/{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}.git'
@@ -129,13 +129,23 @@ def setup_git_repo():
     run(['git', 'commit', '-m', 'Initial commit'])
 
     if REMOTE_REPO:
-        auth_info = (GIT_USERNAME, getpass.getpass(PASSWORD_PROMPT).strip())
-        auth_base = base64.b64encode('{}:{}'.format(*auth_info))
+        if REMOTE_PROVIDER in ['bitbucket.org', 'github.com']:
+            auth_info = (GIT_USERNAME, getpass.getpass(PASSWORD_PROMPT).strip())
+            auth_data = '{}:{}'.format(*auth_info)
+            auth_base = base64.b64encode(auth_data.encode())
 
-        if REMOTE_PROVIDER == 'github.com':
+        if REMOTE_PROVIDER == 'bitbucket.org':
+            REMOTE_DATA.update({'has_issues': True, 'is_private': True})
+            JSON_HEADER['Authorization'] = 'Basic {}'.format(auth_base.decode())
+
+            create_remote_url = BITBUCKET_REPOS_URL
+            data = json.dumps(REMOTE_DATA).encode()
+            headers = JSON_HEADER
+
+        elif REMOTE_PROVIDER == 'github.com':
             create_remote_url = GITHUB_REPOS_URL
-            data = json.dumps(REMOTE_DATA)
-            headers = {'Authorization': 'Basic {}'.format(auth_base)}
+            data = json.dumps(REMOTE_DATA).encode()
+            headers = {'Authorization': 'Basic {}'.format(auth_base.decode())}
 
         elif REMOTE_PROVIDER == 'gitlab.com':
             gitlab_token = getpass.getpass('gitlab_token: ').strip()
@@ -151,16 +161,8 @@ def setup_git_repo():
                         REMOTE_DATA.update({'namespace_id': namespace_id})
 
             create_remote_url = GITLAB_PROJECTS_URL
-            data = urlencode(REMOTE_DATA)
+            data = bytearray(urlencode(REMOTE_DATA), 'utf-8')
             headers = token_header
-
-        elif REMOTE_PROVIDER == 'bitbucket.org':
-            REMOTE_DATA.update({'has_issues': True, 'is_private': True})
-            JSON_HEADER['Authorization'] = 'Basic {}'.format(auth_base)
-
-            create_remote_url = BITBUCKET_REPOS_URL
-            data = json.dumps(REMOTE_DATA)
-            headers = JSON_HEADER
 
         requests.post(create_remote_url, data=data, headers=headers)
         run(['git', 'remote', 'add', 'origin', REMOTE_ORIGIN_URL])
