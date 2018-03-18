@@ -1,3 +1,5 @@
+[![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.github.io/portfolio/#/graphics)
+
 # cookiecutter-git
 A git repository project template!
 
