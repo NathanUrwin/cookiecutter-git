@@ -1,7 +1,7 @@
 [![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.github.io/portfolio/#/graphics)
 
 # cookiecutter-git
-A git repository project template!
+:closed_book: A project template for Git repos!
 
 ### Table of Contents
 - [Features](#features)
