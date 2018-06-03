@@ -1,10 +1,10 @@
 # Authors
 
-## Project Lead
+## Project Manager
 
 [Nathan Urwin](https://github.com/NathanUrwin) &lt;me@nathanurwin.com&gt;
 
-## Design Lead
+## Brand Designer
 
 [Dylan Yates](https://github.com/dylantyates) &lt;dylantyates.github@gmail.com&gt;
 
