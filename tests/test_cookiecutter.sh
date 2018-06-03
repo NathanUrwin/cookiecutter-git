@@ -1,3 +1,3 @@
 #!/bin/bash
-apt-cache policy python-cookiecutter
-/usr/local/bin/cookiecutter gh:NathanUrwin/cookiecutter-git --no-input <<< yes
+echo PATH is $PATH
+cookiecutter gh:NathanUrwin/cookiecutter-git --no-input <<< yes
