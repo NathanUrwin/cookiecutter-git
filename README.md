@@ -1,22 +1,27 @@
-[![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.github.io/portfolio/#/graphics)
+# cookiecutter-git [![GitHub release](https://img.shields.io/badge/release-v0.4.1-blue.svg)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.4.1) [![Development status](https://img.shields.io/badge/status-alpha-yellow.svg)](ROADMAP.md)
 
-# cookiecutter-git
-:closed_book: A project template for Git repos!
+> Git cookiecutter template :clipboard:
 
-### Table of Contents
+[![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
+
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
 - [Features](#features)
   - [Upcoming](#upcoming)
 - [Requirements](#requirements)
 - [Usage](#usage)
-  - [Example](#example)
+  - [Examples](#examples)
 - [Documentation](#documentation)
 - [Development](#development)
   - [Future](#future)
   - [History](#history)
+  - [Community](#community)
 - [Credits](#credits)
 - [License](#license)
 
 ## Features
+
 - [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-demo)
   - For any programming language or codebase
   - Useful but not overruling organization
@@ -29,6 +34,7 @@
 - Cross-platform support
 
 ### Upcoming
+
 - Add gitlab_token validation
 - Add more secure auth methods
 - Additional remote repo customization
@@ -36,23 +42,26 @@
 - Continuous integration
 
 ## Requirements
+
 - [git](https://git-scm.com/downloads)
 - [python](https://www.python.org/downloads/)
 - [cookiecutter](https://github.com/audreyr/cookiecutter)
 
 ## Usage
-    $ cookiecutter gh:nathanurwin/cookiecutter-git
+
+    $ cookiecutter gh:NathanUrwin/cookiecutter-git
 
 Which is an alias for:
 
-    $ cookiecutter https://github.com/nathanurwin/cookiecutter-git
+    $ cookiecutter https://github.com/NathanUrwin/cookiecutter-git
 
 See generated [README.md]({{cookiecutter.repo_slug}}/README.md)
 
-### Example
-See [cookiecutter-git-demo](https://github.com/nathanurwin/cookiecutter-git-demo)
+### Examples
 
-```
+See [cookiecutter-git-demo](https://github.com/NathanUrwin/cookiecutter-git-demo)
+
+```bash
 $ tree -a -I .git cookiecutter-git-demo
 cookiecutter-git-demo
 ├── AUTHORS.md
@@ -73,6 +82,7 @@ cookiecutter-git-demo
 ```
 
 ## Documentation
+
 **cookiecutter.json** explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
 
 Prompt | Explanation
@@ -92,16 +102,25 @@ Prompt | Explanation
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
 
 ## Development
+
 See [CONTRIBUTING](CONTRIBUTING.md)
 
 ### Future
+
 See [ROADMAP](ROADMAP.md)
 
 ### History
+
 See [CHANGELOG](CHANGELOG.md)
 
+### Community
+
+See [CODE OF CONDUCT](CODE_OF_CONDUCT.md)
+
 ## Credits
+
 See [AUTHORS](AUTHORS.md)
 
 ## License
+
 See [LICENSE](LICENSE)
