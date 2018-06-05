@@ -1,12 +1,15 @@
 # cookiecutter-git
 
-[![GitHub release](https://img.shields.io/badge/release-v0.4.1-blue.svg)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.4.1) [![Development status](https://img.shields.io/badge/status-alpha-yellow.svg)](ROADMAP.md) [![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)](https://travis-ci.com/NathanUrwin/cookiecutter-git) [![codecov](https://img.shields.io/badge/codecov-0%-lightgrey.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
+[![GitHub release](https://img.shields.io/badge/release-v0.4.1-blue.svg)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.4.1)
+[![Development status](https://img.shields.io/badge/status-alpha-yellow.svg)](ROADMAP.md)
+[![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)](https://travis-ci.com/NathanUrwin/cookiecutter-git)
+[![codecov](https://img.shields.io/badge/codecov-0%25-lightgrey.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
 
 > Git cookiecutter template :clipboard:
 
 [![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
 
-_**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) feature of creating a cookiecutter is coming soon._
+_**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) feature of creating a cookiecutter is **coming soon**!_
 
 ## Table of Contents
 
