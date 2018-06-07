@@ -6,7 +6,7 @@
 
 ## Brand Designer
 
-[Dylan Yates](https://github.com/dylantyates) &lt;dylantyates.github@gmail.com&gt;
+[Dylan Yates](https://github.com/dylantyates) &lt;dyates.texas@gmail.com&gt;
 
 ## Contributors
 
