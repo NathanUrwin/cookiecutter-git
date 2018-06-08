@@ -32,27 +32,27 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 - [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-demo)
   - For any programming language or codebase
   - Useful but not overruling organization
-- [License customization](https://developer.github.com/v3/licenses/)
+- [License customization](https://choosealicense.com/)
 - [Gitignore customization](https://www.gitignore.io/)
 - Remote repository creation
-  - [Bitbucket.org](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories) using [Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
-  - [GitHub.com](https://developer.github.com/v3/repos/#create) using [Basic auth](https://developer.github.com/v3/#basic-authentication)
-  - [GitLab.com](https://docs.gitlab.com/ee/api/projects.html#create-project) using [Personal access tokens](https://docs.gitlab.com/ce/api/README.html#personal-access-tokens)
+  - [Bitbucket.org](https://bitbucket.org/) using Basic auth
+  - [GitHub.com](https://github.com/) using Basic auth
+  - [GitLab.com](https://gitlab.com/) using Personal access tokens
 - Cross-platform support
 
 ### Upcoming
 
-- Add gitlab_token validation
-- Add more secure auth methods
-- Additional remote repo customization
-- Full coverage testing
-- Continuous integration
+- [Add gitlab_token validation](https://github.com/NathanUrwin/cookiecutter-git/issues/7)
+- [Full coverage testing](https://github.com/NathanUrwin/cookiecutter-git/issues/8)
+- [Continuous integration](https://github.com/NathanUrwin/cookiecutter-git/issues/9)
+- [Add more secure auth methods](https://github.com/NathanUrwin/cookiecutter-git/issues/11)
+- [Additional remote repo customization](https://github.com/NathanUrwin/cookiecutter-git/issues/12)
 
 ## Requirements
 
-- [git](https://git-scm.com/downloads)
-- [python](https://www.python.org/downloads/)
-- [cookiecutter](https://github.com/audreyr/cookiecutter)
+- [Cookiecutter](https://github.com/audreyr/cookiecutter)
+- [Git](https://git-scm.com/downloads)
+- [Python](https://www.python.org/downloads/)
 
 ## Usage
 
@@ -219,9 +219,28 @@ Prompt | Explanation
 `remote_provider` | A choice between `bitbucket.org`, `github.com`, and `gitlab.com`. This will only be used if `remote_repo` is `yes`, and defaults to `github.com`.
 `remote_protocol` | A choice between the `https` and `ssh` protocols. `https` is the default, since those using `ssh` qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
 `make_dirs` | A comma-separated values list of directory names. Directories will be made with a **.gitkeep** file, so they will be added to the initial commit. Nested dirs work if the system path separator is correct!
-`gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io docs](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
+`gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io README](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
 `license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
+
+## Resources
+
+- [Creating a Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/first_steps.html)
+- [Using Pre/Post-Generate Hooks](https://cookiecutter.readthedocs.io/en/latest/advanced/hooks.html)
+- [Subprocess management](https://docs.python.org/3/library/subprocess.html)
+- [URL handling modules](https://docs.python.org/3/library/urllib.html)
+- [Python Future urllib](http://python-future.org/compatible_idioms.html#urllib-module)
+- [GitHub Developer Licenses](https://developer.github.com/v3/licenses/)
+- [mkdir -p functionality in python](https://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python)
+- [Create empty file using python](https://stackoverflow.com/questions/12654772/create-empty-file-using-python)
+- [Git Ignore IO Docs](https://www.gitignore.io/docs)
+- [Bitbucket Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
+- [Bitbucket repositories](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D#post)
+- [GitHub Basic authentication](https://developer.github.com/v3/#basic-authentication)
+- [GitHub Repositories Create](https://developer.github.com/v3/repos/#create)
+- [GitLab Personal access tokens](https://docs.gitlab.com/ce/api/#personal-access-tokens)
+- [GitLab Namespaces](https://docs.gitlab.com/ce/api/namespaces.html)
+- [GitLab Create project](https://docs.gitlab.com/ce/api/projects.html#create-project)
 
 ## Development
 

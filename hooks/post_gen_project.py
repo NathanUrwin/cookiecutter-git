@@ -7,11 +7,10 @@ from __future__ import absolute_import, division, print_function, with_statement
 import base64
 import codecs
 import errno
+import getpass
 import json
 import os
 import shutil
-
-import getpass
 import subprocess
 try:
     # python 2
