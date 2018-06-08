@@ -20,6 +20,7 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 - [Usage](#usage)
   - [Examples](#examples)
 - [Documentation](#documentation)
+- [Resources](#resources)
 - [Development](#development)
   - [Future](#future)
   - [History](#history)
