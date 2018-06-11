@@ -1,10 +1,10 @@
 # Authors
 
-## Project Manager
+## Core Contributor
 
 [Nathan Urwin](https://github.com/NathanUrwin) &lt;me@nathanurwin.com&gt;
 
-## Brand Designer
+## Logo Designer
 
 [Dylan Yates](https://github.com/dylantyates) &lt;dyates.texas@gmail.com&gt;
 
