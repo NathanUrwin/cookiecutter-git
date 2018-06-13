@@ -53,7 +53,6 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 
 - [Cookiecutter](https://github.com/audreyr/cookiecutter)
 - [Git](https://git-scm.com/downloads)
-- [Python](https://www.python.org/downloads/)
 
 ## Usage
 
