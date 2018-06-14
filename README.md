@@ -227,8 +227,8 @@ Prompt | Explanation
 
 - [Creating a Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/first_steps.html)
 - [Using Pre/Post-Generate Hooks](https://cookiecutter.readthedocs.io/en/latest/advanced/hooks.html)
-- [Subprocess management](https://docs.python.org/3/library/subprocess.html)
-- [URL handling modules](https://docs.python.org/3/library/urllib.html)
+- [Python Subprocess management](https://docs.python.org/3/library/subprocess.html)
+- [Python URL handling modules](https://docs.python.org/3/library/urllib.html)
 - [Python Future urllib](http://python-future.org/compatible_idioms.html#urllib-module)
 - [GitHub Developer Licenses](https://developer.github.com/v3/licenses/)
 - [mkdir -p functionality in python](https://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python)
