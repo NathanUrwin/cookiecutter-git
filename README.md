@@ -233,14 +233,14 @@ Prompt | Explanation
 - [GitHub Developer Licenses](https://developer.github.com/v3/licenses/)
 - [mkdir -p functionality in python](https://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python)
 - [Create empty file using python](https://stackoverflow.com/questions/12654772/create-empty-file-using-python)
-- [Git Ignore IO Docs](https://www.gitignore.io/docs)
-- [Bitbucket Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
-- [Bitbucket repositories](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D#post)
-- [GitHub Basic authentication](https://developer.github.com/v3/#basic-authentication)
-- [GitHub Repositories Create](https://developer.github.com/v3/repos/#create)
-- [GitLab Personal access tokens](https://docs.gitlab.com/ce/api/#personal-access-tokens)
-- [GitLab Namespaces](https://docs.gitlab.com/ce/api/namespaces.html)
-- [GitLab Create project](https://docs.gitlab.com/ce/api/projects.html#create-project)
+- [Git Ignore Dotio Docs](https://www.gitignore.io/docs)
+- [Bitbucket API Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
+- [Bitbucket API repositories](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D#post)
+- [GitHub API Basic authentication](https://developer.github.com/v3/#basic-authentication)
+- [GitHub API Create repositories](https://developer.github.com/v3/repos/#create)
+- [GitLab API Personal access tokens](https://docs.gitlab.com/ce/api/#personal-access-tokens)
+- [GitLab API Namespaces](https://docs.gitlab.com/ce/api/namespaces.html)
+- [GitLab API Create project](https://docs.gitlab.com/ce/api/projects.html#create-project)
 
 ## Development
 
