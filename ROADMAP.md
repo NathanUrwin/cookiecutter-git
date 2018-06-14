@@ -12,5 +12,6 @@
 
 ## Project Milestones
 
-1. Add tests
-2. Release Beta version
+1. Add `is_cookiecutter` to **cookiecutter.json**
+2. Add tests
+3. Release Beta version
