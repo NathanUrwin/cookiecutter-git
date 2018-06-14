@@ -36,8 +36,8 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
   - For any programming language or codebase
   - [Useful but not overruling organization](#examples)
 - [License customization](https://choosealicense.com/)
-- [Gitignore customization](https://www.gitignore.io/)
-- [Remote repository creation](#resources)
+- [Git Ignore customization](https://www.gitignore.io/)
+- [Remote repo creation](#resources)
   - [Bitbucket.org](https://bitbucket.org/) using Basic auth
   - [GitHub.com](https://github.com/) using Basic auth
   - [GitLab.com](https://gitlab.com/) using Personal access tokens
@@ -244,7 +244,7 @@ Prompt | Explanation
 - [GitHub Developer Licenses](https://developer.github.com/v3/licenses/)
 - [mkdir -p functionality in python](https://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python)
 - [Create empty file using python](https://stackoverflow.com/questions/12654772/create-empty-file-using-python)
-- [Git Ignore DotIO Docs](https://www.gitignore.io/docs)
+- [Git Ignore Dot IO Docs](https://www.gitignore.io/docs)
 - [Bitbucket API Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
 - [Bitbucket API repositories](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D#post)
 - [GitHub API Basic authentication](https://developer.github.com/v3/#basic-authentication)
