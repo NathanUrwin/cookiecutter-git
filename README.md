@@ -9,7 +9,7 @@
 
 [![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
 
-This project was inspired by [cookiecutter-template](https://github.com/eviweb/cookiecutter-template) thanks to [eviweb](https://github.com/eviweb) (and [audreyr](https://github.com/audreyr) of course)! It consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/) with an added bonus: remote repos are created automatically! :boom:
+This project was inspired by [cookiecutter-template](https://github.com/eviweb/cookiecutter-template) by @eviweb, and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/) with an added bonus: remote repos are created for you automagically! :crystal_ball::cloud::zap:
 
 _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) feature of creating a cookiecutter is **coming soon**!_
 
