@@ -212,19 +212,26 @@ $ tree -a -I .git cookiecutter-git-demo
 cookiecutter-git-demo
 ├── AUTHORS.md
 ├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── docs
 │   └── .gitkeep
 ├── .editorconfig
+├── .github
+│   ├── ISSUE_TEMPLATE
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   └── PULL_REQUEST_TEMPLATE.md
 ├── .gitignore
 ├── LICENSE
 ├── README.md
+├── ROADMAP.md
 ├── src
 │   └── .gitkeep
 └── tests
     └── .gitkeep
 
-3 directories, 10 files
+5 directories, 15 files
 ```
 
 ## Documentation
@@ -233,8 +240,8 @@ cookiecutter-git-demo
 
 Prompt | Explanation
 --- | ---
-`author_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Project Lead* in **AUTHORS.md**.
-`author_email` | The email address you want associated with the repository. This will go under *Project Lead* in **AUTHORS.md**.
+`author_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Core Contributor* in **AUTHORS.md**.
+`author_email` | The email address you want associated with the repository. This will go under *Core Contributor* in **AUTHORS.md**.
 `git_username` | Your local git and `remote_provider` (see below) account username. This will be used for all git-based actions.
 `repo_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `remote_repo` (see below) is `yes`.
 `repo_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote repo endpoint, and the *H1* in the **README.md**.
