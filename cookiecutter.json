@@ -1,10 +1,10 @@
 {
   "author_name": "Nathan Urwin",
-  "author_email": "nathan.e.urwin@gmail.com",
-  "git_username": "nathanurwin",
-  "repo_namespace": "nathanurwin",
+  "author_email": "me@nathanurwin.com",
+  "git_username": "NathanUrwin",
+  "repo_namespace": "NathanUrwin",
   "repo_slug": "cookiecutter-git-demo",
-  "repo_description": "A cookiecutter-git demonstration",
+  "repo_description": "A cookiecutter-git demonstration :tada:",
   "remote_repo": [
     "yes",
     "no"
