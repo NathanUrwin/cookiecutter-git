@@ -1,26 +1,18 @@
 {
   "author_name": "Nathan Urwin",
-  "author_email": "me@nathanurwin.com",
-  "git_username": "NathanUrwin",
-  "repo_namespace": "NathanUrwin",
+  "author_email": "me@{{ cookiecutter.author_name | replace(' ', '') | lower() }}.com",
+
+  "git_username": "{{ cookiecutter.author_name | replace(' ', '') }}",
+  "git_ignore": "windows,macos,linux,git",
+
   "repo_slug": "cookiecutter-git-demo",
   "repo_description": "A cookiecutter-git demonstration :tada:",
-  "remote_repo": [
-    "yes",
-    "no"
-  ],
-  "remote_provider": [
-    "github.com",
-    "gitlab.com",
-    "bitbucket.org"
-  ],
-  "remote_protocol": [
-    "https",
-    "ssh"
-  ],
-  "make_dirs": "docs,src,tests",
-  "gitignore": "windows,macos,linux,git",
-  "license": [
+
+  "remote_provider": ["GitHub.com", "GitLab.com", "Bitbucket.org", null],
+  "remote_namespace": "{{ cookiecutter.git_username }}",
+  "remote_protocol": ["https", "ssh"],
+
+  "copyright_license": [
     "MIT",
     "Apache-2.0",
     "BSD-2-Clause",
@@ -34,5 +26,9 @@
     "MPL-2.0",
     "Unlicense"
   ],
-  "copyright_holder": "Nathan Urwin"
+  "copyright_holder": "{{ cookiecutter.author_name }}",
+
+
+  "make_dirs": "docs,src,tests",
+  "make_cookiecutter": [false, true]
 }

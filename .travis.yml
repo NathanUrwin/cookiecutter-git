@@ -1,27 +1,15 @@
-language: generic
+sudo: false
 
-sudo: required
+language: python
 
-addons:
-  apt:
-    packages:
-      - libcurl4-openssl-dev
-      - libelf-dev
-      - libdw-dev
-      - cmake
-      - python-cookiecutter
+python:
+  - 2.7
 
-after_success: |
-  wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
-  tar xzf master.tar.gz &&
-  cd kcov-master &&
-  mkdir build &&
-  cd build &&
-  cmake .. &&
-  make &&
-  sudo make install &&
-  cd ../.. &&
-  rm -rf kcov-master &&
-  mkdir -p coverage &&
-  kcov coverage ./tests/test_cookiecutter.sh &&
-  bash <(curl -s https://codecov.io/bash)
+install:
+  - pip install codecov
+
+script:
+  - coverage run tests.py
+
+after_success:
+  - codecov

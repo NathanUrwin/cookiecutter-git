@@ -69,7 +69,7 @@ You've cloned /home/user/.cookiecutters/cookiecutter-git before. Is it okay to d
 author_name [Nathan Urwin]:
 author_email [nathan.e.urwin@gmail.com]: me@nathanurwin.com
 git_username [nathanurwin]:
-repo_namespace [nathanurwin]:
+remote_namespace [nathanurwin]:
 repo_slug [cookiecutter-git-demo]:
 repo_description [A cookiecutter-git demonstration]: A cookiecutter-git demonstration :tada:
 Select remote_repo:
@@ -243,16 +243,16 @@ Prompt | Explanation
 `author_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Core Contributor* in **AUTHORS.md**.
 `author_email` | The email address you want associated with the repository. This will go under *Core Contributor* in **AUTHORS.md**.
 `git_username` | Your local git and `remote_provider` (see below) account username. This will be used for all git-based actions.
-`repo_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `remote_repo` (see below) is `yes`.
+`git_ignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io README](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
 `repo_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote repo endpoint, and the *H1* in the **README.md**.
 `repo_description` | A short description about the repository. This will be the remote description setting, and the content under the *H1* in the **README.md**.
 `remote_repo` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
+`remote_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `remote_repo` is `yes`.
 `remote_provider` | A choice between `bitbucket.org`, `github.com`, and `gitlab.com`. This will only be used if `remote_repo` is `yes`, and defaults to `github.com`.
 `remote_protocol` | A choice between the `https` and `ssh` protocols. `https` is the default, since those using `ssh` qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
 `make_dirs` | A comma-separated values list of directory names. Directories will be made with a **.gitkeep** file, so they will be added to the initial commit. Nested dirs work if the system path separator is correct!
-`gitignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io README](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
-`license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
+`license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 
 ## Resources
 

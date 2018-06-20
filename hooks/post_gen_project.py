@@ -10,6 +10,7 @@ import errno
 import getpass
 import json
 import os
+import shlex
 import shutil
 import subprocess
 try:
@@ -27,15 +28,15 @@ def run(command, log=True):
     """A quick-and-dirty function that mimicks the fabric library local run.
     """
     try:
-        output = codecs.decode(subprocess.check_output(command), 'utf-8')
+        output = codecs.decode(subprocess.check_output(shlex.split(command)), 'utf-8')
     except subprocess.CalledProcessError as error:
-        print('{}: {}\n{}'.format(error.returncode, error.cmd, error.output))
+        print('> {}: {}\n{}'.format(error.returncode, error.cmd, error.output))
         raise error
     else:
         if output and log:
-            print('{}\n{}'.format(' '.join(command), output))
+            print('> {}\n{}'.format(command, output))
         else:
-            print(' '.join(command))
+            print('> {}'.format(command))
     return output
 
 
@@ -56,13 +57,13 @@ class requests(object):
             message = error.read()
             error.close()
             args = (error.code, error.reason, url, message)
-            print('{} {}: {}\n{}'.format(*args))
+            print('> {} {}: {}\n{}'.format(*args))
             raise SystemExit
         else:
             if content and log:
-                print('{}\n{}'.format(url, content))
+                print('> {}\n{}'.format(url, content))
             else:
-                print(url)
+                print('> {}'.format(url))
         return content
 
     @classmethod
@@ -86,12 +87,12 @@ JSON_HEADER = {'Content-Type': 'application/json; charset=utf-8'}
 # Globals
 REPO_PATH = os.getcwd()
 APACHE_LICENSE = {% if cookiecutter.license == 'Apache-2.0' %}True{% else %}False{% endif %}
-BITBUCKET_REPOS_URL = 'https://api.bitbucket.org/2.0/repositories/{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}'
+BITBUCKET_REPOS_URL = 'https://api.bitbucket.org/2.0/repositories/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}'
 GITIGNORE_PATH = os.path.join(REPO_PATH, '.gitignore')
-{% if cookiecutter.git_username != cookiecutter.repo_namespace %}
-GITHUB_REPOS_URL = 'https://api.github.com/orgs/{{cookiecutter.repo_namespace}}/repos'
+{% if cookiecutter.git_username != cookiecutter.remote_namespace %}
+GITHUB_REPOS_URL = 'https://api.github.com/orgs/{{cookiecutter.remote_namespace}}/repos'
 {% endif %}
-GITIGNORE_URL = 'https://www.gitignore.io/api/{{cookiecutter.gitignore}}'
+GITIGNORE_URL = 'https://www.gitignore.io/api/{{cookiecutter.git_ignore}}'
 GIT_USERNAME = '{{cookiecutter.git_username}}'
 LICENSES_DIRPATH = os.path.join(REPO_PATH, 'LICENSES')
 LICENSE_PATH = os.path.join(REPO_PATH, 'LICENSE')
@@ -102,70 +103,82 @@ PASSWORD_PROMPT = "Password for 'https://{{cookiecutter.git_username}}@{{cookiec
 PROJECT_DIRS = [os.path.join(REPO_PATH, dirname.strip()) for dirname in '{{cookiecutter.make_dirs}}'.split(',') if dirname.strip()]
 REMOTE_DATA = {'name': '{{cookiecutter.repo_slug}}', 'description': '{{cookiecutter.repo_description}}'}
 {% if cookiecutter.remote_protocol == 'https' %}
-REMOTE_ORIGIN_URL = 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}/{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}.git'
+REMOTE_ORIGIN_URL = 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}.git'
 {% else %}
-REMOTE_ORIGIN_URL = 'git@{{cookiecutter.remote_provider}}:{{cookiecutter.repo_namespace}}/{{cookiecutter.repo_slug}}.git'
+REMOTE_ORIGIN_URL = 'git@{{cookiecutter.remote_provider}}:{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}.git'
 {% endif %}
 REMOTE_PROVIDER = '{{cookiecutter.remote_provider}}'
 REMOTE_REPO = {% if cookiecutter.remote_repo == 'yes' %}True{% else %}False{% endif %}
-REPO_NAMESPACE = '{{cookiecutter.repo_namespace}}'
+REMOTE_NAMESPACE = '{{cookiecutter.remote_namespace}}'
 SUCCESS_MESSAGE = '\n{{cookiecutter.repo_slug}} setup successfully!\n\n'
 
 
-def setup_git_repo():
-    """A function that adds a .gitignore, initial commit, and remote repo.
-    """
+def setup_git_ignore():
     if NEW_GITIGNORE:
         response = requests.get(GITIGNORE_URL)
         with open(GITIGNORE_PATH, 'wb') as f:
             f.write(response)
         print("updated '{}'".format(GITIGNORE_PATH))
 
-    run(['git', 'init'])
-    run(['git', 'status'])
-    run(['git', 'add', '-A'])
-    run(['git', 'status'])
-    run(['git', 'commit', '-m', 'Initial commit'])
+
+def setup_git_commit():
+    run('git init')
+    run('git status')
+    run('git add -A')
+    run('git status')
+    run('git commit -m "Initial Commit"')
+
+
+def setup_git_remote():
+    if REMOTE_PROVIDER in ['bitbucket.org', 'github.com']:
+        auth_info = (GIT_USERNAME, getpass.getpass(PASSWORD_PROMPT).strip())
+        auth_data = '{}:{}'.format(*auth_info)
+        auth_base = base64.b64encode(auth_data.encode())
+
+    if REMOTE_PROVIDER == 'bitbucket.org':
+        REMOTE_DATA.update({'has_issues': True, 'is_private': True})
+        JSON_HEADER['Authorization'] = 'Basic {}'.format(auth_base.decode())
+
+        create_remote_url = BITBUCKET_REPOS_URL
+        data = json.dumps(REMOTE_DATA).encode()
+        headers = JSON_HEADER
+
+    elif REMOTE_PROVIDER == 'github.com':
+        create_remote_url = GITHUB_REPOS_URL
+        data = json.dumps(REMOTE_DATA).encode()
+        headers = {'Authorization': 'Basic {}'.format(auth_base.decode())}
+
+    elif REMOTE_PROVIDER == 'gitlab.com':
+        gitlab_token = getpass.getpass('gitlab_token: ').strip()
+        token_header = {'PRIVATE-TOKEN': gitlab_token}
+        search_param = {'search': REMOTE_NAMESPACE}
+        search_url = GITLAB_NAMESPACES_URL + '?' + urlencode(search_param)
+        search_results = requests.get(search_url, headers=token_header)
+        gitlab_namespaces = json.loads(search_results)
+        for namespace in gitlab_namespaces:
+            if namespace.get('path', '') == REMOTE_NAMESPACE:
+                namespace_id = namespace.get('id', '')
+                if namespace_id:
+                    REMOTE_DATA.update({'namespace_id': namespace_id})
+
+        create_remote_url = GITLAB_PROJECTS_URL
+        data = bytearray(urlencode(REMOTE_DATA), 'utf-8')
+        headers = token_header
+
+    requests.post(create_remote_url, data=data, headers=headers)
+    run('git remote add origin {}'.format(REMOTE_ORIGIN_URL))
+    run('git push -u origin')
+
+
+def setup_git_repo():
+    """A function that adds a .gitignore, initial commit, and remote repo.
+    """
+    setup_git_ignore()
+
+    setup_git_commit()
 
     if REMOTE_REPO:
-        if REMOTE_PROVIDER in ['bitbucket.org', 'github.com']:
-            auth_info = (GIT_USERNAME, getpass.getpass(PASSWORD_PROMPT).strip())
-            auth_data = '{}:{}'.format(*auth_info)
-            auth_base = base64.b64encode(auth_data.encode())
-
-        if REMOTE_PROVIDER == 'bitbucket.org':
-            REMOTE_DATA.update({'has_issues': True, 'is_private': True})
-            JSON_HEADER['Authorization'] = 'Basic {}'.format(auth_base.decode())
-
-            create_remote_url = BITBUCKET_REPOS_URL
-            data = json.dumps(REMOTE_DATA).encode()
-            headers = JSON_HEADER
-
-        elif REMOTE_PROVIDER == 'github.com':
-            create_remote_url = GITHUB_REPOS_URL
-            data = json.dumps(REMOTE_DATA).encode()
-            headers = {'Authorization': 'Basic {}'.format(auth_base.decode())}
-
-        elif REMOTE_PROVIDER == 'gitlab.com':
-            gitlab_token = getpass.getpass('gitlab_token: ').strip()
-            token_header = {'PRIVATE-TOKEN': gitlab_token}
-            search_param = {'search': REPO_NAMESPACE}
-            search_url = GITLAB_NAMESPACES_URL + '?' + urlencode(search_param)
-            search_results = requests.get(search_url, headers=token_header)
-            gitlab_namespaces = json.loads(search_results)
-            for namespace in gitlab_namespaces:
-                if namespace.get('path', '') == REPO_NAMESPACE:
-                    namespace_id = namespace.get('id', '')
-                    if namespace_id:
-                        REMOTE_DATA.update({'namespace_id': namespace_id})
-
-            create_remote_url = GITLAB_PROJECTS_URL
-            data = bytearray(urlencode(REMOTE_DATA), 'utf-8')
-            headers = token_header
-
-        requests.post(create_remote_url, data=data, headers=headers)
-        run(['git', 'remote', 'add', 'origin', REMOTE_ORIGIN_URL])
-        run(['git', 'push', '-u', 'origin', 'master'])
+        setup_git_remote()
 
 
 def setup_project_dirs():
@@ -201,6 +214,7 @@ def main():
     setup_license_file()
     setup_project_dirs()
     setup_git_repo()
+
     print(SUCCESS_MESSAGE)
 
 # This is required! Don't remove!!

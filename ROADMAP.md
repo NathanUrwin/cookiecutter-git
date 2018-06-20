@@ -12,6 +12,6 @@
 
 ## Project Milestones
 
-1. Add `is_cookiecutter` to **cookiecutter.json**
-2. Add tests
+1. Add tests using [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage) as a guide
+2. Add `copy_cookiecutter_git` to **cookiecutter.json**
 3. Release Beta version
