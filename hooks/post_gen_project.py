@@ -1,6 +1,11 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division, print_function, with_statement
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
+
 """Cookiecutter-Git Post-Generate Project Hook.
 """
 
@@ -13,6 +18,7 @@ import os
 import shlex
 import shutil
 import subprocess
+
 try:
     # python 2
     from urllib import urlencode
@@ -25,18 +31,20 @@ except ImportError:
 
 
 def run(command, log=True):
-    """A quick-and-dirty function that mimicks the fabric library local run.
+    """A quick-and-dirty function that mimicks the invoke local run.
     """
     try:
-        output = codecs.decode(subprocess.check_output(shlex.split(command)), 'utf-8')
+        output = codecs.decode(
+            subprocess.check_output(shlex.split(command)), "utf-8"
+        )
     except subprocess.CalledProcessError as error:
-        print('> {}: {}\n{}'.format(error.returncode, error.cmd, error.output))
+        print("> {}: {}\n{}".format(error.returncode, error.cmd, error.output))
         raise error
     else:
         if output and log:
-            print('> {}\n{}'.format(command, output))
-        else:
-            print('> {}'.format(command))
+            print("> {}\n{}".format(command, output))
+        elif log:
+            print("> {}".format(command))
     return output
 
 
@@ -57,13 +65,13 @@ class requests(object):
             message = error.read()
             error.close()
             args = (error.code, error.reason, url, message)
-            print('> {} {}: {}\n{}'.format(*args))
+            print("> {} {}: {}\n{}".format(*args))
             raise SystemExit
         else:
             if content and log:
-                print('> {}\n{}'.format(url, content))
+                print("> {}\n{}".format(url, content))
             else:
-                print('> {}'.format(url))
+                print("> {}".format(url))
         return content
 
     @classmethod
@@ -78,145 +86,250 @@ class requests(object):
         """
         return cls._request(url, headers, data, log)
 
-# Constants
-GITHUB_REPOS_URL = 'https://api.github.com/user/repos'
-GITLAB_NAMESPACES_URL = 'https://gitlab.com/api/v3/namespaces'
-GITLAB_PROJECTS_URL = 'https://gitlab.com/api/v3/projects'
-JSON_HEADER = {'Content-Type': 'application/json; charset=utf-8'}
 
-# Globals
-REPO_PATH = os.getcwd()
-APACHE_LICENSE = {% if cookiecutter.license == 'Apache-2.0' %}True{% else %}False{% endif %}
-BITBUCKET_REPOS_URL = 'https://api.bitbucket.org/2.0/repositories/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}'
-GITIGNORE_PATH = os.path.join(REPO_PATH, '.gitignore')
-{% if cookiecutter.git_username != cookiecutter.remote_namespace %}
-GITHUB_REPOS_URL = 'https://api.github.com/orgs/{{cookiecutter.remote_namespace}}/repos'
-{% endif %}
-GITIGNORE_URL = 'https://www.gitignore.io/api/{{cookiecutter.git_ignore}}'
-GIT_USERNAME = '{{cookiecutter.git_username}}'
-LICENSES_DIRPATH = os.path.join(REPO_PATH, 'LICENSES')
-LICENSE_PATH = os.path.join(REPO_PATH, 'LICENSE')
-LICENSE_TXT = os.path.join(LICENSES_DIRPATH, '{{cookiecutter.license}}.txt')
-NEW_GITIGNORE = {% if cookiecutter.gitignore != 'windows,macos,linux,git' %}True{% else %}False{% endif %}
-NOTICE_PATH = os.path.join(REPO_PATH, 'NOTICE')
-PASSWORD_PROMPT = "Password for 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}': "
-PROJECT_DIRS = [os.path.join(REPO_PATH, dirname.strip()) for dirname in '{{cookiecutter.make_dirs}}'.split(',') if dirname.strip()]
-REMOTE_DATA = {'name': '{{cookiecutter.repo_slug}}', 'description': '{{cookiecutter.repo_description}}'}
-{% if cookiecutter.remote_protocol == 'https' %}
-REMOTE_ORIGIN_URL = 'https://{{cookiecutter.git_username}}@{{cookiecutter.remote_provider}}/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}.git'
-{% else %}
-REMOTE_ORIGIN_URL = 'git@{{cookiecutter.remote_provider}}:{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}.git'
-{% endif %}
-REMOTE_PROVIDER = '{{cookiecutter.remote_provider}}'
-REMOTE_REPO = {% if cookiecutter.remote_repo == 'yes' %}True{% else %}False{% endif %}
-REMOTE_NAMESPACE = '{{cookiecutter.remote_namespace}}'
-SUCCESS_MESSAGE = '\n{{cookiecutter.repo_slug}} setup successfully!\n\n'
-
-
-def setup_git_ignore():
-    if NEW_GITIGNORE:
-        response = requests.get(GITIGNORE_URL)
-        with open(GITIGNORE_PATH, 'wb') as f:
-            f.write(response)
-        print("updated '{}'".format(GITIGNORE_PATH))
-
-
-def setup_git_commit():
-    run('git init')
-    run('git status')
-    run('git add -A')
-    run('git status')
-    run('git commit -m "Initial Commit"')
-
-
-def setup_git_remote():
-    if REMOTE_PROVIDER in ['bitbucket.org', 'github.com']:
-        auth_info = (GIT_USERNAME, getpass.getpass(PASSWORD_PROMPT).strip())
-        auth_data = '{}:{}'.format(*auth_info)
-        auth_base = base64.b64encode(auth_data.encode())
-
-    if REMOTE_PROVIDER == 'bitbucket.org':
-        REMOTE_DATA.update({'has_issues': True, 'is_private': True})
-        JSON_HEADER['Authorization'] = 'Basic {}'.format(auth_base.decode())
-
-        create_remote_url = BITBUCKET_REPOS_URL
-        data = json.dumps(REMOTE_DATA).encode()
-        headers = JSON_HEADER
-
-    elif REMOTE_PROVIDER == 'github.com':
-        create_remote_url = GITHUB_REPOS_URL
-        data = json.dumps(REMOTE_DATA).encode()
-        headers = {'Authorization': 'Basic {}'.format(auth_base.decode())}
-
-    elif REMOTE_PROVIDER == 'gitlab.com':
-        gitlab_token = getpass.getpass('gitlab_token: ').strip()
-        token_header = {'PRIVATE-TOKEN': gitlab_token}
-        search_param = {'search': REMOTE_NAMESPACE}
-        search_url = GITLAB_NAMESPACES_URL + '?' + urlencode(search_param)
-        search_results = requests.get(search_url, headers=token_header)
-        gitlab_namespaces = json.loads(search_results)
-        for namespace in gitlab_namespaces:
-            if namespace.get('path', '') == REMOTE_NAMESPACE:
-                namespace_id = namespace.get('id', '')
-                if namespace_id:
-                    REMOTE_DATA.update({'namespace_id': namespace_id})
-
-        create_remote_url = GITLAB_PROJECTS_URL
-        data = bytearray(urlencode(REMOTE_DATA), 'utf-8')
-        headers = token_header
-
-    requests.post(create_remote_url, data=data, headers=headers)
-    run('git remote add origin {}'.format(REMOTE_ORIGIN_URL))
-    run('git push -u origin')
-
-
-def setup_git_repo():
-    """A function that adds a .gitignore, initial commit, and remote repo.
+class PostGenProjectHook(object):
     """
-    setup_git_ignore()
-
-    setup_git_commit()
-
-    if REMOTE_REPO:
-        setup_git_remote()
-
-
-def setup_project_dirs():
-    """A function that makes dirs and adds .gitkeep files to them.
     """
-    for dirpath in PROJECT_DIRS:
+    github_repos_url = "https://api.github.com/user/repos"
+    json_header = {"Content-Type": "application/json; charset=utf-8"}
+
+    def __init__(self, *args, **kwargs):
+        self.results = self._get_cookiecutter_results()
+        self.copy_cookiecutter_git = self.results.get("copy_cookiecutter_git")
+        self.copyright_holder = self.results.get("copyright_holder")
+        self.copyright_license = self.results.get("copyright_license")
+        self.git_email = self.results.get("git_email")
+        self.git_ignore = self.results.get("git_ignore")
+        self.git_name = self.results.get("git_name")
+        self.make_dirs = self.results.get("make_dirs")
+        self.remote_namespace = self.results.get("remote_namespace")
+        self.remote_protocol = self.results.get("remote_protocol")
+        self.remote_provider = self.results.get("remote_provider", "").lower()
+        self.remote_username = self.results.get("remote_username")
+        self.repo_description = self.results.get("repo_description")
+        self.repo_slug = self.results.get("repo_slug")
+
+        self.repo_dirpath = os.getcwd()
+        self.apache_license = (
+            True if self.copyright_license == "Apache-2.0" else False
+        )
+        self.bitbucket_repos_url = "https://api.bitbucket.org/2.0/repositories/{}/{}".format(
+            self.remote_namespace, self.repo_slug
+        )
+        self.cookiecutter_json_filepath = os.path.join(
+            self.repo_dirpath, "cookiecutter.json"
+        )
+        self.copy_cookiecutter_git = (
+            True if self.copy_cookiecutter_git == "true" else False
+        )
+        self.create_remote_url = None
+        self.raw_repo_slug_dirpath = os.path.join(
+            self.repo_dirpath,
+            "{% raw %}{{cookiecutter.repo_slug}}{% endraw %}",
+        )
+        if self.remote_username != self.remote_namespace:
+            self.github_repos_url = "https://api.github.com/orgs/{}/repos".format(
+                self.remote_namespace
+            )
+        self.git_ignore_filepath = os.path.join(
+            self.repo_dirpath, ".gitignore"
+        )
+        self.git_ignore_url = "https://www.gitignore.io/api/{}".format(
+            self.git_ignore
+        )
+        self.headers = {}
+        self.hooks_dirpath = os.path.join(self.repo_dirpath, "hooks")
+        self.licenses_dirpath = os.path.join(self.repo_dirpath, "LICENSES")
+        self.license_filepath = os.path.join(self.repo_dirpath, "LICENSE")
+        self.nested_license_filepath = os.path.join(
+            self.licenses_dirpath, "{}.txt".format(self.copyright_license)
+        )
+        self.new_git_ignore = (
+            True if self.git_ignore != "windows,macos,linux,git" else False
+        )
+        self.notice_filepath = os.path.join(self.repo_dirpath, "NOTICE")
+        self.password_prompt = "Password for 'https://{}@{}': ".format(
+            self.remote_username, self.remote_provider
+        )
+        self.project_dirpaths = [
+            os.path.join(self.repo_dirpath, dirname.strip())
+            for dirname in self.make_dirs.split(",")
+            if dirname.strip()
+        ]
+        self.remote_data = {
+            "name": self.repo_slug,
+            "description": self.repo_description,
+        }
+        if self.remote_provider == "bitbucket.org":
+            self.create_remote_url = self.bitbucket_repos_url
+            self.headers.update(self.json_header)
+            self.remote_data.update({"has_issues": True, "is_private": True})
+        elif self.remote_provider == "github.com":
+            self.create_remote_url = self.github_repos_url
+        self.encoded_data = json.dumps(self.remote_data).encode()
+        self.remote_password = None
+        self.remote_repo = True if self.remote_provider != "none" else False
+        self.remote_origin_url = "https://{}@{}/{}/{}.git".format(
+            self.remote_username,
+            self.remote_provider,
+            self.remote_namespace,
+            self.repo_slug,
+        )
+        if self.remote_protocol == "ssh":
+            self.remote_origin_url = "git@{}:{}/{}.git".format(
+                self.remote_provider, self.remote_namespace, self.repo_slug
+            )
+        self.remote_message = (
+            "\n\nCheck out the remote here: https://{}/{}/{}".format(
+                self.remote_provider, self.remote_namespace, self.repo_slug
+            )
+            if self.remote_repo
+            else ""
+        )
+        self.success_message = "\n\n{} setup successfully!{}\n\n".format(
+            self.repo_slug, self.remote_message
+        )
+
+    def _get_cookiecutter_results(self):
+        """
+        """
+        # remove as much jinja2 templating from this file as possible
         try:
-            os.makedirs(dirpath)
-        except OSError as exc:
-            if exc.errno == errno.EEXIST and os.path.isdir(dirpath):
-                pass
-            else:
-                raise
-        gitkeep = os.path.join(dirpath, '.gitkeep')
-        with open(gitkeep, 'a'):
-            os.utime(gitkeep, None)
+            results = json.loads("""{{ cookiecutter | tojson() }}""")
 
+        # this is temporary hack around for `pipenv run pytest`
+        except json.JSONDecodeError:
+            results = {}
+            repo_dirpath = os.path.dirname(
+                os.path.dirname(os.path.abspath(__file__))
+            )
+            json_filepath = os.path.join(repo_dirpath, "cookiecutter.json")
+            with open(json_filepath) as f:
+                for k, v in json.loads(f.read()).items():
+                    results[k] = v
+                    if isinstance(v, list):
+                        results[k] = v[0]
+        return results
 
-def setup_license_file():
-    """A simple function that adds the chosen LICENSE and removes the rest.
-    """
-    if not APACHE_LICENSE:
-        print("Removing '{}'...".format(NOTICE_PATH))
-        os.remove(NOTICE_PATH)
+    def _git_push_origin(self):
+        """Creates a remote repo if needed and pushes to origin.
+        """
+        if self.remote_provider != "none":
+            # temp hack for `pytest-dotenv`. need to mock requests
+            self.remote_password = (
+                base64.b64decode(os.environ.get("REMOTE_PASSWORD", "").strip())
+                .strip()
+                .decode()
+            )
+            if not self.remote_password:
+                self.remote_password = getpass.getpass(
+                    self.password_prompt
+                ).strip()
 
-    shutil.move(LICENSE_TXT, LICENSE_PATH)
-    shutil.rmtree(LICENSES_DIRPATH, ignore_errors=True)
+        if self.remote_provider in ["bitbucket.org", "github.com"]:
+            # http basic auth if needed
+            auth_info = (self.remote_username, self.remote_password)
+            auth_data = "{}:{}".format(*auth_info)
+            auth_base = base64.b64encode(auth_data.encode())
+            self.headers["Authorization"] = "Basic {}".format(
+                auth_base.decode()
+            )
+
+            # create remote POST request
+            requests.post(
+                self.create_remote_url,
+                data=self.encoded_data,
+                headers=self.headers,
+            )
+
+        # git push
+        run("git remote add origin {}".format(self.remote_origin_url))
+        run(
+            "git push -u origin <<< {}".format(self.remote_password), log=False
+        )
+        print("> git push -u origin")
+
+    def _git_init_commit(self):
+        """Creates a git repo with the first (initial) commit.
+        """
+        run("git init")
+        run("git status")
+        run("git add -A")
+        run("git status")
+        run('git commit -m "Initial commit"')
+
+    def _git_ignore(self):
+        """Creates a new .gitignore if needed from gitignore.io.
+        """
+        if self.new_git_ignore:
+            # gitignore.io/api -> .gitignore
+            response = requests.get(self.git_ignore_url)
+            with open(self.git_ignore_filepath, "wb") as f:
+                f.write(response)
+            print("updated '{}'".format(self.git_ignore_filepath))
+
+    def _git_repo(self):
+        """Adds a .gitignore, initial commit, and remote repo.
+        """
+        self._git_ignore()
+        self._git_init_commit()
+        if self.remote_repo:
+            self._git_push_origin()
+
+    def _make_dirs(self):
+        """Makes dirs and adds .gitkeep files to them.
+        """
+        for dirpath in self.project_dirpaths:
+            # equal to bash `mkdir -p`
+            try:
+                os.makedirs(dirpath)
+            except OSError as exc:
+                if exc.errno == errno.EEXIST and os.path.isdir(dirpath):
+                    pass
+                else:
+                    raise
+
+            gitkeep = os.path.join(dirpath, ".gitkeep")
+            # equal to bash `touch`
+            with open(gitkeep, "a"):
+                os.utime(gitkeep, None)
+
+    def _copy_cookiecutter_git(self):
+        """Removes cookiecutter-git features if not needed.
+        """
+        if not self.copy_cookiecutter_git:
+            print("Removing '{}'...".format(self.cookiecutter_json_filepath))
+            os.remove(self.cookiecutter_json_filepath)
+
+            shutil.rmtree(self.hooks_dirpath, ignore_errors=True)
+            shutil.rmtree(self.raw_repo_slug_dirpath, ignore_errors=True)
+
+    def _copyright_license(self):
+        """Adds the chosen LICENSE and removes the rest.
+        """
+        if not self.apache_license:
+            print("Removing '{}'...".format(self.notice_filepath))
+            os.remove(self.notice_filepath)
+
+        shutil.move(self.nested_license_filepath, self.license_filepath)
+        shutil.rmtree(self.licenses_dirpath, ignore_errors=True)
+
+    def run(self):
+        """
+        """
+        self._copyright_license()
+        self._copy_cookiecutter_git()
+        self._make_dirs()
+        self._git_repo()
+        print(self.success_message)
 
 
 def main():
-    """The main entry point for the post-generate project hook.
+    """Post-generate project hook main entry point.
     """
-    setup_license_file()
-    setup_project_dirs()
-    setup_git_repo()
+    PostGenProjectHook().run()
 
-    print(SUCCESS_MESSAGE)
 
 # This is required! Don't remove!!
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

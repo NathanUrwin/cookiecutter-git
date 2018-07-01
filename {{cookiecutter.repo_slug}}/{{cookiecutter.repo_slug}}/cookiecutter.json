@@ -32,7 +32,6 @@
 
   "_copy_without_render": [
     "{{cookiecutter.repo_slug}}",
-    "cookiecutter.json",
     "hooks"
   ]
 }

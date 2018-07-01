@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+name = "pypi"
+verify_ssl = true
+
+[packages]
+cookiecutter = "*"
+
+[dev-packages]
+black = "*"
+invoke = "*"
+pylint = "*"
+pytest = "*"
+pytest-cookies = "*"
+pytest-dotenv = "*"
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true

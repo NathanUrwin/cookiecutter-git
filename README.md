@@ -38,9 +38,9 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 - [License customization](https://choosealicense.com/)
 - [Git Ignore customization](https://www.gitignore.io/)
 - [Remote repo creation](#resources)
-  - [Bitbucket.org](https://bitbucket.org/) using Basic auth
-  - [GitHub.com](https://github.com/) using Basic auth
-  - [GitLab.com](https://gitlab.com/) using Personal access tokens
+  - [Bitbucket.org](https://bitbucket.org/) using Basic auth (2FA disabled only)
+  - [GitHub.com](https://github.com/) using Basic auth (2FA support coming soon)
+  - [GitLab.com](https://gitlab.com/) using Git push
 - Cross-platform support
   - [Windows](https://www.microsoft.com/en-us/windows)
   - [macOS](https://www.apple.com/macos/high-sierra/)
@@ -59,11 +59,32 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 - [Cookiecutter](https://github.com/audreyr/cookiecutter)
 - [Git](https://git-scm.com/downloads)
 
+## Installation
+
+_**Note:** Only needed if contributing to development! Normal `cookiecutter` CLI users see [Usage](#usage) below._
+
+```bash
+$ git clone https://github.com/NathanUrwin/cookiecutter-git
+Cloning into 'cookiecutter-git'...
+remote: Counting objects: 535, done.
+remote: Compressing objects: 100% (104/104), done.
+remote: Total 535 (delta 74), reused 98 (delta 33), pack-reused 386
+Receiving objects: 100% (535/535), 250.71 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (299/299), done.
+
+$ cd cookiecutter-git
+$ pipenv install
+Installing dependencies from Pipfile.lock (e30ea1)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 17/17 — 00:00:01
+To activate this project's virtualenv, run the following:
+ $ pipenv shell
+```
+
 ## Usage
 
 ```bash
-$ mkdir -p ~/Git/NathanUrwin
-$ cd ~/Git/NathanUrwin
+$ mkdir -p ~/Projects/NathanUrwin
+$ cd ~/Projects/NathanUrwin
 $ cookiecutter gh:NathanUrwin/cookiecutter-git  # https://github.com/NathanUrwin/cookiecutter-git
 You've cloned /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-clone it? [yes]:
 author_name [Nathan Urwin]:
@@ -240,19 +261,19 @@ cookiecutter-git-demo
 
 Prompt | Explanation
 --- | ---
-`author_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Core Contributor* in **AUTHORS.md**.
-`author_email` | The email address you want associated with the repository. This will go under *Core Contributor* in **AUTHORS.md**.
-`git_username` | Your local git and `remote_provider` (see below) account username. This will be used for all git-based actions.
-`git_ignore` | A comma-separated values list of preset templates of files for git to ignore. See the [gitignore.io README](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
+`git_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Core Contributor* in **AUTHORS.md**. Ideally, this should match `git config --global --get user.name`
+`git_email` | The email address you want associated with the repository. This will go under *Core Contributor* in **AUTHORS.md**. Again, ideally this should match `git config --global --get user.email`
+`git_ignore` | A comma-separated values (csv) list of preset templates of paths for git to ignore. See the [gitignore.io README](https://github.com/joeblau/gitignore.io#list) for a complete list of available values. This will be used to generate the **.gitignore** file.
 `repo_slug` | The repository name which should only contain alphanumeric characters and dashes. This will be the local, top-level directory name, the remote repo endpoint, and the *H1* in the **README.md**.
 `repo_description` | A short description about the repository. This will be the remote description setting, and the content under the *H1* in the **README.md**.
-`remote_repo` | A `yes` or `no` choice on whether or not a remote repository is automatically created for you. This option is the main reason for *cookiecutter-git*, so the default choice is `yes`.
-`remote_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `remote_repo` is `yes`.
-`remote_provider` | A choice between `bitbucket.org`, `github.com`, and `gitlab.com`. This will only be used if `remote_repo` is `yes`, and defaults to `github.com`.
+`remote_provider` | A choice between `Bitbucket.org`, `GitHub.com`, `GitLab.com`, or `None`. Defaults to `GitHub.com`.
+`remote_username` | Your git `remote_provider` account username. This will be used for all git remote-based actions. This is accompanied with a `remote_password` prompt that is never saved.
+`remote_namespace` | The namespace where the repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). This will only be used if `remote_provider` is not `None`.
 `remote_protocol` | A choice between the `https` and `ssh` protocols. `https` is the default, since those using `ssh` qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
+`copyright_license` | The copyright license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
+`copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `git_name`.
 `make_dirs` | A comma-separated values list of directory names. Directories will be made with a **.gitkeep** file, so they will be added to the initial commit. Nested dirs work if the system path separator is correct!
-`copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `author_name`.
-`license` | The software license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
+`copy_cookiecutter_git` | A `true` or `false` choice on whether or not *cookiecutter-git*'s features (being a cookiecutter) are copied into your new project.
 
 ## Resources
 
@@ -266,12 +287,10 @@ Prompt | Explanation
 - [Create empty file using python](https://stackoverflow.com/questions/12654772/create-empty-file-using-python)
 - [Git Ignore Dot IO Docs](https://www.gitignore.io/docs)
 - [Bitbucket API Basic auth](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication#basic-auth)
-- [Bitbucket API repositories](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D#post)
-- [GitHub API Basic authentication](https://developer.github.com/v3/#basic-authentication)
-- [GitHub API Create repositories](https://developer.github.com/v3/repos/#create)
-- [GitLab API Personal access tokens](https://docs.gitlab.com/ce/api/#personal-access-tokens)
-- [GitLab API Namespaces](https://docs.gitlab.com/ce/api/namespaces.html)
-- [GitLab API Create project](https://docs.gitlab.com/ce/api/projects.html#create-project)
+- [Bitbucket API repos](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D#post)
+- [GitHub API Basic auth](https://developer.github.com/v3/#basic-authentication)
+- [GitHub API Create repos](https://developer.github.com/v3/repos/#create)
+- [GitLab Push to create a new project](https://docs.gitlab.com/ce/gitlab-basics/create-project.html#push-to-create-a-new-project)
 
 ## Development
 
