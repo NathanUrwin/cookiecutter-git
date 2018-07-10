@@ -5,14 +5,17 @@ verify_ssl = true
 
 [packages]
 cookiecutter = "*"
+invoke = "*"
+requests = "*"
 
 [dev-packages]
 black = "*"
-invoke = "*"
 pylint = "*"
 pytest = "*"
 pytest-cookies = "*"
+pytest-cov = "*"
 pytest-dotenv = "*"
+requests-mock = "*"
 
 [requires]
 python_version = "3.6"

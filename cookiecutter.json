@@ -4,7 +4,8 @@
   "git_ignore": "windows,macos,linux,git",
 
   "repo_slug": "cookiecutter-git-demo",
-  "repo_description": "A cookiecutter-git demonstration :tada:",
+  "repo_tagline": "A cookiecutter-git demonstration :tada:",
+  "repo_summary": "This project ...",
 
   "remote_provider": ["GitHub.com", "GitLab.com", "Bitbucket.org", null],
   "remote_username": "{{ cookiecutter.git_name | replace(' ', '') }}",
@@ -34,5 +35,6 @@
     "{{cookiecutter.repo_slug}}",
     "cookiecutter.json",
     "hooks"
-  ]
+  ],
+  "_testing": false
 }

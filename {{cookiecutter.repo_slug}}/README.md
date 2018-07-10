@@ -5,7 +5,9 @@
 ![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)
 ![Build coverage](https://img.shields.io/badge/codecov-0%25-lightgrey.svg)
 
-> {{cookiecutter.repo_description}}
+> {{cookiecutter.repo_tagline}}
+
+{{cookiecutter.repo_summary}}
 
 _**Note:** This project was automatically created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)! :cookie:_
 
