@@ -10,6 +10,7 @@ requests = "*"
 
 [dev-packages]
 black = "*"
+codecov = "*"
 pylint = "*"
 pytest = "*"
 pytest-cookies = "*"

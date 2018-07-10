@@ -26,7 +26,7 @@ def clean_build(x):
 @task
 def clean_pyc(x):
     """
-    Removes Python file artifacts.
+    Removes python file artifacts.
 
     :param x: invoke.context.Context
     """
@@ -40,6 +40,8 @@ def clean_pyc(x):
 def clean_test(x):
     """
     Removes test artifacts.
+
+    :param x: invoke.context.Context
     """
     x.run("rm -fr .tox/")
     x.run("rm -f .coverage")
@@ -49,7 +51,9 @@ def clean_test(x):
 @task(clean_build, clean_pyc, clean_test)
 def clean(x):
     """
-    remove all build artifacts
+    Removes all build artifacts.
+
+    :param x: invoke.context.Context
     """
     x.run("find . -name '*~' -exec rm -frv {} +")
 
@@ -57,6 +61,9 @@ def clean(x):
 @task
 def copy_cookie(x):
     """
+    Copies the cookiecutter-git features into the to be generated project dir.
+
+    :param x: invoke.context.Context
     """
     x.run("cp -afrv cookiecutter.json '{{cookiecutter.repo_slug}}'")
     x.run("cp -afrv hooks '{{cookiecutter.repo_slug}}'")
@@ -64,9 +71,11 @@ def copy_cookie(x):
 
 
 @task
-def format_py(x):
+def format(x):
     """
-    format Python source files
+    Formats the python source files using the uncompromising black.
+
+    :param x: invoke.context.Context
     """
     x.run("find . -name '*.py' -exec pipenv run black -l 79 {} +")
 
@@ -74,6 +83,8 @@ def format_py(x):
 @task
 def tests(x):
     """
-    run tests
+    Runs the py.test no-stdout-capture, entire-repo-coverage tests.
+
+    :param x: invoke.context.Context
     """
-    x.run("pytest -s --cov=. tests")
+    x.run("pytest --capture=no --cov=. tests")

@@ -92,13 +92,31 @@ def test_bake_project(cookies, requests_mock):
     :param requests_mock: requests_mock.mocker.Mocker
     """
     mock_request_with_remote_provider_as_github(requests_mock)
-
     with bake_in_temp_dir(cookies) as result:
 
-        # https://pytest-cookies.readthedocs.io/en/latest/features/
+        # https://pytest-cookies.readthedocs.io/en/latest/getting_started/
         assert result.exception is None
         assert result.exit_code == 0
-
-        # https://py.readthedocs.io/en/latest/path.html#py._path.local.LocalPath
         assert result.project.basename == "cookiecutter-git-demo"
         assert result.project.isdir()
+
+        # PostGenProjectHook._copyright_license
+        assert not result.project.join("NOTICE").check()
+        assert "MIT" in result.project.join("LICENSE").read()
+        assert not result.project.join("LICENSES").check()
+
+        # PostGenProjectHook._copy_cookiecutter_git
+        assert not result.project.join("cookiecutter.json").check()
+        assert not result.project.join("hooks").check()
+        assert not result.project.join("{{cookiecutter.repo_slug}}").check()
+
+        # PostGenProjectHook._make_dirs
+
+        # PostGenProjectHook._git_ignore
+        assert (
+            "windows,macos,linux,git"
+            in result.project.join(".gitignore").read()
+        )
+
+        # PostGenProjectHook._git_init
+        assert result.project.join(".git").check()
