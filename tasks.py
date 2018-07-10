@@ -61,7 +61,7 @@ def clean(x):
 @task
 def copy_cookie(x):
     """
-    Copies the cookiecutter-git features into the to be generated project dir.
+    Copies the cookiecutter-git features into the to-be generated project dir.
 
     :param x: invoke.context.Context
     """

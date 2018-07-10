@@ -18,7 +18,7 @@ import shlex
 import subprocess
 
 from cookiecutter.utils import rmtree
-from invoke import Result, run
+from invoke import Result, run, UnexpectedExit
 import pytest
 
 from hooks.post_gen_project import PostGenProjectHook
@@ -29,7 +29,14 @@ def git_disable_gpgsign():
     """
     Disables git commit GPG signing temporarily.
     """
-    result = run("git config --global --get commit.gpgSign")
+    try:
+        result = run("git config --global --get commit.gpgSign")
+    except UnexpectedExit:
+
+        class ResultNone:
+            stdout = ""
+
+        result = ResultNone()
     if result.stdout.strip() == "true":
         # turn off gpg signing commits
         try:
@@ -51,10 +58,9 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
 
     :param cookies: pytest_cookies.Cookies, cookie to be baked and its temporal files will be removed
     """
+    os.environ["CI"] = "true"
     with git_disable_gpgsign():
-        result = cookies.bake(
-            *args, extra_context={"_testing": True}, **kwargs
-        )
+        result = cookies.bake(*args, **kwargs)
         try:
             yield result
         finally:

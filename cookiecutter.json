@@ -35,6 +35,5 @@
     "{{cookiecutter.repo_slug}}",
     "cookiecutter.json",
     "hooks"
-  ],
-  "_testing": false
+  ]
 }

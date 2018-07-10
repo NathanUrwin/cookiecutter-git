@@ -70,9 +70,7 @@ class PostGenProjectHook(object):
         self.repo_summary = self.result.get("repo_summary")
         self.repo_tagline = self.result.get("repo_tagline")
         self._testing = (
-            True
-            if str(self.result.get("_testing")).lower() == "true"
-            else False
+            True if str(os.environ.get("CI")).lower() == "true" else False
         )
         self.apache_license = self.copyright_license == "Apache-2.0"
         self.bitbucket_repos_url = self.bitbucket_repos_url_base.format(
