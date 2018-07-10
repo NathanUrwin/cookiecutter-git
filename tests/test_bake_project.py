@@ -47,6 +47,7 @@ def git_disable_gpgsign():
             run("git config --global --bool commit.gpgSign true")
         finally:
             run("git config --global --bool commit.gpgSign true")
+    return
 
 
 @contextmanager
