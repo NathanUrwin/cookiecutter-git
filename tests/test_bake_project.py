@@ -62,7 +62,9 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
     :param cookies: pytest_cookies.Cookies, cookie to be baked and its temporal files will be removed
     """
     with git_disable_gpgsign():
-        result = cookies.bake(*args, extra_context={"_testing": True}, **kwargs)
+        result = cookies.bake(
+            *args, extra_context={"_testing": True}, **kwargs
+        )
         try:
             yield result
         finally:

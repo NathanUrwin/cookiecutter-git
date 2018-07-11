@@ -70,7 +70,9 @@ class PostGenProjectHook(object):
         self.repo_summary = self.result.get("repo_summary")
         self.repo_tagline = self.result.get("repo_tagline")
         self._testing = (
-            True if str(self.result.get("_testing")).lower() == "true" else False
+            True
+            if str(self.result.get("_testing")).lower() == "true"
+            else False
         )
         self.apache_license = self.copyright_license == "Apache-2.0"
         self.bitbucket_repos_url = self.bitbucket_repos_url_base.format(
@@ -213,6 +215,7 @@ class PostGenProjectHook(object):
         Pushes the git remote and sets as upstream.
         """
         if self._testing:
+            print("_testing _git_push")
             r = Result(
                 """Password for 'https://NathanUrwin@github.com':
 Counting objects: 18, done.
