@@ -124,13 +124,6 @@ class PostGenProjectHook(object):
         return base64.b64encode(auth_data.encode())
 
     @staticmethod
-    def parse_dotenv_password():
-        """
-        Parses the remote password from os environ.
-        """
-        return os.environ.get("REMOTE_PASSWORD", "").strip()
-
-    @staticmethod
     def git_init():
         """
         Runs git init.
@@ -271,11 +264,12 @@ Branch master set up to track remote branch master from origin.""",
 
     def _set_remote_password(self):
         """
-        Sets the remote password by parsing the dotenv or with getpass.
+        Sets the remote password with getpass.
         """
         # current hack for tests. better work around ?
-        self.remote_password = self.parse_dotenv_password()
-        if not self.remote_password:
+        if self._testing:
+            self.remote_password = "notmypwd"
+        else:
             # prompt CLI users for password
             self.remote_password = getpass.getpass(
                 self.password_prompt

@@ -78,9 +78,8 @@ def mock_request_with_remote_provider_as_github(mock):
 
     :param mock: requests_mock.mocker.Mocker
     """
-    remote_password = PostGenProjectHook.parse_dotenv_password()
     auth_base64 = PostGenProjectHook.format_basic_auth(
-        "NathanUrwin", remote_password
+        "NathanUrwin", "notmypwd"
     )
     mock.post(
         PostGenProjectHook.github_repos_url,
