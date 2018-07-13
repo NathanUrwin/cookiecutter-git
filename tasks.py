@@ -78,6 +78,7 @@ def format(x):
     :param x: invoke.context.Context
     """
     x.run("find . -name '*.py' -exec pipenv run black -l 79 {} +")
+    x.run("git add --all")
 
 
 @task

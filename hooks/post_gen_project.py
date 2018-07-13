@@ -44,6 +44,7 @@ class PostGenProjectHook(object):
     raw_repo_slug_dirpath = os.path.join(
         repo_dirpath, "{% raw %}{{cookiecutter.repo_slug}}{% endraw %}"
     )
+    github_dirpath = os.path.join(repo_dirpath, ".github")
     git_ignore_filepath = os.path.join(repo_dirpath, ".gitignore")
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
     licenses_dirpath = os.path.join(repo_dirpath, "LICENSES")
@@ -209,8 +210,8 @@ class PostGenProjectHook(object):
         """
         if self._testing:
             print("_testing _git_push")
-            r = Result(
-                """Password for 'https://NathanUrwin@github.com':
+            if self.remote_provider == "github.com":
+                mock_stdout = """Password for 'https://NathanUrwin@github.com':
 Counting objects: 18, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (15/15), done.
@@ -218,8 +219,38 @@ Writing objects: 100% (18/18), 6.24 KiB | 0 bytes/s, done.
 Total 18 (delta 0), reused 0 (delta 0)
 To https://github.com/NathanUrwin/cookiecutter-git-demo.git
 * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.""",
-                command="git push --set-upstream origin master",
+Branch master set up to track remote branch master from origin."""
+            elif self.remote_provider == "gitlab.com":
+                mock_stdout = """Password for 'https://NathanUrwin@gitlab.com':
+Counting objects: 13, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 5.25 KiB | 0 bytes/s, done.
+Total 13 (delta 0), reused 0 (delta 0)
+remote:
+remote: The private project NathanUrwin/cookiecutter-git-demo was successfully created.
+remote:
+remote: To configure the remote, run:
+remote:   git remote add origin https://gitlab.com/NathanUrwin/cookiecutter-git-demo.git
+remote:
+remote: To view the project, visit:
+remote:   https://gitlab.com/NathanUrwin/cookiecutter-git-demo
+remote:
+To https://gitlab.com/NathanUrwin/cookiecutter-git-demo.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin."""
+            elif self.remote_provider == "bitbucket.org":
+                mock_stdout = """Password for 'https://NathanUrwin@bitbucket.org':
+Counting objects: 13, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 5.26 KiB | 0 bytes/s, done.
+Total 13 (delta 0), reused 0 (delta 0)
+To https://bitbucket.org/NathanUrwin/cookiecutter-git-demo.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin."""
+            r = Result(
+                mock_stdout, command="git push --set-upstream origin master"
             )
             print(r.stdout)
             return r
@@ -300,6 +331,13 @@ Branch master set up to track remote branch master from origin.""",
             self._git_remote_add()
             self._git_push()
 
+    def _github_dir(self):
+        """
+        Removes the .github dir if GitHub is not the remote provider.
+        """
+        if not self.remote_provider == "github.com":
+            shutil.rmtree(self.github_dirpath, ignore_errors=True)
+
     def _make_dirs(self):
         """
         Makes dirs and adds .gitkeep files to them.
@@ -345,6 +383,7 @@ Branch master set up to track remote branch master from origin.""",
         self._copyright_license()
         self._copy_cookiecutter_git()
         self._make_dirs()
+        self._github_dir()
         self._git_repo()
         print(self.success_message)
 
