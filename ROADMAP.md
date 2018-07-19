@@ -2,16 +2,15 @@
 
 ## Development Status
 
-1. [ ] ![Development status](https://img.shields.io/badge/status-planning-red.svg)
-2. [ ] ![Development status](https://img.shields.io/badge/status-pre--alpha-orange.svg)
-3. [x] ![Development status](https://img.shields.io/badge/status-alpha-yellow.svg)
-4. [ ] ![Development status](https://img.shields.io/badge/status-beta-green.svg)
-5. [ ] ![Development status](https://img.shields.io/badge/status-stable-brightgreen.svg)
-6. [ ] ![Development status](https://img.shields.io/badge/status-mature-blue.svg)
-7. [ ] ![Development status](https://img.shields.io/badge/status-inactive-lightgrey.svg)
+- [x] ![Development status](https://img.shields.io/badge/status-planning-red.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-pre--alpha-orange.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-alpha-yellow.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-stable-blue.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-mature-8A2BE2.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-inactive-lightgrey.svg?longCache=true)
 
 ## Project Milestones
 
-1. Add tests using [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage) as a guide
-2. Add `copy_cookiecutter_git` to **cookiecutter.json**
-3. Release Beta version
+- Release [Version 0.5.0 (Beta)](https://github.com/NathanUrwin/cookiecutter-git/milestone/1)
+- Release [Version 1.0.0 (Stable)](https://github.com/NathanUrwin/cookiecutter-git/milestone/2)

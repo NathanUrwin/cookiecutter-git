@@ -2,16 +2,18 @@
 
 ## Development Status
 
-1. [x] ![Development status](https://img.shields.io/badge/status-planning-red.svg)
-2. [ ] ![Development status](https://img.shields.io/badge/status-pre--alpha-orange.svg)
-3. [ ] ![Development status](https://img.shields.io/badge/status-alpha-yellow.svg)
-4. [ ] ![Development status](https://img.shields.io/badge/status-beta-green.svg)
-5. [ ] ![Development status](https://img.shields.io/badge/status-stable-brightgreen.svg)
-6. [ ] ![Development status](https://img.shields.io/badge/status-mature-blue.svg)
-7. [ ] ![Development status](https://img.shields.io/badge/status-inactive-lightgrey.svg)
+- [x] ![Development status](https://img.shields.io/badge/status-planning-red.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-pre--alpha-orange.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-alpha-yellow.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-stable-blue.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-mature-8A2BE2.svg?longCache=true)
+- [ ] ![Development status](https://img.shields.io/badge/status-inactive-lightgrey.svg?longCache=true)
 
 ## Project Milestones
 
-1. Release Pre-Alpha version
-2. Release Alpha version
-3. Release Beta version
+- Release Version 0.1.0 (Pre-Alpha)
+- Release Version 0.2.0 (Alpha)
+- Release Version 0.5.0 (Beta)
+- Release Version 1.0.0 (Stable)
+- Release Version 2.0.0 (Mature)

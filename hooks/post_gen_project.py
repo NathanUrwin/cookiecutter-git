@@ -14,7 +14,6 @@ import errno
 import getpass
 import json
 import os
-import shlex
 import shutil
 
 from invoke import Responder, Result, run
@@ -46,6 +45,7 @@ class PostGenProjectHook(object):
     )
     github_dirpath = os.path.join(repo_dirpath, ".github")
     git_ignore_filepath = os.path.join(repo_dirpath, ".gitignore")
+    git_ignore_python_filepath = os.path.join(repo_dirpath, ".gitignore-python")
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
     licenses_dirpath = os.path.join(repo_dirpath, "LICENSES")
     license_filepath = os.path.join(repo_dirpath, "LICENSE")
@@ -313,9 +313,8 @@ Branch master set up to track remote branch master from origin."""
         if self.new_git_ignore:
             # gitignore.io/api -> {{cookiecutter.repo_slug}}/.gitignore
             response = requests.get(self.git_ignore_url)
-            with open(self.git_ignore_filepath, "wb") as f:
+            with open(self.git_ignore_filepath, "w") as f:
                 f.write(response.text)
-            print("updated '{}'".format(self.git_ignore_filepath))
 
     def _git_repo(self):
         """
@@ -361,17 +360,19 @@ Branch master set up to track remote branch master from origin."""
         Removes cookiecutter-git features if not needed.
         """
         if not self.copy_cookiecutter_git:
-            print("Removing '{}'...".format(self.cookiecutter_json_filepath))
             os.remove(self.cookiecutter_json_filepath)
+            os.remove(self.git_ignore_python_filepath)
             shutil.rmtree(self.hooks_dirpath, ignore_errors=True)
             shutil.rmtree(self.raw_repo_slug_dirpath, ignore_errors=True)
+        else:
+            os.remove(self.git_ignore_filepath)
+            os.rename(self.git_ignore_python_filepath, self.git_ignore_filepath)
 
     def _copyright_license(self):
         """
         Adds the chosen LICENSE and removes the rest.
         """
         if not self.apache_license:
-            print("Removing '{}'...".format(self.notice_filepath))
             os.remove(self.notice_filepath)
         shutil.move(self.nested_license_filepath, self.license_filepath)
         shutil.rmtree(self.licenses_dirpath, ignore_errors=True)

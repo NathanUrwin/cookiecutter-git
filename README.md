@@ -19,6 +19,10 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 - [Features](#features)
   - [Upcoming](#upcoming)
 - [Requirements](#requirements)
+  - [Recommended](#recommended)
+- [Installation](#installation)
+  - [Command-line users](#command-line-users)
+  - [Contributors](#contributors)
 - [Usage](#usage)
   - [Examples](#examples)
 - [Documentation](#documentation)
@@ -48,14 +52,18 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 
 ### Upcoming
 
-1. [Fix urllib2.URLError: <urlopen error](https://github.com/NathanUrwin/cookiecutter-git/issues/21)
-2. [Fix GitLab.com as remote_provider](https://github.com/NathanUrwin/cookiecutter-git/issues/22)
-3. [Remove duplicate password prompts](https://github.com/NathanUrwin/cookiecutter-git/issues/18)
-4. [Full coverage testing](https://github.com/NathanUrwin/cookiecutter-git/issues/8)
-5. [Continuous integration](https://github.com/NathanUrwin/cookiecutter-git/issues/9)
-6. [Additional remote repo customization](https://github.com/NathanUrwin/cookiecutter-git/issues/12)
-7. [Fix overwrite if exists option](https://github.com/NathanUrwin/cookiecutter-git/issues/19)
-8. [Add example .cookiecutterrc](https://github.com/NathanUrwin/cookiecutter-git/issues/23)
+1. [Add tests with passing coverage](https://github.com/NathanUrwin/cookiecutter-git/issues/8)
+2. [Add continuous integration support](https://github.com/NathanUrwin/cookiecutter-git/issues/9)
+3. [Add AWS CodeCommit support](https://github.com/NathanUrwin/cookiecutter-git/issues/10)
+4. [Add more remote repo options](https://github.com/NathanUrwin/cookiecutter-git/issues/12)
+5. [Remove duplicate password prompts](https://github.com/NathanUrwin/cookiecutter-git/issues/18)
+6. [Fix overwrite if exists option](https://github.com/NathanUrwin/cookiecutter-git/issues/19)
+7. [Fix urllib2.URLError: <urlopen error](https://github.com/NathanUrwin/cookiecutter-git/issues/21)
+8. [Fix gitlab.com as remote_provider](https://github.com/NathanUrwin/cookiecutter-git/issues/22)
+9. [Add example .cookiecutterrc](https://github.com/NathanUrwin/cookiecutter-git/issues/23)
+10. [Add Visual Studio Team Services support](https://github.com/NathanUrwin/cookiecutter-git/issues/24)
+11. [Add Helix TeamHub support](https://github.com/NathanUrwin/cookiecutter-git/issues/25)
+12. [Fix tests on Windows](https://github.com/NathanUrwin/cookiecutter-git/issues/26)
 
 ## Requirements
 
@@ -129,7 +137,6 @@ remote: Compressing objects: 100% (104/104), done.
 remote: Total 535 (delta 74), reused 98 (delta 33), pack-reused 386
 Receiving objects: 100% (535/535), 250.71 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (299/299), done.
-
 $ cd cookiecutter-git
 $ pipenv install
 Installing dependencies from Pipfile.lock (e30ea1)…
@@ -145,30 +152,27 @@ See [CONTRIBUTING](#contributing)
 ```bash
 $ mkdir -p ~/Projects/NathanUrwin
 $ cd ~/Projects/NathanUrwin
-$ cookiecutter gh:NathanUrwin/cookiecutter-git  # https://github.com/NathanUrwin/cookiecutter-git
-You've cloned /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-clone it? [yes]:
-author_name [Nathan Urwin]:
-author_email [nathan.e.urwin@gmail.com]: me@nathanurwin.com
-git_username [nathanurwin]:
-remote_namespace [nathanurwin]:
+$ cookiecutter -c develop gh:NathanUrwin/cookiecutter-git  # https://github.com/NathanUrwin/cookiecutter-git
+You've downloaded /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-download it? [yes]:
+git_name [Nathan Urwin]:
+git_email [me@nathanurwin.com]:
+git_ignore [windows,macos,linux,git]:
 repo_slug [cookiecutter-git-demo]:
-repo_description [A cookiecutter-git demonstration]: A cookiecutter-git demonstration :tada:
-Select remote_repo:
-1 - yes
-2 - no
-Choose from 1, 2 [1]:
+repo_tagline [A cookiecutter-git demonstration :tada:]:
+repo_summary [This project ...]: This project is a demonstration of the default cookiecutter.json values for cookiecutter-git.
 Select remote_provider:
 1 - github.com
 2 - gitlab.com
 3 - bitbucket.org
-Choose from 1, 2, 3 [1]:
+4 - None
+Choose from 1, 2, 3, 4 [1]:
+remote_username [NathanUrwin]:
+remote_namespace [NathanUrwin]:
 Select remote_protocol:
 1 - https
 2 - ssh
 Choose from 1, 2 [1]:
-make_dirs [docs,src,tests]:
-gitignore [windows,macos,linux,git]:
-Select license:
+Select copyright_license:
 1 - MIT
 2 - Apache-2.0
 3 - BSD-2-Clause
@@ -183,68 +187,21 @@ Select license:
 12 - Unlicense
 Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 [1]:
 copyright_holder [Nathan Urwin]:
+make_dirs [docs,src,tests]:
+Select copy_cookiecutter_git:
+1 - False
+2 - True
+Choose from 1, 2 [1]:
 Removing '/home/user/Projects/NathanUrwin/cookiecutter-git-demo/NOTICE'...
-git init
+Removing '/home/user/Projects/NathanUrwin/cookiecutter-git-demo/cookiecutter.json'...
 Initialized empty Git repository in /home/user/Projects/NathanUrwin/cookiecutter-git-demo/.git/
-
-git status
-On branch master
-
-Initial commit
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-	.editorconfig
-	.github/
-	.gitignore
-	AUTHORS.md
-	CHANGELOG.md
-	CODE_OF_CONDUCT.md
-	CONTRIBUTING.md
-	LICENSE
-	README.md
-	ROADMAP.md
-	docs/
-	src/
-	tests/
-
-nothing added to commit but untracked files present (use "git add" to track)
-
-git add -A
-git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
-
-	new file:   .editorconfig
-	new file:   .github/ISSUE_TEMPLATE/bug_report.md
-	new file:   .github/ISSUE_TEMPLATE/feature_request.md
-	new file:   .github/PULL_REQUEST_TEMPLATE.md
-	new file:   .gitignore
-	new file:   AUTHORS.md
-	new file:   CHANGELOG.md
-	new file:   CODE_OF_CONDUCT.md
-	new file:   CONTRIBUTING.md
-	new file:   LICENSE
-	new file:   README.md
-	new file:   ROADMAP.md
-	new file:   docs/.gitkeep
-	new file:   src/.gitkeep
-	new file:   tests/.gitkeep
-
-
 
 You need a passphrase to unlock the secret key for
 user: "Nathan Urwin (Git key) <me@nathanurwin.com>"
 4096-bit RSA key, ID 45F9BF10, created 2018-03-15
 
-git commit -m Initial commit
-[master (root-commit) 6e3e9cb] Initial commit
- 15 files changed, 321 insertions(+)
+[master (root-commit) 866f5fa] Initial commit
+ 15 files changed, 330 insertions(+)
  create mode 100644 .editorconfig
  create mode 100644 .github/ISSUE_TEMPLATE/bug_report.md
  create mode 100644 .github/ISSUE_TEMPLATE/feature_request.md
@@ -260,24 +217,22 @@ git commit -m Initial commit
  create mode 100644 docs/.gitkeep
  create mode 100644 src/.gitkeep
  create mode 100644 tests/.gitkeep
-
-Password for 'https://nathanurwin@github.com':
-https://api.github.com/user/repos
-{"id":137415126,"node_id":"MDEwOlJlcG9zaXRvcnkxMzc0MTUxMjY=","name":"cookiecutter-git-demo","full_name":"NathanUrwin/cookiecutter-git-demo","owner":{"login":"NathanUrwin","id":13526277,"node_id":"MDQ6VXNlcjEzNTI2Mjc3","avatar_url":"https://avatars2.githubusercontent.com/u/13526277?v=4","gravatar_id":"","url":"https://api.github.com/users/NathanUrwin","html_url":"https://github.com/NathanUrwin","followers_url":"https://api.github.com/users/NathanUrwin/followers","following_url":"https://api.github.com/users/NathanUrwin/following{/other_user}","gists_url":"https://api.github.com/users/NathanUrwin/gists{/gist_id}","starred_url":"https://api.github.com/users/NathanUrwin/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/NathanUrwin/subscriptions","organizations_url":"https://api.github.com/users/NathanUrwin/orgs","repos_url":"https://api.github.com/users/NathanUrwin/repos","events_url":"https://api.github.com/users/NathanUrwin/events{/privacy}","received_events_url":"https://api.github.com/users/NathanUrwin/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/NathanUrwin/cookiecutter-git-demo","description":"A cookiecutter-git demonstration :tada:","fork":false,"url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo","forks_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/forks","keys_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/keys{/key_id}","collaborators_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/teams","hooks_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/hooks","issue_events_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/issues/events{/number}","events_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/events","assignees_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/assignees{/user}","branches_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/branches{/branch}","tags_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/tags","blobs_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/git/refs{/sha}","trees_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/git/trees{/sha}","statuses_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/statuses/{sha}","languages_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/languages","stargazers_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/stargazers","contributors_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/contributors","subscribers_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/subscribers","subscription_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/subscription","commits_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/commits{/sha}","git_commits_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/git/commits{/sha}","comments_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/comments{/number}","issue_comment_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/issues/comments{/number}","contents_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/contents/{+path}","compare_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/compare/{base}...{head}","merges_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/merges","archive_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/downloads","issues_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/issues{/number}","pulls_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/pulls{/number}","milestones_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/milestones{/number}","notifications_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/labels{/name}","releases_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/releases{/id}","deployments_url":"https://api.github.com/repos/NathanUrwin/cookiecutter-git-demo/deployments","created_at":"2018-06-14T22:23:37Z","updated_at":"2018-06-14T22:23:37Z","pushed_at":"2018-06-14T22:23:38Z","git_url":"git://github.com/NathanUrwin/cookiecutter-git-demo.git","ssh_url":"git@github.com:NathanUrwin/cookiecutter-git-demo.git","clone_url":"https://github.com/NathanUrwin/cookiecutter-git-demo.git","svn_url":"https://github.com/NathanUrwin/cookiecutter-git-demo","homepage":null,"size":0,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"archived":false,"open_issues_count":0,"license":null,"forks":0,"open_issues":0,"watchers":0,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"allow_squash_merge":true,"allow_merge_commit":true,"allow_rebase_merge":true,"network_count":0,"subscribers_count":1}
-git remote add origin https://nathanurwin@github.com/nathanurwin/cookiecutter-git-demo.git
-Password for 'https://nathanurwin@github.com':
+Password for 'https://NathanUrwin@github.com':
+Password for 'https://NathanUrwin@github.com':
 Counting objects: 18, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (15/15), done.
-Writing objects: 100% (18/18), 6.02 KiB | 0 bytes/s, done.
+Writing objects: 100% (18/18), 6.26 KiB | 0 bytes/s, done.
 Total 18 (delta 0), reused 0 (delta 0)
-To https://github.com/nathanurwin/cookiecutter-git-demo.git
+To https://github.com/NathanUrwin/cookiecutter-git-demo.git
  * [new branch]      master -> master
-git push -u origin master
 Branch master set up to track remote branch master from origin.
 
 
-cookiecutter-git-demo setup successfully!
+Success! Your project was created here:
+/home/user/Projects/NathanUrwin/cookiecutter-git-demo
+Also see: https://github.com/NathanUrwin/cookiecutter-git-demo
+Thanks for using cookiecutter-git! :)
 
 
 ```
@@ -327,7 +282,7 @@ Prompt | Explanation
 `repo_slug` | The repository name containing only alphanumeric characters and dashes. This will be the local, top-level directory name, the remote repo endpoint, and the *H1* in the **README.md**.
 `repo_tagline` | A short description about the repository in *50 words or less*. This will be the remote description setting, and the content under the *H1* in the **README.md**.
 `repo_summary` | A long description about the repository in *50 words or more*. This will go after the `repo_tagline` with the content under the *H1* in the **README.md**.
-`remote_provider` | A choice between `Bitbucket.org`, `GitHub.com`, `GitLab.com`, or `None`. This option creates a remote repository for you, and is this project's main feature so defaults to `GitHub.com`.
+`remote_provider` | A choice between `bitbucket.org`, `github.com`, `gitlab.com`, or `None`. This option creates a remote repository for you, and is this project's main feature so defaults to `github.com`.
 `remote_username` | Your git `remote_provider` account username. This will be used for all git remote-based actions. This is accompanied with a `remote_password` prompt that is never saved.
 `remote_namespace` | Where the remote repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). Only used if `remote_provider` is not `None`.
 `remote_protocol` | A choice between the `https` and `ssh` protocols. Defaults to `https`, since those using `ssh` qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
