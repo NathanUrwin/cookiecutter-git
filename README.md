@@ -116,15 +116,23 @@ See [Usage](#usage)
 ```bash
 $ git clone https://github.com/NathanUrwin/cookiecutter-git
 Cloning into 'cookiecutter-git'...
-remote: Counting objects: 535, done.
-remote: Compressing objects: 100% (104/104), done.
-remote: Total 535 (delta 74), reused 98 (delta 33), pack-reused 386
-Receiving objects: 100% (535/535), 250.71 KiB | 0 bytes/s, done.
-Resolving deltas: 100% (299/299), done.
+remote: Counting objects: 645, done.
+remote: Total 645 (delta 0), reused 0 (delta 0), pack-reused 645
+Receiving objects: 100% (645/645), 292.71 KiB | 292.00 KiB/s, done.
+Resolving deltas: 100% (369/369), done.
 $ cd cookiecutter-git
 $ pipenv install
-Installing dependencies from Pipfile.lock (e30ea1)…
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 17/17 — 00:00:01
+Creating a virtualenv for this project…
+Using /home/user/.pyenv/versions/3.6.4/bin/python3.6m (3.6.4) to create virtualenv…
+⠋Running virtualenv with interpreter /home/user/.pyenv/versions/3.6.4/bin/python3.6m
+Using base prefix '/home/user/.pyenv/versions/3.6.4'
+New python executable in /home/user/.local/share/virtualenvs/cookiecutter-git-K7NSfp4y/bin/python3.6m
+Also creating executable in /home/user/.local/share/virtualenvs/cookiecutter-git-K7NSfp4y/bin/python
+Installing setuptools, pip, wheel...done.
+
+Virtualenv location: /home/user/.local/share/virtualenvs/cookiecutter-git-K7NSfp4y
+Installing dependencies from Pipfile.lock (25c20f)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 18/18 — 00:00:04
 To activate this project's virtualenv, run the following:
  $ pipenv shell
 ```
@@ -136,14 +144,14 @@ See [CONTRIBUTING](#contributing)
 ```bash
 $ mkdir -p ~/Projects/NathanUrwin
 $ cd ~/Projects/NathanUrwin
-$ cookiecutter -c develop gh:NathanUrwin/cookiecutter-git  # https://github.com/NathanUrwin/cookiecutter-git
+$ cookiecutter gh:NathanUrwin/cookiecutter-git
 You've downloaded /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-download it? [yes]:
 git_name [Nathan Urwin]:
 git_email [me@nathanurwin.com]:
 git_ignore [windows,macos,linux,git]:
 repo_slug [cookiecutter-git-demo]:
 repo_tagline [A cookiecutter-git demonstration :tada:]:
-repo_summary [This project ...]: This project is a demonstration of the default cookiecutter.json values for cookiecutter-git.
+repo_summary [This project ...]:
 Select remote_provider:
 1 - github.com
 2 - gitlab.com
@@ -176,16 +184,14 @@ Select copy_cookiecutter_git:
 1 - False
 2 - True
 Choose from 1, 2 [1]:
-Removing '/home/user/Projects/NathanUrwin/cookiecutter-git-demo/NOTICE'...
-Removing '/home/user/Projects/NathanUrwin/cookiecutter-git-demo/cookiecutter.json'...
 Initialized empty Git repository in /home/user/Projects/NathanUrwin/cookiecutter-git-demo/.git/
 
 You need a passphrase to unlock the secret key for
 user: "Nathan Urwin (Git key) <me@nathanurwin.com>"
 4096-bit RSA key, ID 45F9BF10, created 2018-03-15
 
-[master (root-commit) 866f5fa] Initial commit
- 15 files changed, 330 insertions(+)
+[master (root-commit) f45aedb] Initial commit
+ 15 files changed, 337 insertions(+)
  create mode 100644 .editorconfig
  create mode 100644 .github/ISSUE_TEMPLATE/bug_report.md
  create mode 100644 .github/ISSUE_TEMPLATE/feature_request.md
@@ -206,7 +212,7 @@ Password for 'https://NathanUrwin@github.com':
 Counting objects: 18, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (15/15), done.
-Writing objects: 100% (18/18), 6.26 KiB | 0 bytes/s, done.
+Writing objects: 100% (18/18), 6.29 KiB | 0 bytes/s, done.
 Total 18 (delta 0), reused 0 (delta 0)
 To https://github.com/NathanUrwin/cookiecutter-git-demo.git
  * [new branch]      master -> master

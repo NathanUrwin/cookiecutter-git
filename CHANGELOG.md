@@ -1,54 +1,70 @@
 # Change Log
 
-## [v0.4.1](https://github.com/nathanurwin/cookiecutter-git/tree/v0.4.1) (2018-03-16)
+## [v0.5.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.5.0) (2018-07-26)
 
-[Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.4.0...v0.4.1)
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.4.1...v0.5.0)
+
+**Implemented enhancements:**
+
+- Add cookie-cookie feature [\#32](https://github.com/NathanUrwin/cookiecutter-git/issues/32)
+- Add Codecov support [\#30](https://github.com/NathanUrwin/cookiecutter-git/issues/30)
+- Add Travis Continuous Integration support [\#9](https://github.com/NathanUrwin/cookiecutter-git/issues/9)
 
 **Fixed bugs:**
 
-- Bitbucket remote repo failed [\#20](https://github.com/nathanurwin/cookiecutter-git/issues/20)
+- Fix gitlab.com as remote\_provider [\#22](https://github.com/NathanUrwin/cookiecutter-git/issues/22)
+- Fix urllib2.URLError: \<urlopen error [\#21](https://github.com/NathanUrwin/cookiecutter-git/issues/21)
+- Fix bash tests with pytest [\#8](https://github.com/NathanUrwin/cookiecutter-git/issues/8)
 
-## [v0.4.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.4.0) (2018-03-15)
+## [v0.4.1](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.4.1) (2018-03-16)
 
-[Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.3.0...v0.4.0)
-
-**Implemented enhancements:**
-
-- Python3 support [\#15](https://github.com/nathanurwin/cookiecutter-git/issues/15)
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.4.0...v0.4.1)
 
 **Fixed bugs:**
 
-- UnboundLocalError: local variable 'namespace\_id' referenced before assignment [\#17](https://github.com/nathanurwin/cookiecutter-git/issues/17)
-- Fix Windows TypeError [\#16](https://github.com/nathanurwin/cookiecutter-git/issues/16)
+- Bitbucket remote repo failed [\#20](https://github.com/NathanUrwin/cookiecutter-git/issues/20)
 
-## [v0.3.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.3.0) (2017-03-25)
+## [v0.4.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.4.0) (2018-03-15)
 
-[Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.2.0...v0.3.0)
-
-**Implemented enhancements:**
-
-- Add cookiecutter.json documentation [\#14](https://github.com/nathanurwin/cookiecutter-git/issues/14)
-- Refactor cookiecutter.json keys [\#13](https://github.com/nathanurwin/cookiecutter-git/issues/13)
-
-## [v0.2.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.2.0) (2017-03-24)
-
-[Full Changelog](https://github.com/nathanurwin/cookiecutter-git/compare/v0.1.0...v0.2.0)
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.3.0...v0.4.0)
 
 **Implemented enhancements:**
 
-- Bitbucket.org support [\#5](https://github.com/nathanurwin/cookiecutter-git/issues/5)
-- First tagged release [\#3](https://github.com/nathanurwin/cookiecutter-git/issues/3)
-
-## [v0.1.0](https://github.com/nathanurwin/cookiecutter-git/tree/v0.1.0) (2017-03-24)
-
-**Implemented enhancements:**
-
-- More license choices [\#4](https://github.com/nathanurwin/cookiecutter-git/issues/4)
-- Use github-changelog-generator [\#2](https://github.com/nathanurwin/cookiecutter-git/issues/2)
-- Gitlab.com support [\#1](https://github.com/nathanurwin/cookiecutter-git/issues/1)
+- Add python3 support [\#15](https://github.com/NathanUrwin/cookiecutter-git/issues/15)
 
 **Fixed bugs:**
 
-- Insecure gitlab\_token retrieval [\#6](https://github.com/nathanurwin/cookiecutter-git/issues/6)
+- Fix UnboundLocalError [\#17](https://github.com/NathanUrwin/cookiecutter-git/issues/17)
+- Fix Windows TypeError [\#16](https://github.com/NathanUrwin/cookiecutter-git/issues/16)
+
+## [v0.3.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.3.0) (2017-03-25)
+
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.2.0...v0.3.0)
+
+**Implemented enhancements:**
+
+- Add cookiecutter.json documentation [\#14](https://github.com/NathanUrwin/cookiecutter-git/issues/14)
+- Refactor cookiecutter.json keys [\#13](https://github.com/NathanUrwin/cookiecutter-git/issues/13)
+
+## [v0.2.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.2.0) (2017-03-24)
+
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.1.0...v0.2.0)
+
+**Implemented enhancements:**
+
+- Add bitbucket.org support [\#5](https://github.com/NathanUrwin/cookiecutter-git/issues/5)
+- Add the first tagged release [\#3](https://github.com/NathanUrwin/cookiecutter-git/issues/3)
+
+## [v0.1.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.1.0) (2017-03-24)
+
+**Implemented enhancements:**
+
+- Add more license choices [\#4](https://github.com/NathanUrwin/cookiecutter-git/issues/4)
+- Use github-changelog-generator [\#2](https://github.com/NathanUrwin/cookiecutter-git/issues/2)
+- Add gitlab.com support [\#1](https://github.com/NathanUrwin/cookiecutter-git/issues/1)
+
+**Fixed bugs:**
+
+- Fix insecure gitlab\_token retrieval [\#6](https://github.com/NathanUrwin/cookiecutter-git/issues/6)
 
 \* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
