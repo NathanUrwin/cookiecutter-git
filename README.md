@@ -1,9 +1,9 @@
 # cookiecutter-git
 
-[![GitHub release](https://img.shields.io/badge/release-v0.4.1-blue.svg)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.4.1)
-[![Development status](https://img.shields.io/badge/status-alpha-yellow.svg)](ROADMAP.md)
-[![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)](https://travis-ci.com/NathanUrwin/cookiecutter-git)
-[![codecov](https://img.shields.io/badge/codecov-0%25-lightgrey.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
+[![GitHub release](https://img.shields.io/badge/release-v0.5.0-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.0)
+[![Development status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)](ROADMAP.md)
+[![Build Status](https://travis-ci.org/NathanUrwin/cookiecutter-git.svg?branch=master)](https://travis-ci.org/NathanUrwin/cookiecutter-git)
+[![codecov](https://codecov.io/gh/NathanUrwin/cookiecutter-git/branch/master/graph/badge.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
 
 > Git repo project template :clipboard:
 
@@ -17,11 +17,10 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 
 - [Table of Contents](#table-of-contents)
 - [Features](#features)
-  - [Upcoming](#upcoming)
 - [Requirements](#requirements)
   - [Recommended](#recommended)
 - [Installation](#installation)
-  - [Command-line users](#command-line-users)
+  - [CLI Users](#cli-users)
   - [Contributors](#contributors)
 - [Usage](#usage)
   - [Examples](#examples)
@@ -50,21 +49,6 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
   - [macOS](https://www.apple.com/macos/high-sierra/)
   - [Linux](https://www.linux.org/)
 
-### Upcoming
-
-1. [Add tests with passing coverage](https://github.com/NathanUrwin/cookiecutter-git/issues/8)
-2. [Add continuous integration support](https://github.com/NathanUrwin/cookiecutter-git/issues/9)
-3. [Add AWS CodeCommit support](https://github.com/NathanUrwin/cookiecutter-git/issues/10)
-4. [Add more remote repo options](https://github.com/NathanUrwin/cookiecutter-git/issues/12)
-5. [Remove duplicate password prompts](https://github.com/NathanUrwin/cookiecutter-git/issues/18)
-6. [Fix overwrite if exists option](https://github.com/NathanUrwin/cookiecutter-git/issues/19)
-7. [Fix urllib2.URLError: <urlopen error](https://github.com/NathanUrwin/cookiecutter-git/issues/21)
-8. [Fix gitlab.com as remote_provider](https://github.com/NathanUrwin/cookiecutter-git/issues/22)
-9. [Add example .cookiecutterrc](https://github.com/NathanUrwin/cookiecutter-git/issues/23)
-10. [Add Visual Studio Team Services support](https://github.com/NathanUrwin/cookiecutter-git/issues/24)
-11. [Add Helix TeamHub support](https://github.com/NathanUrwin/cookiecutter-git/issues/25)
-12. [Fix tests on Windows](https://github.com/NathanUrwin/cookiecutter-git/issues/26)
-
 ## Requirements
 
 - [Cookiecutter](https://github.com/audreyr/cookiecutter)
@@ -79,7 +63,7 @@ _**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) fea
 
 ## Installation
 
-### Command-line Users
+### CLI Users
 
 ```bash
 $ pip install --user cookiecutter invoke requests
