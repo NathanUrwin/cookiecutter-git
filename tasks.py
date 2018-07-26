@@ -88,4 +88,4 @@ def tests(x):
 
     :param x: invoke.context.Context
     """
-    x.run("pytest --capture=no --cov=. tests")
+    x.run("pytest --capture=no --cov-report html --cov=. tests")
