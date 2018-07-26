@@ -12,6 +12,6 @@
 
 ## Project Milestones
 
-- Release [Version 0.5.0 (Beta)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.0)
-- Release [Version 0.5.1 (Beta)](https://github.com/NathanUrwin/cookiecutter-git/milestone/3)
-- Release [Version 1.0.0 (Stable)](https://github.com/NathanUrwin/cookiecutter-git/milestone/2)
+- [x] Release [Version 0.5.0 (Beta)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.0)
+- [ ] Release [Version 0.5.1 (Beta)](https://github.com/NathanUrwin/cookiecutter-git/milestone/3)
+- [ ] Release [Version 1.0.0 (Stable)](https://github.com/NathanUrwin/cookiecutter-git/milestone/2)
