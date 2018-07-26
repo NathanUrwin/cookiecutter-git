@@ -11,8 +11,6 @@
 
 This project is inspired by [cookiecutter-template by eviweb](https://github.com/eviweb/cookiecutter-template), and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/) with an added bonus: remote repos are created for you [*automagically*](https://youtu.be/Z3qK8gT5LLg?t=9s)! :crystal_ball::zap::boom:
 
-_**Note:** The [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie) feature of creating a cookiecutter is **coming soon**!_
-
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
