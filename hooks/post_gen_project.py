@@ -15,6 +15,8 @@ import getpass
 import json
 import os
 import shutil
+import sys
+pty = sys.platform != "win32"
 
 from invoke import Responder, Result, run
 import requests
@@ -264,7 +266,7 @@ Branch master set up to track remote branch master from origin."""
             # `git push -u origin master`
             run(
                 "git push --set-upstream origin master",
-                pty=True,
+                pty=pty,
                 watchers=watchers,
             )
 
