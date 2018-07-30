@@ -1,6 +1,6 @@
 # cookiecutter-git
 
-[![GitHub release](https://img.shields.io/badge/release-v0.5.0-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.0)
+[![GitHub release](https://img.shields.io/badge/release-v0.5.1-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.1)
 [![Development status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)](ROADMAP.md)
 [![Build Status](https://travis-ci.org/NathanUrwin/cookiecutter-git.svg?branch=master)](https://travis-ci.org/NathanUrwin/cookiecutter-git)
 [![codecov](https://codecov.io/gh/NathanUrwin/cookiecutter-git/branch/master/graph/badge.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
@@ -52,7 +52,6 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 ## Requirements
 
 - [Cookiecutter](https://github.com/audreyr/cookiecutter)
-- [Git](https://git-scm.com/downloads)
 - [Invoke](http://www.pyinvoke.org/)
 - [Requests](http://docs.python-requests.org/en/master/)
 
