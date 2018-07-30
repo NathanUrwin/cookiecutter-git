@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.5.1](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.5.1) (2018-07-30)
+
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.5.0...v0.5.1)
+
+**Fixed bugs:**
+
+- Fix Invoke on Windows [\#34](https://github.com/NathanUrwin/cookiecutter-git/issues/34)
+
 ## [v0.5.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.5.0) (2018-07-26)
 
 [Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.4.1...v0.5.0)
