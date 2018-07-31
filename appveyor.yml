@@ -2,17 +2,17 @@ environment:
   matrix:
     # http://www.appveyor.com/docs/installed-software#python
     - PYTHON: "C:\\Python27"
-    - PYTHON: "C:\\Python33"
     - PYTHON: "C:\\Python34"
     - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python36"
+    - PYTHON: "C:\\Python37"
     - PYTHON: "C:\\Python27-x64"
-    - PYTHON: "C:\\Python33-x64"
-      DISTUTILS_USE_SDK: "1"
     - PYTHON: "C:\\Python34-x64"
       DISTUTILS_USE_SDK: "1"
     - PYTHON: "C:\\Python35-x64"
     - PYTHON: "C:\\Python36-x64"
+    - PYTHON: "C:\\Python37-x64"
 install: "%PYTHON%\\python.exe -m pip install -r requirements.txt"
 build: off
-test_script: "invoke tests"
-after_test: "codecov"
+test_script: "%PYTHON%\\Scripts\\invoke.exe tests"
+after_test: "%PYTHON%\\Scripts\\codecov.exe"

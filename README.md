@@ -3,6 +3,7 @@
 [![GitHub release](https://img.shields.io/badge/release-v0.5.1-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.1)
 [![Development status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)](ROADMAP.md)
 [![Build Status](https://travis-ci.org/NathanUrwin/cookiecutter-git.svg?branch=master)](https://travis-ci.org/NathanUrwin/cookiecutter-git)
+[![Build Status](https://ci.appveyor.com/api/projects/status/3q0aik8sgmndwibp/branch/master?svg=true)](https://ci.appveyor.com/project/NathanUrwin/cookiecutter-git/branch/master)
 [![codecov](https://codecov.io/gh/NathanUrwin/cookiecutter-git/branch/master/graph/badge.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
 
 > Git repo project template :clipboard:
@@ -155,7 +156,7 @@ Select remote_provider:
 1 - github.com
 2 - gitlab.com
 3 - bitbucket.org
-4 - None
+4 - none
 Choose from 1, 2, 3, 4 [1]:
 remote_username [NathanUrwin]:
 remote_namespace [NathanUrwin]:
@@ -179,10 +180,6 @@ Select copyright_license:
 Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 [1]:
 copyright_holder [Nathan Urwin]:
 make_dirs [docs,src,tests]:
-Select copy_cookiecutter_git:
-1 - False
-2 - True
-Choose from 1, 2 [1]:
 Initialized empty Git repository in /home/user/Projects/NathanUrwin/cookiecutter-git-demo/.git/
 
 You need a passphrase to unlock the secret key for
