@@ -16,6 +16,7 @@ import json
 import os
 import shutil
 import sys
+
 pty = sys.platform != "win32"
 
 from invoke import Responder, Result, run
@@ -47,7 +48,6 @@ class PostGenProjectHook(object):
     )
     github_dirpath = os.path.join(repo_dirpath, ".github")
     git_ignore_filepath = os.path.join(repo_dirpath, ".gitignore")
-    git_ignore_python_filepath = os.path.join(repo_dirpath, ".gitignore-python")
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
     licenses_dirpath = os.path.join(repo_dirpath, "LICENSES")
     license_filepath = os.path.join(repo_dirpath, "LICENSE")
@@ -58,7 +58,6 @@ class PostGenProjectHook(object):
         Initializes the class instance.
         """
         self.result = self._get_cookiecutter_result()
-        self.copy_cookiecutter_git = self.result.get("copy_cookiecutter_git")
         self.copyright_holder = self.result.get("copyright_holder")
         self.copyright_license = self.result.get("copyright_license")
         self.git_email = self.result.get("git_email")
@@ -72,16 +71,12 @@ class PostGenProjectHook(object):
         self.repo_slug = self.result.get("repo_slug")
         self.repo_summary = self.result.get("repo_summary")
         self.repo_tagline = self.result.get("repo_tagline")
-        self._testing = (
-            True
-            if str(self.result.get("_testing")).lower() == "true"
-            else False
-        )
+        self._testing = str(self.result.get("_testing")).lower() == "true"
+        #
         self.apache_license = self.copyright_license == "Apache-2.0"
         self.bitbucket_repos_url = self.bitbucket_repos_url_base.format(
             self.remote_namespace, self.repo_slug
         )
-        self.copy_cookiecutter_git = self.copy_cookiecutter_git == "true"
         self.git_ignore_url = self.git_ignore_url_base.format(self.git_ignore)
         self.nested_license_filepath = os.path.join(
             self.licenses_dirpath, "{}.txt".format(self.copyright_license)
@@ -357,19 +352,6 @@ Branch master set up to track remote branch master from origin."""
             with open(gitkeep, "a"):
                 os.utime(gitkeep, None)
 
-    def _copy_cookiecutter_git(self):
-        """
-        Removes cookiecutter-git features if not needed.
-        """
-        if not self.copy_cookiecutter_git:
-            os.remove(self.cookiecutter_json_filepath)
-            os.remove(self.git_ignore_python_filepath)
-            shutil.rmtree(self.hooks_dirpath, ignore_errors=True)
-            shutil.rmtree(self.raw_repo_slug_dirpath, ignore_errors=True)
-        else:
-            os.remove(self.git_ignore_filepath)
-            os.rename(self.git_ignore_python_filepath, self.git_ignore_filepath)
-
     def _copyright_license(self):
         """
         Adds the chosen LICENSE and removes the rest.
@@ -384,7 +366,6 @@ Branch master set up to track remote branch master from origin."""
         Sets up the project license, dirs, and git repo.
         """
         self._copyright_license()
-        self._copy_cookiecutter_git()
         self._make_dirs()
         self._github_dir()
         self._git_repo()

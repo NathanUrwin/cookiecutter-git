@@ -21,7 +21,7 @@
 **Fixed bugs:**
 
 - Fix gitlab.com as remote\_provider [\#22](https://github.com/NathanUrwin/cookiecutter-git/issues/22)
-- Fix urllib2.URLError: \<urlopen error [\#21](https://github.com/NathanUrwin/cookiecutter-git/issues/21)
+- Fix urllib2 URLError urlopen error [\#21](https://github.com/NathanUrwin/cookiecutter-git/issues/21)
 - Fix bash tests with pytest [\#8](https://github.com/NathanUrwin/cookiecutter-git/issues/8)
 
 ## [v0.4.1](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.4.1) (2018-03-16)
@@ -61,7 +61,7 @@
 **Implemented enhancements:**
 
 - Add bitbucket.org support [\#5](https://github.com/NathanUrwin/cookiecutter-git/issues/5)
-- Add the first tagged release [\#3](https://github.com/NathanUrwin/cookiecutter-git/issues/3)
+- Add first tagged release [\#3](https://github.com/NathanUrwin/cookiecutter-git/issues/3)
 
 ## [v0.1.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.1.0) (2017-03-24)
 

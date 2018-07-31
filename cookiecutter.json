@@ -7,7 +7,7 @@
   "repo_tagline": "A cookiecutter-git demonstration :tada:",
   "repo_summary": "This project ...",
 
-  "remote_provider": ["github.com", "gitlab.com", "bitbucket.org", null],
+  "remote_provider": ["github.com", "gitlab.com", "bitbucket.org", "none"],
   "remote_username": "{{ cookiecutter.git_name | replace(' ', '') }}",
   "remote_namespace": "{{ cookiecutter.remote_username }}",
   "remote_protocol": ["https", "ssh"],
@@ -29,12 +29,6 @@
   "copyright_holder": "{{ cookiecutter.git_name }}",
 
   "make_dirs": "docs,src,tests",
-  "copy_cookiecutter_git": [false, true],
 
-  "_copy_without_render": [
-    "{{cookiecutter.repo_slug}}",
-    "cookiecutter.json",
-    "hooks"
-  ],
   "_testing": false
 }

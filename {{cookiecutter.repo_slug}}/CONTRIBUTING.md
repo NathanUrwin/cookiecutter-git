@@ -20,6 +20,6 @@ Make sure to have atomic commits and contextual commit messages!
 
 ["How to Write a Git Commit Message" by Chris Beams.][chris-beams]
 
-[issue-link]: {% if cookiecutter.remote_provider == "None" %}mailto:{{cookiecutter.git_email}}{% else %}https://{{cookiecutter.remote_provider|lower()}}/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}/issues/new{% endif %}
-[merge-link]: {% if cookiecutter.remote_provider == "None" %}mailto:{{cookiecutter.git_email}}{% else %}https://{{cookiecutter.remote_provider|lower()}}/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}/{% if cookiecutter.remote_provider == 'GitHub.com' %}compare{% elif cookiecutter.remote_provider == 'GitLab.com' %}merge_requests/new{% elif cookiecutter.remote_provider == 'Bitbucket.org' %}pull-requests/new{% endif %}{% endif %}
+[issue-link]: {% if cookiecutter.remote_provider == "none" %}mailto:{{cookiecutter.git_email}}{% else %}https://{{cookiecutter.remote_provider}}/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}/issues/new{% endif %}
+[merge-link]: {% if cookiecutter.remote_provider == "none" %}mailto:{{cookiecutter.git_email}}{% else %}https://{{cookiecutter.remote_provider}}/{{cookiecutter.remote_namespace}}/{{cookiecutter.repo_slug}}/{% if cookiecutter.remote_provider == "github.com" %}compare{% elif cookiecutter.remote_provider == "gitlab.com" %}merge_requests/new{% elif cookiecutter.remote_provider == "bitbucket.org" %}pull-requests/new{% endif %}{% endif %}
 [chris-beams]: http://chris.beams.io/posts/git-commit/

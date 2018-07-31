@@ -70,8 +70,8 @@ def copy_cookie(x):
     x.run("cp -afrv '{{cookiecutter.repo_slug}}' '{{cookiecutter.repo_slug}}'")
 
 
-@task
-def format(x):
+@task(name="format")
+def format_python(x):
     """
     Formats the python source files using the uncompromising black.
 
@@ -88,4 +88,6 @@ def tests(x):
 
     :param x: invoke.context.Context
     """
-    x.run("pytest --capture=no --cov-report html --cov=. tests")
+    x.run(
+        "pytest --capture=no --cov-report term:skip-covered --cov-report html --cov=. tests"
+    )

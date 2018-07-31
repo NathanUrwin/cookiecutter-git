@@ -143,11 +143,6 @@ def test_cookiecutter_git(cookies, requests_mock):
         assert "MIT" in result.project.join("LICENSE").read()
         assert not result.project.join("LICENSES").check()
 
-        # PostGenProjectHook._copy_cookiecutter_git
-        assert not result.project.join("cookiecutter.json").check()
-        assert not result.project.join("hooks").check()
-        assert not result.project.join("{{cookiecutter.repo_slug}}").check()
-
         # PostGenProjectHook._make_dirs
         assert result.project.join("docs", ".gitkeep").check()
         assert result.project.join("src", ".gitkeep").check()
@@ -190,11 +185,6 @@ def test_cookiecutter_git_with_bitbucket(cookies, requests_mock):
         assert "MIT" in result.project.join("LICENSE").read()
         assert not result.project.join("LICENSES").check()
 
-        # PostGenProjectHook._copy_cookiecutter_git
-        assert not result.project.join("cookiecutter.json").check()
-        assert not result.project.join("hooks").check()
-        assert not result.project.join("{{cookiecutter.repo_slug}}").check()
-
         # PostGenProjectHook._make_dirs
         assert result.project.join("docs", ".gitkeep").check()
         assert result.project.join("src", ".gitkeep").check()
@@ -233,11 +223,6 @@ def test_cookiecutter_git_with_gitlab(cookies):
         assert not result.project.join("NOTICE").check()
         assert "MIT" in result.project.join("LICENSE").read()
         assert not result.project.join("LICENSES").check()
-
-        # PostGenProjectHook._copy_cookiecutter_git
-        assert not result.project.join("cookiecutter.json").check()
-        assert not result.project.join("hooks").check()
-        assert not result.project.join("{{cookiecutter.repo_slug}}").check()
 
         # PostGenProjectHook._make_dirs
         assert result.project.join("docs", ".gitkeep").check()
