@@ -57,7 +57,7 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 - [Invoke](http://www.pyinvoke.org/)
 - [Requests](http://docs.python-requests.org/en/master/)
 
-_**Note:** `cookiecutter` must be installed with `pip` rather than system package managers (`apt`, `brew`, etc.), or else the `invoke` command will not be found!_
+_**Note:** `cookiecutter` must be installed with `pip` or else `invoke` will not be in `$PATH`!_
 
 ### Recommended
 
