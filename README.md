@@ -1,6 +1,6 @@
 # cookiecutter-git
 
-[![Tagged Release](https://img.shields.io/badge/release-v0.5.1-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.1)
+[![Tagged Release](https://img.shields.io/badge/release-v0.6.0-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.6.0)
 [![Development Status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)](ROADMAP.md)
 [![Build Status](https://travis-ci.org/NathanUrwin/cookiecutter-git.svg?branch=master)](https://travis-ci.org/NathanUrwin/cookiecutter-git)
 [![Build Status](https://ci.appveyor.com/api/projects/status/3q0aik8sgmndwibp/branch/master?svg=true)](https://ci.appveyor.com/project/NathanUrwin/cookiecutter-git/branch/master)

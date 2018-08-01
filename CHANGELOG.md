@@ -1,5 +1,28 @@
 # Change Log
 
+## [Unreleased](https://github.com/NathanUrwin/cookiecutter-git/tree/HEAD)
+
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.6.0...HEAD)
+
+**Implemented enhancements:**
+
+- Add note about $PATH [\#35](https://github.com/NathanUrwin/cookiecutter-git/issues/35)
+
+## [v0.6.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.6.0) (2018-08-01)
+
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.5.1...v0.6.0)
+
+**Implemented enhancements:**
+
+- Add code\_of\_conduct prompt [\#38](https://github.com/NathanUrwin/cookiecutter-git/issues/38)
+- Add AppVeyor support [\#33](https://github.com/NathanUrwin/cookiecutter-git/issues/33)
+
+**Fixed bugs:**
+
+- Fix repo\_slug dirs outdated content [\#39](https://github.com/NathanUrwin/cookiecutter-git/issues/39)
+- Remove copy\_cookiecutter\_git prompt [\#37](https://github.com/NathanUrwin/cookiecutter-git/issues/37)
+- Fix tests on Windows [\#26](https://github.com/NathanUrwin/cookiecutter-git/issues/26)
+
 ## [v0.5.1](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.5.1) (2018-07-30)
 
 [Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.5.0...v0.5.1)

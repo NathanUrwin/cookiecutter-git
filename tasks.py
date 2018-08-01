@@ -10,6 +10,16 @@ from invoke import task
 
 
 @task
+def changelog(x):
+    """
+    Generates a new Change Log.
+
+    :param x: invoke.context.Context
+    """
+    x.run("github_changelog_generator -u NathanUrwin -p cookiecutter-git")
+
+
+@task
 def clean_build(x):
     """
     Removes build artifacts.
