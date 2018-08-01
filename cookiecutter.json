@@ -12,6 +12,7 @@
   "remote_namespace": "{{ cookiecutter.remote_username }}",
   "remote_protocol": ["https", "ssh"],
 
+  "code_of_conduct": ["contributor_covenant", "citizen_code_of_condunct"],
   "copyright_license": [
     "MIT",
     "Apache-2.0",
