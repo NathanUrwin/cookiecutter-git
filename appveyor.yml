@@ -1,15 +1,16 @@
+version: v0.5.1+appveyor.{build}
 environment:
   matrix:
-    # http://www.appveyor.com/docs/installed-software#python
     - PYTHON: "C:\\Python27"
     - PYTHON: "C:\\Python34"
     - PYTHON: "C:\\Python35"
     - PYTHON: "C:\\Python36"
     - PYTHON: "C:\\Python27-x64"
-    - PYTHON: "C:\\Python34-x64"
-      DISTUTILS_USE_SDK: "1"
     - PYTHON: "C:\\Python35-x64"
     - PYTHON: "C:\\Python36-x64"
+init:
+  - "git config --global user.email me@nathanurwin.com"
+  - "git config --global user.name 'Nathan Urwin'"
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python -m pip install --upgrade pip"
