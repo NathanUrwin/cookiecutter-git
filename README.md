@@ -1,7 +1,7 @@
 # cookiecutter-git
 
-[![GitHub release](https://img.shields.io/badge/release-v0.5.1-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.1)
-[![Development status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)](ROADMAP.md)
+[![Tagged Release](https://img.shields.io/badge/release-v0.5.1-blue.svg?longCache=true)](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.1)
+[![Development Status](https://img.shields.io/badge/status-beta-brightgreen.svg?longCache=true)](ROADMAP.md)
 [![Build Status](https://travis-ci.org/NathanUrwin/cookiecutter-git.svg?branch=master)](https://travis-ci.org/NathanUrwin/cookiecutter-git)
 [![Build Status](https://ci.appveyor.com/api/projects/status/3q0aik8sgmndwibp/branch/master?svg=true)](https://ci.appveyor.com/project/NathanUrwin/cookiecutter-git/branch/master)
 [![codecov](https://codecov.io/gh/NathanUrwin/cookiecutter-git/branch/master/graph/badge.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
@@ -21,7 +21,7 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 - [Requirements](#requirements)
   - [Recommended](#recommended)
 - [Installation](#installation)
-  - [CLI Users](#cli-users)
+  - [Users](#users)
   - [Contributors](#contributors)
 - [Usage](#usage)
   - [Examples](#examples)
@@ -38,10 +38,11 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 
 - [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-demo)
   - For any programming language or codebase
-  - [Useful but not overruling organization](#examples)
+  - Useful but not overruling organization
 - [License customization](https://choosealicense.com/)
+- Code of Conduct customization
 - [Git Ignore customization](https://www.gitignore.io/)
-- [Remote repo creation](#resources)
+- Remote repo creation
   - [Bitbucket.org](https://bitbucket.org/) using HTTP Basic auth (2FA disabled only)
   - [GitHub.com](https://github.com/) using HTTP Basic auth (2FA support *coming soon*)
   - [GitLab.com](https://gitlab.com/) using `git push` (HTTP Basic auth or SSH)
@@ -56,6 +57,8 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 - [Invoke](http://www.pyinvoke.org/)
 - [Requests](http://docs.python-requests.org/en/master/)
 
+_**Note:** `cookiecutter` must be installed with `pip` rather than system package managers (`apt`, `brew`, etc.), or else the `invoke` command will not be found!_
+
 ### Recommended
 
 - [ghi](https://github.com/stephencelis/ghi)
@@ -63,7 +66,7 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 
 ## Installation
 
-### CLI Users
+### Users
 
 ```bash
 $ pip install --user cookiecutter invoke requests
@@ -164,6 +167,10 @@ Select remote_protocol:
 1 - https
 2 - ssh
 Choose from 1, 2 [1]:
+Select code_of_conduct:
+1 - contributor_covenant
+2 - citizen_code_of_conduct
+Choose from 1, 2 [1]:
 Select copyright_license:
 1 - MIT
 2 - Apache-2.0
@@ -262,8 +269,8 @@ Cookiecutter prompts explained in-depth. See [cookiecutter.json](cookiecutter.js
 
 Prompt | Explanation
 --- | ---
-`git_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Core Contributor* in **AUTHORS.md**. (`git config --global user.name`)
-`git_email` | Your git user email address you want associated with the repository. This will go under *Core Contributor* in **AUTHORS.md**. (`git config --global user.email`)
+`git_name` | Your full name, including first and last names, titles, and possibly even your middle name. This will go under *Core Contributor* in **AUTHORS.md**. See `git config --global user.name`
+`git_email` | Your git user email address you want associated with the repository. This will go under *Core Contributor* in **AUTHORS.md**. See `git config --global user.email`
 `git_ignore` | A comma-separated values (csv) list of preset templates of paths for git to ignore. See the [gitignore.io README](https://github.com/joeblau/gitignore.io#list) for available values. This will be used to generate the **.gitignore** file.
 `repo_slug` | The repository name containing only alphanumeric characters and dashes. This will be the local, top-level directory name, the remote repo endpoint, and the *H1* in the **README.md**.
 `repo_tagline` | A short description about the repository in *50 words or less*. This will be the remote description setting, and the content under the *H1* in the **README.md**.
@@ -272,10 +279,10 @@ Prompt | Explanation
 `remote_username` | Your git `remote_provider` account username. This will be used for all git remote-based actions. This is accompanied with a `remote_password` prompt that is never saved.
 `remote_namespace` | Where the remote repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). Only used if `remote_provider` is not `None`.
 `remote_protocol` | A choice between the `https` and `ssh` protocols. Defaults to `https`, since those using `ssh` qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
+`code_of_conduct` | Adopt a code of conduct to define community standards, signal a welcoming and inclusive project, and outline procedures for handling abuse. A choice between the [Contributor Covenant](https://www.contributor-covenant.org/) or [Citizen Code of Conduct](http://citizencodeofconduct.org/).
 `copyright_license` | The copyright license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `git_name`.
 `make_dirs` | A comma-separated values (csv) list of directory names which are made with **.gitkeep** files. Nested dirs work if the system path separator is correct! (**tests/unit** or **tests\\\\unit**)
-`copy_cookiecutter_git` | A `true` or `false` choice on whether or not *cookiecutter-git*'s features (being a cookiecutter) are copied into your new project. This adds the missing features from [cookie-cookie](https://github.com/NathanUrwin/cookie-cookie).
 
 ## Resources
 

@@ -1,29 +1,38 @@
 os: linux
+
 branches:
   only:
     - master
     - develop
+
 sudo: false
+
 language: python
+
 python:
   - "2.7"
   - "3.4"
   - "3.5"
   - "3.6"
+
 matrix:
   include:
   - os: osx
     language: generic
     env: PYTHON=2.7.15
+
   - os: osx
     language: generic
     env: PYTHON=3.4.8
+
   - os: osx
     language: generic
     env: PYTHON=3.5.5
+
   - os: osx
     language: generic
     env: PYTHON=3.6.6
+
 before_install: |
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     brew update
@@ -37,6 +46,9 @@ before_install: |
     source venv/bin/activate
     python --version
   fi
+
 install: pip install -r requirements.txt
+
 script: invoke tests
+
 after_success: codecov
