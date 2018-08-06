@@ -1,12 +1,16 @@
 # Change Log
 
-## [Unreleased](https://github.com/NathanUrwin/cookiecutter-git/tree/HEAD)
+## [v0.6.1](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.6.1) (2018-08-06)
 
-[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.6.0...HEAD)
+[Full Changelog](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.6.0...v0.6.1)
 
 **Implemented enhancements:**
 
 - Add note about $PATH [\#35](https://github.com/NathanUrwin/cookiecutter-git/issues/35)
+
+**Fixed bugs:**
+
+- Fix Windows support [\#42](https://github.com/NathanUrwin/cookiecutter-git/issues/42)
 
 ## [v0.6.0](https://github.com/NathanUrwin/cookiecutter-git/tree/v0.6.0) (2018-08-01)
 
