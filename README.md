@@ -187,14 +187,10 @@ Select copyright_license:
 Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 [1]:
 copyright_holder [Nathan Urwin]:
 make_dirs [docs,src,tests]:
+Password for 'https://NathanUrwin@github.com':
 Initialized empty Git repository in /home/user/Projects/NathanUrwin/cookiecutter-git-demo/.git/
-
-You need a passphrase to unlock the secret key for
-user: "Nathan Urwin (Git key) <me@nathanurwin.com>"
-4096-bit RSA key, ID 45F9BF10, created 2018-03-15
-
-[master (root-commit) f45aedb] Initial commit
- 15 files changed, 337 insertions(+)
+[master (root-commit) 5bdaa5c] Initial commit
+ 15 files changed, 350 insertions(+)
  create mode 100644 .editorconfig
  create mode 100644 .github/ISSUE_TEMPLATE/bug_report.md
  create mode 100644 .github/ISSUE_TEMPLATE/feature_request.md
@@ -210,13 +206,6 @@ user: "Nathan Urwin (Git key) <me@nathanurwin.com>"
  create mode 100644 docs/.gitkeep
  create mode 100644 src/.gitkeep
  create mode 100644 tests/.gitkeep
-Password for 'https://NathanUrwin@github.com':
-Password for 'https://NathanUrwin@github.com':
-Counting objects: 18, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (15/15), done.
-Writing objects: 100% (18/18), 6.29 KiB | 0 bytes/s, done.
-Total 18 (delta 0), reused 0 (delta 0)
 To https://github.com/NathanUrwin/cookiecutter-git-demo.git
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
