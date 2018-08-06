@@ -87,7 +87,7 @@ def format_python(x):
 
     :param x: invoke.context.Context
     """
-    x.run("find . -name '*.py' -exec pipenv run black -l 79 {} +")
+    x.run("black --line-length 79 .")
     x.run("git add --all")
 
 

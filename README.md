@@ -57,7 +57,7 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 - [Invoke](http://www.pyinvoke.org/)
 - [Requests](http://docs.python-requests.org/en/master/)
 
-_**Note:** `cookiecutter` must be installed with `pip` or else `invoke` will not be in `$PATH`!_
+_**Note:** Cookiecutter **should be** installed with [pip](https://pip.pypa.io/en/stable/installing/), or else `invoke` and `requests` may not be in `$PATH` and/or `$PYTHONPATH`!_
 
 ### Recommended
 
@@ -124,18 +124,18 @@ remote: Total 645 (delta 0), reused 0 (delta 0), pack-reused 645
 Receiving objects: 100% (645/645), 292.71 KiB | 292.00 KiB/s, done.
 Resolving deltas: 100% (369/369), done.
 $ cd cookiecutter-git
-$ pipenv install
+$ pipenv install --dev --pre
 Creating a virtualenv for this project…
 Using /home/user/.pyenv/versions/3.6.4/bin/python3.6m (3.6.4) to create virtualenv…
 ⠋Running virtualenv with interpreter /home/user/.pyenv/versions/3.6.4/bin/python3.6m
 Using base prefix '/home/user/.pyenv/versions/3.6.4'
-New python executable in /home/user/.local/share/virtualenvs/cookiecutter-git-K7NSfp4y/bin/python3.6m
-Also creating executable in /home/user/.local/share/virtualenvs/cookiecutter-git-K7NSfp4y/bin/python
+New python executable in /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde/bin/python3.6m
+Also creating executable in /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde/bin/python
 Installing setuptools, pip, wheel...done.
 
-Virtualenv location: /home/user/.local/share/virtualenvs/cookiecutter-git-K7NSfp4y
+Virtualenv location: /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde
 Installing dependencies from Pipfile.lock (25c20f)…
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 18/18 — 00:00:04
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 58/58 — 00:00:10
 To activate this project's virtualenv, run the following:
  $ pipenv shell
 ```

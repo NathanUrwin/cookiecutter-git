@@ -82,7 +82,7 @@ def mock_request_with_remote_provider_as_bitbucket(mock):
         "NathanUrwin", "cookiecutter-git-demo"
     )
     auth_base64 = PostGenProjectHook.format_basic_auth(
-        "NathanUrwin", "notmypwd"
+        "NathanUrwin", "notmypassword"
     )
     request_headers = {"Authorization": "Basic {}".format(auth_base64)}
     request_headers.update(PostGenProjectHook.json_header)

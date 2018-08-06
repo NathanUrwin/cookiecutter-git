@@ -14,13 +14,81 @@ import errno
 import getpass
 import json
 import os
+import re
 import shutil
-import sys
 
-pty = sys.platform != "win32"
+if os.name == "nt":
 
-from invoke import Responder, Result, run
+    def quote(arg):
+        # https://stackoverflow.com/a/29215357
+        if re.search(r'(["\s])', arg):
+            arg = '"' + arg.replace('"', r"\"") + '"'
+        meta_chars = '()%!^"<>&|'
+        meta_re = re.compile(
+            "(" + "|".join(re.escape(char) for char in list(meta_chars)) + ")"
+        )
+        meta_map = {char: "^%s" % char for char in meta_chars}
+
+        def escape_meta_chars(m):
+            char = m.group(1)
+            return meta_map[char]
+
+        return meta_re.sub(escape_meta_chars, arg)
+
+
+else:
+    try:  # py34, py35, py36
+        from shlex import quote
+    except ImportError:  # py27
+        from pipes import quote
+
+from invoke import Result, run
 import requests
+
+
+class MockResult(Result):
+    mock_stdout = {
+        "github.com": """Password for 'https://NathanUrwin@github.com':
+Counting objects: 18, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (18/18), 6.24 KiB | 0 bytes/s, done.
+Total 18 (delta 0), reused 0 (delta 0)
+To https://github.com/NathanUrwin/cookiecutter-git-demo.git
+* [new branch]      master -> master
+Branch master set up to track remote branch master from origin.""",
+        "gitlab.com": """Password for 'https://NathanUrwin@gitlab.com':
+Counting objects: 13, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 5.25 KiB | 0 bytes/s, done.
+Total 13 (delta 0), reused 0 (delta 0)
+remote:
+remote: The private project NathanUrwin/cookiecutter-git-demo was successfully created.
+remote:
+remote: To configure the remote, run:
+remote:   git remote add origin https://gitlab.com/NathanUrwin/cookiecutter-git-demo.git
+remote:
+remote: To view the project, visit:
+remote:   https://gitlab.com/NathanUrwin/cookiecutter-git-demo
+remote:
+To https://gitlab.com/NathanUrwin/cookiecutter-git-demo.git
+* [new branch]      master -> master
+Branch master set up to track remote branch master from origin.""",
+        "bitbucket.org": """Password for 'https://NathanUrwin@bitbucket.org':
+Counting objects: 13, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 5.26 KiB | 0 bytes/s, done.
+Total 13 (delta 0), reused 0 (delta 0)
+To https://bitbucket.org/NathanUrwin/cookiecutter-git-demo.git
+* [new branch]      master -> master
+Branch master set up to track remote branch master from origin.""",
+    }
+
+    def __init__(self, remote_provider, **kwargs):
+        stdout = self.mock_stdout.get(remote_provider, "")
+        super(MockResult, self).__init__(stdout, **kwargs)
 
 
 class PostGenProjectHook(object):
@@ -96,9 +164,14 @@ class PostGenProjectHook(object):
         }
         self.create_remote_url = self._get_create_remote_url()
         self.encoded_data = json.dumps(self.remote_data).encode()
-        self.remote_password = None
+        self.remote_password = ""
         self.remote_repo = self.remote_provider != "none"
+        if self.remote_repo:
+            self.remote_password = self._get_remote_password()
         self.remote_origin_url = self._get_remote_origin_url()
+        self.remote_origin_url_with_pass = self._get_remote_origin_url(
+            with_pass=True
+        )
         self.remote_message = (
             self.remote_message_base.format(
                 self.remote_provider, self.remote_namespace, self.repo_slug
@@ -144,7 +217,7 @@ class PostGenProjectHook(object):
         :param message:
         """
         # `git commit -m "Initial commit"`
-        run('git commit --message="{}"'.format(message))
+        run("git commit --message {}".format(quote(message)))
 
     @staticmethod
     def _get_cookiecutter_result():
@@ -185,91 +258,76 @@ class PostGenProjectHook(object):
             create_remote_url = self.github_repos_url
         return create_remote_url
 
-    def _get_remote_origin_url(self):
+    def _get_remote_origin_url(self, with_pass=False):
         """
         Gets the remote origin URL.
         """
-        remote_origin_url = "https://{}@{}/{}/{}.git".format(
-            self.remote_username,
-            self.remote_provider,
-            self.remote_namespace,
-            self.repo_slug,
-        )
+        if with_pass:
+            remote_origin_url = "https://{}:{}@{}/{}/{}.git".format(
+                requests.utils.quote(self.remote_username, safe=""),
+                requests.utils.quote(self.remote_password, safe=""),
+                self.remote_provider,
+                self.remote_namespace,
+                self.repo_slug,
+            )
+        else:
+            remote_origin_url = "https://{}@{}/{}/{}.git".format(
+                requests.utils.quote(self.remote_username, safe=""),
+                self.remote_provider,
+                self.remote_namespace,
+                self.repo_slug,
+            )
         if self.remote_protocol == "ssh":
             remote_origin_url = "git@{}:{}/{}.git".format(
                 self.remote_provider, self.remote_namespace, self.repo_slug
             )
         return remote_origin_url
 
+    def _get_remote_password(self):
+        """
+        Gets the remote password with getpass.
+        """
+        # current hack for tests. better work around ?
+        if self._testing:
+            remote_password = "notmypassword"
+        else:
+            # prompt CLI users for password
+            remote_password = getpass.getpass(self.password_prompt).strip()
+        return remote_password
+
+    def _git_remote_set(self):
+        """
+        Sets the git remote origin url.
+        """
+        run(
+            "git remote set-url origin {}".format(
+                quote(self.remote_origin_url)
+            )
+        )
+
     def _git_push(self):
         """
         Pushes the git remote and sets as upstream.
         """
+        command = "git push --set-upstream origin master"
         if self._testing:
             print("_testing _git_push")
-            if self.remote_provider == "github.com":
-                mock_stdout = """Password for 'https://NathanUrwin@github.com':
-Counting objects: 18, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (15/15), done.
-Writing objects: 100% (18/18), 6.24 KiB | 0 bytes/s, done.
-Total 18 (delta 0), reused 0 (delta 0)
-To https://github.com/NathanUrwin/cookiecutter-git-demo.git
-* [new branch]      master -> master
-Branch master set up to track remote branch master from origin."""
-            elif self.remote_provider == "gitlab.com":
-                mock_stdout = """Password for 'https://NathanUrwin@gitlab.com':
-Counting objects: 13, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (10/10), done.
-Writing objects: 100% (13/13), 5.25 KiB | 0 bytes/s, done.
-Total 13 (delta 0), reused 0 (delta 0)
-remote:
-remote: The private project NathanUrwin/cookiecutter-git-demo was successfully created.
-remote:
-remote: To configure the remote, run:
-remote:   git remote add origin https://gitlab.com/NathanUrwin/cookiecutter-git-demo.git
-remote:
-remote: To view the project, visit:
-remote:   https://gitlab.com/NathanUrwin/cookiecutter-git-demo
-remote:
-To https://gitlab.com/NathanUrwin/cookiecutter-git-demo.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin."""
-            elif self.remote_provider == "bitbucket.org":
-                mock_stdout = """Password for 'https://NathanUrwin@bitbucket.org':
-Counting objects: 13, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (10/10), done.
-Writing objects: 100% (13/13), 5.26 KiB | 0 bytes/s, done.
-Total 13 (delta 0), reused 0 (delta 0)
-To https://bitbucket.org/NathanUrwin/cookiecutter-git-demo.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin."""
-            r = Result(
-                mock_stdout, command="git push --set-upstream origin master"
-            )
+            r = MockResult(self.remote_provider, command=command)
             print(r.stdout)
             return r
         else:
-            watchers = [
-                Responder(
-                    pattern=self.password_prompt,
-                    response=self.remote_password + "\n",
-                )
-            ]
             # `git push -u origin master`
-            run(
-                "git push --set-upstream origin master",
-                pty=pty,
-                watchers=watchers,
-            )
+            run(command)
 
     def _git_remote_add(self):
         """
-        Adds the git remote origin with url.
+        Adds the git remote origin url with included password.
         """
-        run("git remote add origin {}".format(self.remote_origin_url))
+        run(
+            "git remote add origin {}".format(
+                quote(self.remote_origin_url_with_pass)
+            )
+        )
 
     def _git_remote_repo(self):
         """
@@ -290,19 +348,6 @@ Branch master set up to track remote branch master from origin."""
                 headers=self.headers,
             )
 
-    def _set_remote_password(self):
-        """
-        Sets the remote password with getpass.
-        """
-        # current hack for tests. better work around ?
-        if self._testing:
-            self.remote_password = "notmypwd"
-        else:
-            # prompt CLI users for password
-            self.remote_password = getpass.getpass(
-                self.password_prompt
-            ).strip()
-
     def _git_ignore(self):
         """
         Creates a new .gitignore if needed from gitignore.io.
@@ -322,10 +367,10 @@ Branch master set up to track remote branch master from origin."""
         self.git_add()
         self.git_commit()
         if self.remote_repo:
-            self._set_remote_password()
             self._git_remote_repo()
             self._git_remote_add()
             self._git_push()
+            self._git_remote_set()
 
     def _github_dir(self):
         """
