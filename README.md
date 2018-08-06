@@ -119,23 +119,24 @@ See [Usage](#usage)
 ```bash
 $ git clone https://github.com/NathanUrwin/cookiecutter-git
 Cloning into 'cookiecutter-git'...
-remote: Counting objects: 645, done.
-remote: Total 645 (delta 0), reused 0 (delta 0), pack-reused 645
-Receiving objects: 100% (645/645), 292.71 KiB | 292.00 KiB/s, done.
-Resolving deltas: 100% (369/369), done.
+remote: Counting objects: 757, done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 757 (delta 63), reused 73 (delta 32), pack-reused 645
+Receiving objects: 100% (757/757), 337.48 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (432/432), done.
 $ cd cookiecutter-git
 $ pipenv install --dev --pre
 Creating a virtualenv for this project…
-Using /home/user/.pyenv/versions/3.6.4/bin/python3.6m (3.6.4) to create virtualenv…
-⠋Running virtualenv with interpreter /home/user/.pyenv/versions/3.6.4/bin/python3.6m
-Using base prefix '/home/user/.pyenv/versions/3.6.4'
+Using /home/user/.pyenv/versions/3.6.6/bin/python3.6m to create virtualenv…
+⠋Running virtualenv with interpreter /home/user/.pyenv/versions/3.6.6/bin/python3.6m
+Using base prefix '/home/user/.pyenv/versions/3.6.6'
 New python executable in /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde/bin/python3.6m
 Also creating executable in /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde/bin/python
 Installing setuptools, pip, wheel...done.
 
 Virtualenv location: /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde
 Installing dependencies from Pipfile.lock (25c20f)…
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 58/58 — 00:00:10
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 58/58 — 00:00:07
 To activate this project's virtualenv, run the following:
  $ pipenv shell
 ```
