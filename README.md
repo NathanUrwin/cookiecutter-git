@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/NathanUrwin/cookiecutter-git/branch/master/graph/badge.svg)](https://codecov.io/gh/NathanUrwin/cookiecutter-git)
 [![python](https://img.shields.io/badge/python-2.7%2C%203.4%2C%203.5%2C%203.6%2C%203.7-blue.svg?longCache=true)](https://www.python.org/downloads/)
 
-> Git repo project template :clipboard:
+> Git repo project template using Cookiecutter :cookie:
 
 [![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
 

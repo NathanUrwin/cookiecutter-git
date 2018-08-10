@@ -9,7 +9,7 @@
 
 {{cookiecutter.repo_summary}}
 
-_**Note:** This project was initially created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)! :cookie:_
+_**Note:** This project was initially created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)!_ :cookie:
 
 ## Table of Contents
 
