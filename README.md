@@ -11,7 +11,7 @@
 
 [![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
 
-This project is inspired by [cookiecutter-template by eviweb](https://github.com/eviweb/cookiecutter-template), and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/) with an added bonus: remote repos are created for you [*automagically*](https://youtu.be/Z3qK8gT5LLg?t=9s)! :crystal_ball::zap::boom:
+This project is inspired by [cookiecutter-template by eviweb](https://github.com/eviweb/cookiecutter-template), and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/) with an added bonus: remote repos are created for you [*automagically*](https://youtu.be/Z3qK8gT5LLg?t=24s)! :crystal_ball::zap::boom:
 
 _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.0) introduces [breaking changes](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.4.1...v0.5.0)! [Invoke](http://docs.pyinvoke.org/en/1.1/) and [Requests](http://docs.python-requests.org/en/master/) are **now required** and [the prompts](#documentation) have changed!_
 
@@ -140,6 +140,9 @@ Installing dependencies from Pipfile.lock (25c20f)…
   🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 58/58 — 00:00:07
 To activate this project's virtualenv, run the following:
  $ pipenv shell
+$ pipenv run invoke tests
+# before running tests you may have to run:
+$ pipenv run pip install -r requirements.txt
 ```
 
 See [CONTRIBUTING](#contributing)
