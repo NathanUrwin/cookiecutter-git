@@ -10,6 +10,7 @@ from __future__ import (
 Cookiecutter-Git Post Project Generation Hook Module.
 """
 import base64
+from contextlib import contextmanager
 import errno
 import getpass
 import json
@@ -37,12 +38,12 @@ if os.name == "nt":
 
 
 else:
-    try:  # py34, py35, py36
+    try:  # py34, py35, py36, py37
         from shlex import quote
     except ImportError:  # py27
         from pipes import quote
 
-from invoke import Result, run
+from invoke import Result, run, UnexpectedExit
 import requests
 
 
@@ -89,6 +90,34 @@ Branch master set up to track remote branch master from origin.""",
     def __init__(self, remote_provider, **kwargs):
         stdout = self.mock_stdout.get(remote_provider, "")
         super(MockResult, self).__init__(stdout, **kwargs)
+
+
+@contextmanager
+def git_disable_gpgsign():
+    """
+    Disables git commit GPG signing temporarily.
+    """
+    try:
+        result = run("git config --global --get commit.gpgSign", hide=True)
+    # throws only on travis-ci. unknown reason
+    except UnexpectedExit:
+
+        class ResultNone:
+            stdout = ""
+
+        result = ResultNone()
+    if result.stdout.strip() == "true":
+        # turn off gpg signing commits
+        try:
+            run("git config --global --unset commit.gpgSign")
+            yield
+        # turn gpg signing back on
+        except KeyboardInterrupt:
+            run("git config --global --bool commit.gpgSign true")
+        finally:
+            run("git config --global --bool commit.gpgSign true")
+    else:
+        yield
 
 
 class PostGenProjectHook(object):
@@ -216,8 +245,14 @@ class PostGenProjectHook(object):
 
         :param message:
         """
-        # `git commit -m "Initial commit"`
-        run("git commit --message {}".format(quote(message)))
+        command = "git commit --message {}".format(quote(message))
+        if os.name == "nt":
+            # See https://github.com/NathanUrwin/cookiecutter-git/issues/43
+            with git_disable_gpgsign():
+                run(command)
+        else:
+            # `git commit -m "Initial commit"`
+            run(command)
 
     @staticmethod
     def _get_cookiecutter_result():
