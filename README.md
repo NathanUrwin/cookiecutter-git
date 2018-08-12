@@ -11,7 +11,7 @@
 
 [![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
 
-This project is inspired by [cookiecutter-template by eviweb](https://github.com/eviweb/cookiecutter-template), and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/) with an added bonus: remote repos are created for you [*automagically*](https://youtu.be/Z3qK8gT5LLg?t=24s)! :crystal_ball::zap::boom:
+This project is inspired by [cookiecutter-template by eviweb](https://github.com/eviweb/cookiecutter-template), and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's open source guidelines](https://opensource.guide/) with an added bonus: remote repos are created for you [*automagically*](https://youtu.be/Z3qK8gT5LLg?t=24s)! :crystal_ball::zap::boom:
 
 _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/releases/tag/v0.5.0) introduces [breaking changes](https://github.com/NathanUrwin/cookiecutter-git/compare/v0.4.1...v0.5.0)! [Invoke](http://docs.pyinvoke.org/en/1.1/) and [Requests](http://docs.python-requests.org/en/master/) are **now required** and [the prompts](#documentation) have changed!_
 
@@ -25,7 +25,7 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
   - [Users](#users)
   - [Contributors](#contributors)
 - [Usage](#usage)
-  - [Examples](#examples)
+  - [Example](#example)
 - [Documentation](#documentation)
 - [Resources](#resources)
 - [Development](#development)
@@ -37,12 +37,14 @@ _**Note:** The [Beta release](https://github.com/NathanUrwin/cookiecutter-git/re
 
 ## Features
 
+- Creates new project directory
 - [Bare project structure](https://github.com/nathanurwin/cookiecutter-git-demo)
   - For any programming language or codebase
   - Useful but not overruling organization
 - [License customization](https://choosealicense.com/)
 - Code of Conduct customization
 - [Git Ignore customization](https://www.gitignore.io/)
+- Git repo initialization
 - Remote repo creation
   - [Bitbucket.org](https://bitbucket.org/) using HTTP Basic auth (2FA disabled only)
   - [GitHub.com](https://github.com/) using HTTP Basic auth (2FA support *coming soon*)
@@ -64,6 +66,7 @@ _**Note:** Cookiecutter **should be** installed with [pip](https://pip.pypa.io/e
 
 - [ghi](https://github.com/stephencelis/ghi)
 - [github-changelog-generator](https://github.com/github-changelog-generator/github-changelog-generator)
+- [pyenv](https://github.com/pyenv/pyenv) ([conda](https://github.com/conda/conda) on Windows)
 
 ## Installation
 
@@ -226,7 +229,7 @@ Thanks for using cookiecutter-git! :)
 
 See generated [README.md](https://github.com/NathanUrwin/cookiecutter-git-demo/blob/master/README.md)
 
-### Examples
+### Example
 
 See [cookiecutter-git-demo](https://github.com/NathanUrwin/cookiecutter-git-demo)
 
@@ -269,17 +272,18 @@ Prompt | Explanation
 `repo_slug` | The repository name containing only alphanumeric characters and dashes. This will be the local, top-level directory name, the remote repo endpoint, and the *H1* in the **README.md**.
 `repo_tagline` | A short description about the repository in *50 words or less*. This will be the remote description setting, and the content under the *H1* in the **README.md**.
 `repo_summary` | A long description about the repository in *50 words or more*. This will go after the `repo_tagline` with the content under the *H1* in the **README.md**.
-`remote_provider` | A choice between `bitbucket.org`, `github.com`, `gitlab.com`, or `None`. This option creates a remote repository for you, and is this project's main feature so defaults to `github.com`.
+`remote_provider` | A choice between `bitbucket.org`, `github.com`, `gitlab.com`, or `none`. This option creates a remote repository for you, and is this project's main feature so defaults to `github.com`.
 `remote_username` | Your git `remote_provider` account username. This will be used for all git remote-based actions. This is accompanied with a `remote_password` prompt that is never saved.
-`remote_namespace` | Where the remote repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). Only used if `remote_provider` is not `None`.
+`remote_namespace` | Where the remote repository will live, which can be a user or organization, group, or team (depending on the `remote_provider`). Only used if `remote_provider` is not `none`.
 `remote_protocol` | A choice between the `https` and `ssh` protocols. Defaults to `https`, since those using `ssh` qualify as power users and should be able to handle setting up a [cookiecutter user config](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html).
 `code_of_conduct` | Adopt a code of conduct to define community standards, signal a welcoming and inclusive project, and outline procedures for handling abuse. A choice between the [Contributor Covenant](https://www.contributor-covenant.org/) or [Citizen Code of Conduct](http://citizencodeofconduct.org/).
 `copyright_license` | The copyright license for the repository. This will be used to generate the **LICENSE** and **NOTICE** files, and determines how end users can ultimately use your source code.
 `copyright_holder` | The individual or company that holds the intellectual property copyright. This will be used in the **LICENSE** file, rather than the `git_name`.
-`make_dirs` | A comma-separated values (csv) list of directory names which are made with **.gitkeep** files. Nested dirs work if the system path separator is correct! (**tests/unit** or **tests\\\\unit**)
+`make_dirs` | A comma-separated values (csv) list of directory names which are made with **.gitkeep** files. Nested dirs work if the system path separator is correct! (For example: **tests/unit** for Mac/Linux or **tests\\\\unit** for Windows)
 
 ## Resources
 
+- [GitHub's recommended community standards](https://blog.github.com/2017-06-14-new-community-tools/)
 - [Creating a Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/first_steps.html)
 - [Using Pre/Post-Generate Hooks](https://cookiecutter.readthedocs.io/en/latest/advanced/hooks.html)
 - [GitHub Developer Licenses](https://developer.github.com/v3/licenses/)
