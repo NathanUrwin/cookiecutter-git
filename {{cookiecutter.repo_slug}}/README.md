@@ -1,10 +1,10 @@
 # {{cookiecutter.repo_slug}}
 
-[![Tagged Release](https://img.shields.io/badge/release-v0-blue.svg)](CHANGELOG.md)
-[![Development Status](https://img.shields.io/badge/status-planning-lightgrey.svg)](ROADMAP.md)
-[![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg)](https://travis-ci.org)
-[![Build Status](https://img.shields.io/badge/build-pending-lightgrey.svg)](https://www.appveyor.com)
-[![Build Coverage](https://img.shields.io/badge/coverage-0%25-lightgrey.svg)](https://codecov.io)
+[![Tagged Release](https://img.shields.io/badge/release-v0-blue.svg?longCache=true)](CHANGELOG.md)
+[![Development Status](https://img.shields.io/badge/status-planning-lightgrey.svg?longCache=true)](ROADMAP.md)
+[![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg?longCache=true)](https://travis-ci.org)
+[![Build Status](https://img.shields.io/badge/build-pending-lightgrey.svg?longCache=true)](https://www.appveyor.com)
+[![Build Coverage](https://img.shields.io/badge/coverage-0%25-lightgrey.svg?longCache=true)](https://codecov.io)
 
 > {{cookiecutter.repo_tagline}}
 
