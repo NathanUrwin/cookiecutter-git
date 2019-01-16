@@ -184,15 +184,21 @@ Select copyright_license:
 2 - Apache-2.0
 3 - BSD-2-Clause
 4 - BSD-3-Clause
-5 - GPL-2.0
-6 - GPL-3.0
-7 - AGPL-3.0
-8 - LGPL-2.1
-9 - LGPL-3.0
-10 - EPL-1.0
-11 - MPL-2.0
-12 - Unlicense
-Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 [1]:
+5 - CC0-BY-4.0
+6 - CC0-BY-SA-4.0
+7 - CC0-BY-NC-4.0
+8 - CC0-BY-NC-SA-4.0
+9 - CC0-BY-ND-4.0
+10 - CC0-BY-NC-ND-4.0
+11 - GPL-2.0
+12 - GPL-3.0
+13 - AGPL-3.0
+14 - LGPL-2.1
+15 - LGPL-3.0
+16 - EPL-1.0
+17 - MPL-2.0
+18 - Unlicense
+Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 [1]:
 copyright_holder [Nathan Urwin]:
 make_dirs [docs,src,tests]:
 Password for 'https://NathanUrwin@github.com':
