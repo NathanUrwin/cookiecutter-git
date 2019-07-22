@@ -18,8 +18,5 @@ pytest-cov = "*"
 pytest-dotenv = "*"
 requests-mock = "*"
 
-[requires]
-python_version = "3.6"
-
 [pipenv]
 allow_prereleases = true
