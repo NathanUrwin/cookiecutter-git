@@ -181,22 +181,22 @@ Select code_of_conduct:
 Choose from 1, 2 [1]:
 Select copyright_license:
 1 - MIT
-2 - Apache-2.0
-3 - BSD-2-Clause
-4 - BSD-3-Clause
-5 - CC0-BY-4.0
-6 - CC0-BY-SA-4.0
+2 - AGPL-3.0
+3 - Apache-2.0
+4 - BSD-2-Clause
+5 - BSD-3-Clause
+6 - CC0-BY-4.0
 7 - CC0-BY-NC-4.0
-8 - CC0-BY-NC-SA-4.0
-9 - CC0-BY-ND-4.0
-10 - CC0-BY-NC-ND-4.0
-11 - GPL-2.0
-12 - GPL-3.0
-13 - ISC
-14 - AGPL-3.0
-15 - LGPL-2.1
-16 - LGPL-3.0
-17 - EPL-1.0
+8 - CC0-BY-NC-ND-4.0
+9 - CC0-BY-NC-SA-4.0
+10 - CC0-BY-ND-4.0
+11 - CC0-BY-SA-4.0
+12 - EPL-1.0
+13 - GPL-2.0
+14 - GPL-3.0
+15 - ISC
+16 - LGPL-2.1
+17 - LGPL-3.0
 18 - MPL-2.0
 19 - Unlicense
 Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 [1]:
