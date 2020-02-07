@@ -192,13 +192,14 @@ Select copyright_license:
 10 - CC0-BY-NC-ND-4.0
 11 - GPL-2.0
 12 - GPL-3.0
-13 - AGPL-3.0
-14 - LGPL-2.1
-15 - LGPL-3.0
-16 - EPL-1.0
-17 - MPL-2.0
-18 - Unlicense
-Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 [1]:
+13 - ISC
+14 - AGPL-3.0
+15 - LGPL-2.1
+16 - LGPL-3.0
+17 - EPL-1.0
+18 - MPL-2.0
+19 - Unlicense
+Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 [1]:
 copyright_holder [Nathan Urwin]:
 make_dirs [docs,src,tests]:
 Password for 'https://NathanUrwin@github.com':
