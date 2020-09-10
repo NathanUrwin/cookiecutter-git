@@ -9,7 +9,7 @@
 
 > Git repo project template using Cookiecutter :cookie:
 
-[![Cookiecutter-Git Logo](images/logo-256.png)](https://dylantyates.com/graphics)
+[![Cookiecutter-Git Logo](../images/logo-256.png)](https://dylantyates.com/graphics)
 
 This project is inspired by [cookiecutter-template by eviweb](https://github.com/eviweb/cookiecutter-template), and consists of a [cookiecutter](https://github.com/audreyr/cookiecutter#cookiecutter) (project template) that provides the necessary [markdown](https://guides.github.com/features/mastering-markdown/) docs and other files to pass [GitHub's open source guidelines](https://opensource.guide/) with an added bonus: remote repos are created for you [*automagically*](https://youtu.be/Z3qK8gT5LLg?t=24s)! :crystal_ball::zap::boom:
 
@@ -262,7 +262,7 @@ cookiecutter-git-demo
 
 ## Documentation
 
-Cookiecutter prompts explained in-depth. See [cookiecutter.json](cookiecutter.json) for default values.
+Cookiecutter prompts explained in-depth. See [cookiecutter.json](../cookiecutter.json) for default values.
 
 Prompt | Explanation
 --- | ---
@@ -318,4 +318,4 @@ See [AUTHORS](AUTHORS.md)
 
 ## License
 
-See [LICENSE](LICENSE)
+See [LICENSE](../LICENSE)
