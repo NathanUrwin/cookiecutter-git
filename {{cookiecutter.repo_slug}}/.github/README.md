@@ -56,4 +56,4 @@ See [AUTHORS](AUTHORS.md)
 
 ## License
 
-See [LICENSE](LICENSE){% if cookiecutter.copyright_license == "Apache-2.0" %}, [NOTICE](NOTICE){% endif %}
+See [LICENSE](../LICENSE){% if cookiecutter.copyright_license == "Apache-2.0" %}, [NOTICE](../NOTICE){% endif %}
