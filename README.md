@@ -74,46 +74,6 @@ _**Note:** Cookiecutter **should be** installed with [pip](https://pip.pypa.io/e
 
 ```bash
 $ pip install --user cookiecutter invoke requests
-Collecting cookiecutter
-  Using cached https://files.pythonhosted.org/packages/16/99/1ca3a75978270288354f419e9166666801cf7e7d8df984de44a7d5d8b8d0/cookiecutter-1.6.0-py2.py3-none-any.whl
-Collecting invoke
-  Using cached https://files.pythonhosted.org/packages/6c/66/9e232c59e61f0a0b6552d68419a5c5a5dba368e105fdbfd2b6c74c402234/invoke-1.0.0-py3-none-any.whl
-Collecting requests
-  Cache entry deserialization failed, entry ignored
-  Using cached https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl
-Collecting binaryornot>=0.2.0 (from cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/24/7e/f7b6f453e6481d1e233540262ccbfcf89adcd43606f44a028d7f5fae5eb2/binaryornot-0.4.4-py2.py3-none-any.whl
-Collecting poyo>=0.1.0 (from cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/ea/6c/62c76c12015f6a1849446fb73da59be1229312c54d6d05068275e52bf29f/poyo-0.4.1-py2.py3-none-any.whl
-Collecting future>=0.15.2 (from cookiecutter)
-Collecting jinja2-time>=0.1.0 (from cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/6a/a1/d44fa38306ffa34a7e1af09632b158e13ec89670ce491f8a15af3ebcb4e4/jinja2_time-0.2.0-py2.py3-none-any.whl
-Collecting whichcraft>=0.4.0 (from cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/60/8a/5c52e30e11672f7e3aa61f348ddae443d122bcd96bc8b785ac76dbae944b/whichcraft-0.4.1-py2.py3-none-any.whl
-Collecting jinja2>=2.7 (from cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/7f/ff/ae64bacdfc95f27a016a7bed8e8686763ba4d277a78ca76f32659220a731/Jinja2-2.10-py2.py3-none-any.whl
-Collecting click>=5.0 (from cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/34/c1/8806f99713ddb993c5366c362b2f908f18269f8d792aff1abfd700775a77/click-6.7-py2.py3-none-any.whl
-Collecting certifi>=2017.4.17 (from requests)
-  Cache entry deserialization failed, entry ignored
-  Using cached https://files.pythonhosted.org/packages/7c/e6/92ad559b7192d846975fc916b65f667c7b8c3a32bea7372340bfe9a15fa5/certifi-2018.4.16-py2.py3-none-any.whl
-Collecting chardet<3.1.0,>=3.0.2 (from requests)
-  Using cached https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl
-Collecting urllib3<1.24,>=1.21.1 (from requests)
-  Cache entry deserialization failed, entry ignored
-  Using cached https://files.pythonhosted.org/packages/bd/c9/6fdd990019071a4a32a5e7cb78a1d92c53851ef4f56f62a3486e6a7d8ffb/urllib3-1.23-py2.py3-none-any.whl
-Collecting idna<2.8,>=2.5 (from requests)
-  Cache entry deserialization failed, entry ignored
-  Using cached https://files.pythonhosted.org/packages/4b/2a/0276479a4b3caeb8a8c1af2f8e4355746a97fab05a372e4a2c6a6b876165/idna-2.7-py2.py3-none-any.whl
-Collecting arrow (from jinja2-time>=0.1.0->cookiecutter)
-Collecting MarkupSafe>=0.23 (from jinja2>=2.7->cookiecutter)
-Collecting python-dateutil (from arrow->jinja2-time>=0.1.0->cookiecutter)
-  Cache entry deserialization failed, entry ignored
-  Using cached https://files.pythonhosted.org/packages/cf/f5/af2b09c957ace60dcfac112b669c45c8c97e32f94aa8b56da4c6d1682825/python_dateutil-2.7.3-py2.py3-none-any.whl
-Collecting six>=1.5 (from python-dateutil->arrow->jinja2-time>=0.1.0->cookiecutter)
-  Using cached https://files.pythonhosted.org/packages/67/4b/141a581104b1f6397bfa78ac9d43d8ad29a7ca43ea90a2d863fe3056e86a/six-1.11.0-py2.py3-none-any.whl
-Installing collected packages: chardet, binaryornot, poyo, future, six, python-dateutil, arrow, MarkupSafe, jinja2, jinja2-time, whichcraft, certifi, urllib3, idna, requests, click, cookiecutter, invoke
-Successfully installed MarkupSafe-1.0 arrow-0.12.1 binaryornot-0.4.4 certifi-2018.4.16 chardet-3.0.4 click-6.7 cookiecutter-1.6.0 future-0.16.0 idna-2.7 invoke-1.0.0 jinja2-2.10 jinja2-time-0.2.0 poyo-0.4.1 python-dateutil-2.7.3 requests-2.19.1 six-1.11.0 urllib3-1.23 whichcraft-0.4.1
 ```
 
 See [Usage](#usage)
@@ -122,30 +82,11 @@ See [Usage](#usage)
 
 ```bash
 $ git clone https://github.com/NathanUrwin/cookiecutter-git
-Cloning into 'cookiecutter-git'...
-remote: Counting objects: 757, done.
-remote: Compressing objects: 100% (80/80), done.
-remote: Total 757 (delta 63), reused 73 (delta 32), pack-reused 645
-Receiving objects: 100% (757/757), 337.48 KiB | 0 bytes/s, done.
-Resolving deltas: 100% (432/432), done.
 $ cd cookiecutter-git
 $ pipenv install --dev --pre
-Creating a virtualenv for this project…
-Using /home/user/.pyenv/versions/3.6.6/bin/python3.6m to create virtualenv…
-⠋Running virtualenv with interpreter /home/user/.pyenv/versions/3.6.6/bin/python3.6m
-Using base prefix '/home/user/.pyenv/versions/3.6.6'
-New python executable in /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde/bin/python3.6m
-Also creating executable in /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde/bin/python
-Installing setuptools, pip, wheel...done.
-
-Virtualenv location: /home/user/.local/share/virtualenvs/cookiecutter-git-Jx1W2Sde
-Installing dependencies from Pipfile.lock (25c20f)…
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 58/58 — 00:00:07
-To activate this project's virtualenv, run the following:
- $ pipenv shell
-$ pipenv run invoke tests
 # before running tests you may have to run:
 $ pipenv run pip install -r requirements.txt
+$ pipenv run invoke tests
 ```
 
 See [CONTRIBUTING](#contributing)
@@ -156,75 +97,6 @@ See [CONTRIBUTING](#contributing)
 $ mkdir -p ~/Projects/NathanUrwin
 $ cd ~/Projects/NathanUrwin
 $ cookiecutter gh:NathanUrwin/cookiecutter-git
-You've downloaded /home/user/.cookiecutters/cookiecutter-git before. Is it okay to delete and re-download it? [yes]:
-git_name [Nathan Urwin]:
-git_email [me@nathanurwin.com]:
-git_ignore [windows,macos,linux,git]:
-repo_slug [cookiecutter-git-demo]:
-repo_tagline [A cookiecutter-git demonstration :tada:]:
-repo_summary [This project ...]:
-Select remote_provider:
-1 - github.com
-2 - gitlab.com
-3 - bitbucket.org
-4 - none
-Choose from 1, 2, 3, 4 [1]:
-remote_username [NathanUrwin]:
-remote_namespace [NathanUrwin]:
-Select remote_protocol:
-1 - https
-2 - ssh
-Choose from 1, 2 [1]:
-Select code_of_conduct:
-1 - contributor_covenant
-2 - citizen_code_of_conduct
-Choose from 1, 2 [1]:
-Select copyright_license:
-1 - MIT
-2 - Apache-2.0
-3 - BSD-2-Clause
-4 - BSD-3-Clause
-5 - GPL-2.0
-6 - GPL-3.0
-7 - AGPL-3.0
-8 - LGPL-2.1
-9 - LGPL-3.0
-10 - EPL-1.0
-11 - MPL-2.0
-12 - Unlicense
-Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 [1]:
-copyright_holder [Nathan Urwin]:
-make_dirs [docs,src,tests]:
-Password for 'https://NathanUrwin@github.com':
-Initialized empty Git repository in /home/user/Projects/NathanUrwin/cookiecutter-git-demo/.git/
-[master (root-commit) 5bdaa5c] Initial commit
- 15 files changed, 350 insertions(+)
- create mode 100644 .editorconfig
- create mode 100644 .github/ISSUE_TEMPLATE/bug_report.md
- create mode 100644 .github/ISSUE_TEMPLATE/feature_request.md
- create mode 100644 .github/PULL_REQUEST_TEMPLATE.md
- create mode 100644 .gitignore
- create mode 100644 AUTHORS.md
- create mode 100644 CHANGELOG.md
- create mode 100644 CODE_OF_CONDUCT.md
- create mode 100644 CONTRIBUTING.md
- create mode 100644 LICENSE
- create mode 100644 README.md
- create mode 100644 ROADMAP.md
- create mode 100644 docs/.gitkeep
- create mode 100644 src/.gitkeep
- create mode 100644 tests/.gitkeep
-To https://github.com/NathanUrwin/cookiecutter-git-demo.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.
-
-
-Success! Your project was created here:
-/home/user/Projects/NathanUrwin/cookiecutter-git-demo
-Also see: https://github.com/NathanUrwin/cookiecutter-git-demo
-Thanks for using cookiecutter-git! :)
-
-
 ```
 
 See generated [README.md](https://github.com/NathanUrwin/cookiecutter-git-demo/blob/master/README.md)
