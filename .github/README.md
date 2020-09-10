@@ -236,22 +236,22 @@ See [cookiecutter-git-demo](https://github.com/NathanUrwin/cookiecutter-git-demo
 ```bash
 $ tree -a -I .git cookiecutter-git-demo
 cookiecutter-git-demo
-├── AUTHORS.md
-├── CHANGELOG.md
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
 ├── docs
 │   └── .gitkeep
 ├── .editorconfig
 ├── .github
+│   ├── AUTHORS.md
+│   ├── CHANGELOG.md
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CONTRIBUTING.md
 │   ├── ISSUE_TEMPLATE
+│   ├── README.md
+│   ├── ROADMAP.md
 │   │   ├── BUG_REPORT.md
 │   │   └── FEATURE_REQUEST.md
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .gitignore
 ├── LICENSE
-├── README.md
-├── ROADMAP.md
 ├── src
 │   └── .gitkeep
 └── tests
