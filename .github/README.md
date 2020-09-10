@@ -245,10 +245,10 @@ cookiecutter-git-demo
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
 │   ├── ISSUE_TEMPLATE
-│   ├── README.md
-│   ├── ROADMAP.md
 │   │   ├── BUG_REPORT.md
 │   │   └── FEATURE_REQUEST.md
+│   ├── README.md
+│   ├── ROADMAP.md
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .gitignore
 ├── LICENSE
