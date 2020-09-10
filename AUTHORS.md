@@ -10,4 +10,6 @@
 
 ## Contributors
 
-None yet. [Why not be the first?](CONTRIBUTING.md)
+[Moodule](https://github.com/moodule) &lt;moodule@protonmail.com&gt;
+
+[Join us!](CONTRIBUTING.md)
