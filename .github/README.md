@@ -200,8 +200,8 @@ Initialized empty Git repository in /home/user/Projects/NathanUrwin/cookiecutter
 [master (root-commit) 5bdaa5c] Initial commit
  15 files changed, 350 insertions(+)
  create mode 100644 .editorconfig
- create mode 100644 .github/ISSUE_TEMPLATE/bug_report.md
- create mode 100644 .github/ISSUE_TEMPLATE/feature_request.md
+ create mode 100644 .github/ISSUE_TEMPLATE/BUG_REPORT.md
+ create mode 100644 .github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
  create mode 100644 .github/PULL_REQUEST_TEMPLATE.md
  create mode 100644 .gitignore
  create mode 100644 AUTHORS.md
@@ -245,8 +245,8 @@ cookiecutter-git-demo
 ├── .editorconfig
 ├── .github
 │   ├── ISSUE_TEMPLATE
-│   │   ├── bug_report.md
-│   │   └── feature_request.md
+│   │   ├── BUG_REPORT.md
+│   │   └── FEATURE_REQUEST.md
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .gitignore
 ├── LICENSE
