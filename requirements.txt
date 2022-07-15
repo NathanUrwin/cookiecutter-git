@@ -1,4 +1,4 @@
-codecov==2.0.15
+codecov==2.0.16
 cookiecutter==1.6.0
 invoke==1.0.0
 pytest==3.6.3
